@@ -53,4 +53,9 @@ You have already acknowledged the terms of this license.</span>
 % endif
 </p>
 % endif
+% else:
+<p>
+  Bing
+</p>
+
 % endif
