@@ -116,7 +116,6 @@ tooltip = _("Invalidate this task if you consider it needs more work.")
 % endif
 
     <hr />
-    <h4>${_('History')}</h4>
     <div><%include file="task.history.mako" /></div>
   </div>
 </div>
