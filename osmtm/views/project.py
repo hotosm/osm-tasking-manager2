@@ -32,6 +32,15 @@ def project(request):
         request.session.flash("Sorry, this project doesn't  exist")
         return HTTPFound(location = route_url('home', request))
 
+    # unlock any locked-long-ago items
+    lock_expire = datetime.datetime.now() + datetime.timedelta(seconds=-2 * 60 * 60)
+    filter = and_(Task.state==1, Task.update < lock_expire)
+    tasks = DBSession.query(Task).filter(filter).all()
+    for task in tasks:
+        task.user = None
+        task.state = 0 # working
+        DBSession.add(task)
+
     locale = get_locale_name(request)
     project.get_locale = lambda: locale
 
