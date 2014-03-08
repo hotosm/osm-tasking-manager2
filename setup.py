@@ -1,4 +1,5 @@
 import os
+import multiprocessing
 
 from setuptools import setup, find_packages
 
