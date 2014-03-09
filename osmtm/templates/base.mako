@@ -37,7 +37,8 @@ if user is not None:
 
   </head>
   <body id="${page_id}">
-    <div class="navbar navbar-fixed-top">
+    <div id="wrap">
+	<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container"><%block name="header"></%block>
 % if  user is not None:
@@ -72,7 +73,8 @@ ${message}
 % endif
 
     <%block name="content"></%block>
-    <footer class="footer">
+    </div>
+	<footer class="footer">
       <div class="container">
         <p class="span6">Designed and built for the<a>Humanitarian OpenStreetMap Team</a>
           <with>initial sponsorship from the Australia-Indonesia Facility for Disaster Reduction.</with>
