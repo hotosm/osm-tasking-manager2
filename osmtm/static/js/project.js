@@ -329,6 +329,7 @@ var exportOpen = function(evt) {
     default:
         break;
     }
+    $('#lock').trigger('click', {direction:'next'}); // attempt to lock tile, since editing
 };
 $(document).on('click', '#edit', exportOpen);
 $(document).on('click', '#editDropdown li', exportOpen);
