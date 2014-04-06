@@ -1,8 +1,9 @@
 from pyramid.config import Configurator
-from sqlalchemy import engine_from_config
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
+
+from .utils import get_sql_engine
 
 from .models import (
     DBSession,
@@ -26,7 +27,7 @@ def main(global_config, **settings):
     """
     settings['mako.directories'] = 'osmtm:templates'
 
-    engine = engine_from_config(settings, 'sqlalchemy.')
+    engine = get_sql_engine()
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine
 

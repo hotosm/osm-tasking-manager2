@@ -1,6 +1,10 @@
+import os
+
 from shapely.geometry import Polygon
 from shapely.prepared import prep
 from math import floor, ceil
+from sqlalchemy.engine.url import URL
+from sqlalchemy import create_engine
 
 
 # Maximum resolution
@@ -49,3 +53,15 @@ def get_tiles_in_geom(geom, z):
             if prepared_geom.intersects(tile):
                 tiles.append((i, j, tile))
     return tiles
+
+
+def get_sql_engine():
+    url = URL(
+        drivername='postgresql',
+        host=os.environ.get('DBHOST', 'localhost'),
+        port=os.environ.get('DBPORT'),
+        database=os.environ.get('DBNAME', 'osmtm'),
+        username=os.environ.get('DBUSER', 'www-data'),
+        password=os.environ.get('DBPASSWORD'),
+    )
+    return create_engine(url)

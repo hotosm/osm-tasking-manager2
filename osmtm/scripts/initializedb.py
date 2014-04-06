@@ -2,7 +2,8 @@ import os
 import sys
 import transaction
 
-from sqlalchemy import engine_from_config, func
+from sqlalchemy import func
+
 
 from pyramid.paster import (
     get_appsettings,
@@ -17,6 +18,7 @@ from ..models import (
     License,
     Base,
 )
+from ..utils import get_sql_engine
 
 
 def usage(argv):
@@ -40,7 +42,7 @@ def main(argv=sys.argv):
     config_uri = argv[1]
     setup_logging(config_uri)
     settings = get_appsettings(config_uri)
-    engine = engine_from_config(settings, 'sqlalchemy.')
+    engine = get_sql_engine()
     DBSession.configure(bind=engine)
 
     translation_manager.options.update({
