@@ -55,13 +55,13 @@ def get_tiles_in_geom(geom, z):
     return tiles
 
 
-def get_sql_engine():
+def get_sql_engine(settings):
     url = URL(
         drivername='postgresql',
-        host=os.environ.get('DBHOST', 'localhost'),
-        port=os.environ.get('DBPORT'),
-        database=os.environ.get('DBNAME', 'osmtm'),
-        username=os.environ.get('DBUSER', 'www-data'),
-        password=os.environ.get('DBPASSWORD'),
+        host=settings.get('db.host'),
+        port=settings.get('db.port'),
+        database=settings.get('db.name'),
+        username=settings.get('db.user'),
+        password=settings.get('db.password'),
     )
     return create_engine(url)

@@ -53,20 +53,25 @@ Then create a database named `osmtm`:
     sudo -u postgres createdb -O www-data osmtm
     sudo -u postgres psql -d osmtm -c "CREATE EXTENSION postgis;"
 
-Set the environment variables needed for you local database connection if default
-value doesn't fit (you can set this in the `postactivate` file of your virtual
-env. For example:
-
-    export DBHOST=xxx (default: localhost)
-    export DBPORT=xxx (default: driver default)
-    export DBUSER=xxx (default: www-data)
-    export DBPASSWORD=xxx (default: null)
-    export DBNAME=xxx (default: osmtm)
-
 You're now ready to do the initial population of the database. An
 `initialize_osmtm_db` script is available in the virtual env for that:
 
     env/bin/initialize_osmtm_db development.ini
+
+### Local settings
+
+You certainly will need some local specific settings, like the db user or
+password. For this, you can create a 'local.ini' file in the project root,
+where you can then override every needed setting.
+For example:
+
+    [app:main]
+    use = egg:osmtm
+    db.user = ybon
+
+Note: you can also put your local settings file anywhere else on your
+file system, and then create a 'LOCAL_SETTINGS_PATH' environment variable
+to make the project aware of this.
 
 ## Launch the application
 

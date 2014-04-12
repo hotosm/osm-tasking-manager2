@@ -1,7 +1,10 @@
+import os
+
 from pyramid.config import Configurator
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 from pyramid.session import UnencryptedCookieSessionFactoryConfig
+from pyramid.paster import get_appsettings
 
 from .utils import get_sql_engine
 
@@ -26,8 +29,12 @@ def main(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
     settings['mako.directories'] = 'osmtm:templates'
+    local_settings_path = os.environ.get('LOCAL_SETTINGS_PATH', 'local.ini')
+    if os.path.exists(local_settings_path):
+        local_settings = get_appsettings('local.ini')
+        settings.update(local_settings)
 
-    engine = get_sql_engine()
+    engine = get_sql_engine(settings)
     DBSession.configure(bind=engine)
     Base.metadata.bind = engine
 
