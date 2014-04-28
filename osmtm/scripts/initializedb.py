@@ -4,7 +4,8 @@ import os
 import sys
 import transaction
 
-from sqlalchemy import engine_from_config, func
+from sqlalchemy import func
+
 
 from pyramid.paster import (
     get_appsettings,
@@ -19,11 +20,12 @@ from ..models import (
     License,
     Base,
 )
+from ..utils import get_sql_engine
 
 
 def usage(argv):
     cmd = os.path.basename(argv[0])
-    print('usage: %s <config_uri>\n'
+    print('usage: %s <config_uris>\n'
           '(example: "%s development.ini")' % (cmd, cmd))
     sys.exit(1)
 
@@ -37,12 +39,14 @@ import shapely
 
 
 def main(argv=sys.argv):
-    if len(argv) != 2:
+    if len(argv) < 2:
         usage(argv)
-    config_uri = argv[1]
-    setup_logging(config_uri)
-    settings = get_appsettings(config_uri)
-    engine = engine_from_config(settings, 'sqlalchemy.')
+    config_uris = argv[1:]
+    settings = {}
+    for uri in config_uris:
+        setup_logging(uri)
+        settings.update(get_appsettings(uri))
+    engine = get_sql_engine(settings)
     DBSession.configure(bind=engine)
 
     translation_manager.options.update({

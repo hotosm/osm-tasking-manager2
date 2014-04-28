@@ -43,15 +43,25 @@ Then create a database named `osmtm`:
     sudo -u postgres createdb -O www-data osmtm
     sudo -u postgres psql -d osmtm -c "CREATE EXTENSION postgis;"
 
-Now edit the `development.ini` file and set the value of `sqlalchemy.url` as
-appropriate. For example:
-
-    sqlalchemy.url = postgresql://your_db_user:your_db_password@localhost/osmtm
-
 You're now ready to do the initial population of the database. An
 `initialize_osmtm_db` script is available in the virtual env for that:
 
     env/bin/initialize_osmtm_db development.ini
+
+### Local settings
+
+You certainly will need some local specific settings, like the db user or
+password. For this, you can create a 'local.ini' file in the project root,
+where you can then override every needed setting.
+For example:
+
+    [app:main]
+    use = egg:osmtm
+    db.user = ybon
+
+Note: you can also put your local settings file anywhere else on your
+file system, and then create a 'LOCAL_SETTINGS_PATH' environment variable
+to make the project aware of this.
 
 ## Launch the application
 
