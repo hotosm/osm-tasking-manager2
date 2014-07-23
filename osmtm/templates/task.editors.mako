@@ -1,4 +1,4 @@
-<p>
+<div class="text-center">
   <div class="btn-group">
     <%
       cookies = request.cookies
@@ -16,8 +16,9 @@
       <li id="potlatch2"><a role="menuitem">Potlatch 2</a></li>
       <li id="wp"><a role="menuitem">Walking Papers</a></li>
     </ul>
-    <script>
-      osmtm.prefered_editor = "${prefered_editor}";
-    </script>
   </div>
-</p>
+</div>
+<script>
+  osmtm.prefered_editor = "${prefered_editor}";
+</script>
+<p></p>

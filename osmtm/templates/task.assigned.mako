@@ -2,13 +2,13 @@
   var assigned_to = "${task.assigned_to.username if task.assigned_to else ''}";
 </script>
 % if user and (user.is_project_manager or user.is_admin):
-  <p>
+  <div>
     ${assigned_to_container()}
-    <a class="btn text-muted btn-xs"
+    <a class="btn btn-xs"
       id="assign_to">
       <i class="glyphicon glyphicon-cog"></i>
     </a>
-  </p>
+  </div>
   <script type="text/javascript" src="${request.static_url('osmtm:static/js/task.assign.js')}"></script>
   <div id="assign_to_selector" class="panel panel-default hide">
     <div class="panel-heading small">
@@ -27,13 +27,13 @@
     </div>
   </div>
 % elif task.assigned_to:
-  <p>
+  <div>
     ${assigned_to_container()}
-  </p>
+  </div>
 % endif
 
 <%def name="assigned_to_container()">
-  <em class="text-muted small">
+  <em class="">
     % if task.assigned_to:
       <i class="glyphicon glyphicon-user"></i>
       <%
