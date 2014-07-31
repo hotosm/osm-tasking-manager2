@@ -97,9 +97,15 @@ sorts = [('priority', 'asc', _('High priority first')),
 <%
     import markdown
     import bleach
+    from sqlalchemy.orm import joinedload
+    from osmtm.models import DBSession, Project, ProjectTranslation
+
+    priority = priorities[project.priority]
+    project = DBSession.query(Project).\
+        options(joinedload(Project.translations[request.locale_name])).\
+        filter(Project.id == project.id).first()
     if request.locale_name:
         project.locale = request.locale_name
-    priority = priorities[project.priority]
 
     if project.status == project.status_archived:
         status = 'Archived'

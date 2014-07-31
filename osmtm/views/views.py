@@ -7,6 +7,7 @@ from sqlalchemy import (
     or_,
     and_,
 )
+from sqlalchemy.orm import joinedload
 
 from ..models import (
     DBSession,
@@ -29,6 +30,7 @@ from pyramid.security import authenticated_userid
 
 @view_config(route_name='home', renderer='home.mako')
 def home(request):
+
     check_task_expiration()
     check_project_expiration()
 
@@ -63,22 +65,13 @@ def home(request):
         search_filter = or_(PT.name.ilike('%%%s%%' % s),
                             PT.short_description.ilike('%%%s%%' % s),
                             PT.description.ilike('%%%s%%' % s),)
-        ids = DBSession.query(ProjectTranslation.id) \
-                       .filter(search_filter) \
-                       .all()
-        filter = and_(Project.id.in_(ids), filter)
+        query.options(joinedload(Project.translations))
+        filter = and_(filter, search_filter)
 
     # filter projects on which the current user worked on
     if request.params.get('my_projects', '') == 'on':
-        ids = DBSession.query(TaskLock.project_id) \
-                       .filter(TaskLock.user_id == user_id) \
-                       .all()
-
-        if len(ids) > 0:
-            filter = and_(Project.id.in_(ids), filter)
-        else:
-            # IN-predicate  with emty sequence can be expensive
-            filter = and_(False == True)  # noqa
+        query.join(TaskLock, Project.id==TaskLock.project_id)
+        filter = and_(filter, TaskLock.user_id==user_id)
 
     sort_by = 'project.%s' % request.params.get('sort_by', 'priority')
     direction = request.params.get('direction', 'asc')
