@@ -47,6 +47,8 @@ You're now ready to do the initial population of the database. An
 `initialize_osmtm_db` script is available in the virtual env for that:
 
     env/bin/initialize_osmtm_db
+    
+You may need to consider appropriate settings for PostgreSQL's `pg_hba.conf` and `postgresql.conf`. Respectively, the `METHOD` parameter and `listen_addresses`.
 
 ### Local settings
 
