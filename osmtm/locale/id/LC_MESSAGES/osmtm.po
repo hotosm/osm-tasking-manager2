@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the osmtm project.
 # 
 # Translators:
-# nyampire <nyampire@gmail.com>, 2014
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
@@ -11,61 +11,61 @@ msgstr ""
 "POT-Creation-Date: 2014-07-29 12:41+0200\n"
 "PO-Revision-Date: 2014-08-06 08:56+0000\n"
 "Last-Translator: Dražen Odobašić <dodobas@candela-it.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/osm-tasking-manager2/language/ja/)\n"
+"Language-Team: Indonesian (http://www.transifex.com/projects/p/osm-tasking-manager2/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
-"Language: ja\n"
+"Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: osmtm/templates/base.mako:52
 msgid "login to OpenStreetMap"
-msgstr "OpenStreetMapログイン"
+msgstr "masuk ke OpenStreetMap"
 
 #: osmtm/templates/home.mako:8
 msgid "urgent"
-msgstr "緊急"
+msgstr "penting"
 
 #: osmtm/templates/home.mako:8
 msgid "high"
-msgstr "高"
+msgstr "tinggi"
 
 #: osmtm/templates/home.mako:8
 msgid "medium"
-msgstr "中"
+msgstr "sedang"
 
 #: osmtm/templates/home.mako:8
 msgid "low"
-msgstr "低"
+msgstr "rendah"
 
 #: osmtm/templates/home.mako:10
 msgid "High priority first"
-msgstr "優先度順"
+msgstr "Prioritas tinggi pertama"
 
 #: osmtm/templates/home.mako:11
 msgid "Creation date"
-msgstr "作成日"
+msgstr "Tanggal dibuat"
 
 #: osmtm/templates/home.mako:12
 msgid "Last update"
-msgstr "更新日"
+msgstr "Update terakhir"
 
 #: osmtm/templates/home.mako:42
 msgid "Search"
-msgstr "検索"
+msgstr "Cari"
 
 #: osmtm/templates/home.mako:48
 msgid "Sort by:"
-msgstr "並び替え"
+msgstr "Urut berdasarkan:"
 
 #: osmtm/templates/home.mako:73
 msgid "Your projects"
-msgstr "あなたのプロジェクト"
+msgstr ""
 
 #: osmtm/templates/home.mako:88
 msgid "About the Tasking Manager"
-msgstr "Tasking Managerについて"
+msgstr "Tentang Tasking Manager"
 
 #: osmtm/templates/home.mako:90
 msgid ""
@@ -77,376 +77,376 @@ msgid ""
 "various mappers in a context of emergency. It also permits to control the "
 "progress and the homogeinity of the work done (ie. Elements to cover, "
 "specific tags to use, etc.)."
-msgstr "OSM Tasking Managerは、OSM人道支援チーム \"Humanitarian OSM Team, HOT\" による多人数マッピング作業を効率的に実施するためのツールです。このツールでは、マッピング対象の地域を小さなタスクに分割することによって作業を素早く実施することができるようにします。ツール内では、マッピングが必要とされている地域と、内容の確認が必要とされている地域が一覧で表示されます。<br />この方法を使うことにより、災害発生時に多くのマッパーが対象となる地域を一斉に描画するという状況において、それぞれが行なうべきことを適切に切り分けることが可能です。また、作業の進捗確認や、作業結果の均質化を行なうことも可能となります。(例: 描画対象となる地物の選定、特殊なタグの使用など...)"
+msgstr ""
 
 #: osmtm/templates/home.mako:118
 msgid "${locked} user(s) is (are) currently working on this project"
-msgstr "現在 ${locked} 人がプロジェクト参加中です"
+msgstr ""
 
 #: osmtm/templates/home.mako:159 osmtm/templates/project.instructions.mako:23
 msgid "Access to this project is limited"
-msgstr "プロジェクトへのアクセス制限中"
+msgstr "Akses ke proyek ini terbatas"
 
 #: osmtm/templates/home.mako:162
 msgid "Created by"
-msgstr "作成者"
+msgstr "Dibuat oleh"
 
 #: osmtm/templates/home.mako:164
 msgid "Updated"
-msgstr "更新"
+msgstr "Diupdate"
 
 #: osmtm/templates/home.mako:165
 msgid "Priority:"
-msgstr "優先度"
+msgstr "Prioritas"
 
 #: osmtm/templates/imagery.mako:51
 msgid "You need to accept the license first"
-msgstr "ライセンスに同意する必要があります"
+msgstr "Sebelumnya, Anda harus menyetujui lisensi"
 
 #: osmtm/templates/license.mako:4 osmtm/templates/licenses.mako:4
 msgid "Licenses"
-msgstr "ライセンス"
+msgstr "Lisensi"
 
 #: osmtm/templates/project.assigned_tasks.mako:6
 msgid "You have tasks assigned:"
-msgstr "担当中タスク: "
+msgstr ""
 
 #: osmtm/templates/project.edit.mako:81 osmtm/templates/project.mako:9
 msgid "Archived"
-msgstr "アーカイブ"
+msgstr "Diarsipkan"
 
 #: osmtm/templates/project.edit.mako:82
 msgid "Published"
-msgstr "公開中"
+msgstr "Dipublikasikan"
 
 #: osmtm/templates/project.edit.mako:83 osmtm/templates/project.mako:7
 msgid "Draft"
-msgstr "下書き"
+msgstr "Konsep"
 
 #: osmtm/templates/project.edit.mako:272
 msgid "Allowed users"
-msgstr "許可ユーザ"
+msgstr "Pengguna yang diperbolehkan"
 
 #: osmtm/templates/project.instructions.mako:9
 msgid "This project is not published yet."
-msgstr "このプロジェクトは未公開です"
+msgstr "Proyek ini belum dipublikasikan"
 
 #: osmtm/templates/project.instructions.mako:12
 msgid "Publish"
-msgstr "公開"
+msgstr "Publikasikan"
 
 #: osmtm/templates/project.instructions.mako:16
 msgid "This project was archived."
-msgstr "プロジェクトをアーカイブしました"
+msgstr "Proyek ini telah diarsipkan."
 
 #: osmtm/templates/project.instructions.mako:31
 msgid "Entities to Map"
-msgstr "マップする対象"
+msgstr "Entitas yang dipetakan"
 
 #: osmtm/templates/project.instructions.mako:43
 msgid "Changeset Comment"
-msgstr "変更セットのコメント指定"
+msgstr "Komentar perubahan"
 
 #: osmtm/templates/project.instructions.mako:56
 msgid "Imagery"
-msgstr "航空写真"
+msgstr "Citra satelit"
 
 #: osmtm/templates/project.instructions.mako:78
 msgid "Start contributing"
-msgstr "参加"
+msgstr "Mulai berkontribusi"
 
 #: osmtm/templates/project.mako:36
 msgid "Instructions"
-msgstr "インストラクション"
+msgstr "Petunjuk"
 
 #: osmtm/templates/project.mako:37
 msgid "Contribute"
-msgstr "参加"
+msgstr "Kontribusi"
 
 #: osmtm/templates/project.mako:38
 msgid "Activity"
-msgstr "活動状況"
+msgstr "Aktivitas"
 
 #: osmtm/templates/project.mako:39
 msgid "Stats"
-msgstr "統計"
+msgstr "Status"
 
 #: osmtm/templates/project.mako:56
 msgid "Loading"
-msgstr "読み込み中"
+msgstr "Memuat"
 
 #: osmtm/templates/project.mako:93
 msgid "Ready"
-msgstr "準備完了"
+msgstr "Siap"
 
 #: osmtm/templates/project.mako:93 osmtm/templates/task.history.mako:26
 #: osmtm/templates/task.status.mako:12
 msgid "Invalidated"
-msgstr "差し戻し"
+msgstr "Tidak tervalidasi"
 
 #: osmtm/templates/project.mako:93 osmtm/templates/project.stats.mako:6
 #: osmtm/templates/task.status.mako:10
 msgid "Done"
-msgstr "完了"
+msgstr "Selesai"
 
 #: osmtm/templates/project.mako:93 osmtm/templates/task.history.mako:28
 #: osmtm/templates/task.status.mako:14
 msgid "Validated"
-msgstr "確認完了"
+msgstr "Tervalidasi"
 
 #: osmtm/templates/project.mako:94
 msgid "You must leave a comment."
-msgstr "コメントを入力してください"
+msgstr "Anda harus meninggalkan sebuah komentar"
 
 #: osmtm/templates/project.new.mako:76
 msgid "You cannot select this option unless you import a file with polygons."
-msgstr "このオプションはポリゴンデータのファイルにのみ対応しています。"
+msgstr ""
 
 #: osmtm/templates/project.stats.mako:5
 msgid "Contributors"
-msgstr "参加者"
+msgstr "Kontributor"
 
 #: osmtm/templates/project.stats.mako:7
 msgid "Assigned"
-msgstr "担当中"
+msgstr ""
 
 #: osmtm/templates/task.assigned.mako:18
 msgid "Assign task to someone"
-msgstr "タスク担当依頼"
+msgstr ""
 
 #: osmtm/templates/task.assigned.mako:25
 msgid "Filter users"
-msgstr "ユーザをフィルタ"
+msgstr ""
 
 #: osmtm/templates/task.assigned.mako:42 osmtm/templates/task.locked.mako:2
 msgid "you"
-msgstr "あなた"
+msgstr "anda"
 
 #: osmtm/templates/task.assigned.mako:44
 msgid "Assigned to ${username}"
-msgstr "${username} へタスク担当依頼"
+msgstr ""
 
 #: osmtm/templates/task.assigned.mako:48
 msgid "Not assigned yet"
-msgstr "担当中タスクなし"
+msgstr ""
 
 #: osmtm/templates/task.comment.mako:2 osmtm/templates/task.freecomment.mako:4
 msgid "Leave a comment"
-msgstr "コメント入力"
+msgstr "Tinggalkan sebuah komentar"
 
 #: osmtm/templates/task.current_locked.mako:2
 msgid "a task"
-msgstr "タスク"
+msgstr "sebuah task"
 
 #: osmtm/templates/task.current_locked.mako:3
 msgid "You already have ${task_link} locked."
-msgstr "現在 ${task_link} をロック中です"
+msgstr "Anda sudah memiliki ${task_link} yang terkunci."
 
 #: osmtm/templates/task.current_locked.mako:10
 msgid "Select it again"
-msgstr "再選択"
+msgstr "Pilih task lagi"
 
 #: osmtm/templates/task.editors.mako:8
 msgid "Edit with"
-msgstr "エディタ"
+msgstr "Edit dengan"
 
 #: osmtm/templates/task.empty.mako:15
 msgid "Select a task on the map"
-msgstr "マップに表示されているタスクを選択"
+msgstr "Pilih sebuah task pada peta"
 
 #: osmtm/templates/task.empty.mako:21
 msgid "or"
-msgstr "or"
+msgstr "atau"
 
 #: osmtm/templates/task.empty.mako:27
 msgid "Take a task at random"
-msgstr "ランダム選択"
+msgstr "Ambil task secara acak"
 
 #: osmtm/templates/task.freecomment.mako:7
 msgid "Comment"
-msgstr "コメント"
+msgstr "Komentar"
 
 #: osmtm/templates/task.history.mako:24
 msgid "Marked as done"
-msgstr "完了としてマーク"
+msgstr "Ditandai sudah selesai"
 
 #: osmtm/templates/task.history.mako:24 osmtm/templates/task.history.mako:26
 #: osmtm/templates/task.history.mako:28 osmtm/templates/task.history.mako:33
 #: osmtm/templates/task.history.mako:39
 msgid "by"
-msgstr "by"
+msgstr "oleh"
 
 #: osmtm/templates/task.history.mako:33 osmtm/templates/task.status.mako:6
 msgid "Locked"
-msgstr "ロック"
+msgstr "Terkunci"
 
 #: osmtm/templates/task.history.mako:35
 msgid "Unlocked"
-msgstr "アンロック"
+msgstr "Terbuka"
 
 #: osmtm/templates/task.history.mako:39
 msgid "Comment left"
-msgstr "関連コメント"
+msgstr "Komentar yang ditinggalkan"
 
 #: osmtm/templates/task.history.mako:51
 msgid "Nothing has happened yet."
-msgstr "活動がありません"
+msgstr "Belum ada kejadian apapun"
 
 #: osmtm/templates/task.instructions.mako:3
 msgid "Extra Instructions"
-msgstr "追加インストラクション"
+msgstr "Petunjuk tambahan"
 
 #: osmtm/templates/task.locked.mako:4
 msgid "Locked by ${username}"
-msgstr "${username} によりロック中"
+msgstr ""
 
 #: osmtm/templates/task.locked.mako:14
 msgid ""
 "If you do not complete or release this task in time, it will be "
 "automatically unlocked"
-msgstr "作業が完了した場合や、作業の経過時間が長い場合、ロックは自動的に解除されます"
+msgstr "Jika anda tidak menyelesaikan atau melepaskan task ini pada waktunya, task ini akan terbuka secara otomatis"
 
 #: osmtm/templates/task.locked.mako:16
 msgid "min. left"
-msgstr "分後に解除"
+msgstr "menit tersisa"
 
 #: osmtm/templates/task.mako:18
 msgid "Clear selection"
-msgstr "選択解除"
+msgstr "Hilangkan semua pilihan"
 
 #: osmtm/templates/task.mako:63
 msgid "See the changesets in the OSM database for this area."
-msgstr "この地域の変更セットをOSMデータベースで確認"
+msgstr "Lihat perubahan pada database OSM untuk wilayah ini."
 
 #: osmtm/templates/task.split.mako:3
 msgid "Task is too big?"
-msgstr "タスク対象地域が大きすぎる？"
+msgstr "Task terlalu besar?"
 
 #: osmtm/templates/task.split.mako:13
 msgid "Are you sure you want to split this task?"
-msgstr "本当にタスクを分割してよいですか？"
+msgstr "Apakah anda yakin ingin membagi task ini?"
 
 #: osmtm/templates/task.split.mako:15
 msgid "Split"
-msgstr "分割"
+msgstr "Bagi"
 
 #: osmtm/templates/task.state.done.mako:4
 msgid "Invalidate this task if you consider it needs more work."
-msgstr "この地域の作業が未完了である場合、差し戻しを行ってください。"
+msgstr "Batalkan validasu task ini jika anda berpikir task ini membutuhkan pekerjaan tambahan"
 
 #: osmtm/templates/task.state.done.mako:12
 #: osmtm/templates/task.state.ready.mako:8
 msgid "Unlock"
-msgstr "アンロック"
+msgstr "Buka kunci"
 
 #: osmtm/templates/task.state.done.mako:18
 msgid "Invalidate"
-msgstr "差し戻し"
+msgstr "Batalkan validasi"
 
 #: osmtm/templates/task.state.done.mako:22
 msgid "Validate this task if you consider that the work is complete."
-msgstr "この地域の作業が完了している場合、タスクを確認完了にしてください。"
+msgstr "Validasi task ini jika anda berpikir pekerjaan ini telah selesai."
 
 #: osmtm/templates/task.state.done.mako:29
 msgid "Validate"
-msgstr "確認完了"
+msgstr "Validasi"
 
 #: osmtm/templates/task.state.ready.mako:10
 msgid "Mark task as done"
-msgstr "完了としてマーク"
+msgstr "Tandai task sudah selesai"
 
 #: osmtm/templates/task.unlocked.mako:12
 msgid "Lock this task to tell others that you are currently working on it."
-msgstr "タスクをロックすることにより、この地域をあなたが作業中であると表示されます。"
+msgstr "Kunci task ini untuk memberitahu bahwa anda sedang mengerjakannya."
 
 #: osmtm/templates/task.unlocked.mako:17
 msgid "Start mapping"
-msgstr "マッピング開始"
+msgstr "Mulai memetakan"
 
 #: osmtm/templates/task.unlocked.mako:21
 msgid "Review the work"
-msgstr "作業内容確認"
+msgstr "Tinjau ulang pekerjaan"
 
 #: osmtm/templates/user.mako:4
 msgid "User profile"
-msgstr "ユーザプロフィール"
+msgstr "Profil pengguna"
 
 #: osmtm/templates/user.mako:37
 msgid "This user is an administrator."
-msgstr "このユーザは管理者です。"
+msgstr "Pengguna ini merupakan seorang administrator."
 
 #: osmtm/templates/user.mako:53
 msgid "This user is a project manager."
-msgstr "このユーザはプロジェクト管理者です。"
+msgstr "Pengguna ini merupakan seorang manajer proyek."
 
 #: osmtm/templates/user_menu.mako:4
 msgid "logout"
-msgstr "ログアウト"
+msgstr "Logout"
 
 #: osmtm/templates/users.mako:4
 msgid "Users"
-msgstr "ユーザ"
+msgstr "Pengguna"
 
 #: osmtm/views/project.py:67
 msgid "Sorry, this project doesn't  exist"
-msgstr "プロジェクトが存在しません"
+msgstr "Maaf, proyek ini tidak tersedia"
 
 #: osmtm/views/project.py:132
 msgid "Project #${project_id} created successfully"
-msgstr "プロジェクト #${project_id} の作成完了"
+msgstr "Proyek #${project_id}  telah berhasil dibuat"
 
 #: osmtm/views/project.py:157
 msgid "Successfully imported ${n} geometries"
-msgstr "${n} 個のジオメトリを正常にインポートしました"
+msgstr "${n} geometri telah sukses diimpor"
 
 #: osmtm/views/task.py:152
 msgid "Task marked as done. Thanks for your contribution"
-msgstr "タスクを完了状態にしました。おつかれさまでした！"
+msgstr "Task sudah ditandai selesai. Terima kasih atas kontribusi anda"
 
 #: osmtm/views/task.py:171
 msgid "Task already locked."
-msgstr "タスクは既にロック中です。"
+msgstr "Task sudah terkunci."
 
 #: osmtm/views/task.py:177
 msgid "Task assigned to someone else."
-msgstr "誰かが担当中"
+msgstr ""
 
 #: osmtm/views/task.py:182
 msgid "Task locked. You can start mapping."
-msgstr "タスクをロックしました。マッピングを開始できます。"
+msgstr "Task terkunci. Anda dapat mulai memetakan."
 
 #: osmtm/views/task.py:199
 msgid "Task unlocked."
-msgstr "タスクをアンロックしました。"
+msgstr "Task dibuka."
 
 #: osmtm/views/task.py:211
 msgid "Comment added."
-msgstr "コメント追加完了。"
+msgstr "Komentar ditambahkan."
 
 #: osmtm/views/task.py:233
 msgid "Task validated."
-msgstr "タスクの内容確認完了。"
+msgstr "Task telah divalidasi."
 
 #: osmtm/views/task.py:236
 msgid "Task invalidated."
-msgstr "タスクの差し戻し完了。"
+msgstr "Task belum divalidasi."
 
 #: osmtm/views/task.py:329
 msgid "Random task... none available! Sorry."
-msgstr "タスクのランダム選択...空いているタスクがありません。ごめんなさい！"
+msgstr "Task acak... tidak tersedia! Maaf."
 
 #: osmtm/views/task.py:342
 msgid "You cannot assign an already locked task"
-msgstr "ロック中のタスクへの担当依頼はできません"
+msgstr ""
 
 #: osmtm/views/task.py:352
 msgid "Task assigned."
-msgstr "タスク担当開始。"
+msgstr ""
 
 #: osmtm/views/task.py:366
 msgid "Task assignment removed"
-msgstr "タスク担当の削除実施"
+msgstr ""
 
 #: osmtm/views/user.py:91
 msgid "Sorry, this user doesn't  exist"
-msgstr "ユーザが存在しません"
+msgstr "Maaf, pengguna ini tidak ditemukan"
