@@ -1,4 +1,4 @@
-# English translations for osmtm.
+# Translations template for osmtm.
 # Copyright (C) 2014 ORGANIZATION
 # This file is distributed under the same license as the osmtm project.
 # 
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-07-29 12:41+0200\n"
-"PO-Revision-Date: 2014-07-29 10:40+0000\n"
+"PO-Revision-Date: 2014-08-06 08:57+0000\n"
 "Last-Translator: Dražen Odobašić <dodobas@candela-it.com>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/osm-tasking-manager2/language/lt/)\n"
 "MIME-Version: 1.0\n"
