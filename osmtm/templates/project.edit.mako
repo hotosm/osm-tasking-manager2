@@ -4,12 +4,12 @@
 <h1>${project.id} - ${project.name} - Edit</h1>
 </%block>
 <%block name="content">
-<link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/datepicker3.css', _query={'v':'2.3.1'})}">
-<script type="text/javascript" src="${request.static_url('osmtm:static/js/lib/angular.min.js', _query={'v':'2.3.1'})}"></script>
-<script type="text/javascript" src="${request.static_url('osmtm:static/js/lib/bootstrap-datepicker.js', _query={'v':'2.3.1'})}"></script>
-<link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.css', _query={'v':'2.3.1'})}"/>
-<script src="${request.static_url('osmtm:static/js/lib/leaflet.js', _query={'v':'2.3.1'})}"></script>
-<script src="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.js', _query={'v':'2.3.1'})}"></script>
+<link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/datepicker3.css', _query={'v':'2.4.1'})}">
+<script type="text/javascript" src="${request.static_url('osmtm:static/js/lib/angular.min.js', _query={'v':'2.4.1'})}"></script>
+<script type="text/javascript" src="${request.static_url('osmtm:static/js/lib/bootstrap-datepicker.js', _query={'v':'2.4.1'})}"></script>
+<link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.css', _query={'v':'2.4.1'})}"/>
+<script src="${request.static_url('osmtm:static/js/lib/leaflet.js', _query={'v':'2.4.1'})}"></script>
+<script src="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.js', _query={'v':'2.4.1'})}"></script>
 <div id="markdown_cheat_sheet" class="modal fade">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -78,7 +78,7 @@ geometry = loads(str(project.area.geometry.data))
       </div>
     </div>
   </form>
-  <script type="text/javascript" src="${request.static_url('osmtm:static/js/project.edit.js', _query={'v':'2.3.1'})}"></script>
+  <script type="text/javascript" src="${request.static_url('osmtm:static/js/project.edit.js', _query={'v':'2.4.1'})}"></script>
   <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
 </div>
 </%block>
@@ -127,7 +127,7 @@ geometry = loads(str(project.area.geometry.data))
           </label>
           ${locale_chooser(inputname='name')}
           <div class="tab-content">
-            % for locale, translation in project.translations.iteritems():
+            % for locale, translation in translations:
             <div id="tab_name_${locale}"
                  data-locale="${locale}"
                  class="tab-pane ${'active' if locale == 'en' else ''}">
@@ -151,7 +151,7 @@ geometry = loads(str(project.area.geometry.data))
           </label>
           ${locale_chooser(inputname='short_description')}
           <div class="tab-content">
-            % for locale, translation in project.translations.iteritems():
+            % for locale, translation in translations:
               <div id="short_description_${locale}"
                    data-locale="${locale}"
                    class="tab-pane ${'active' if locale == 'en' else ''}">
@@ -256,7 +256,10 @@ geometry = loads(str(project.area.geometry.data))
   </div>
   <div class="col-md-8">
     <div id="leaflet_priority_areas"></div>
-    <input type="hidden" name="priority_areas" />
+    <%
+      from geojson import dumps
+    %>
+    <input type="hidden" name="priority_areas" value="${dumps(priority_areas) if len(priority_areas.features) != 0 else ''}"/>
   </div>
 </div>
 </%block>
@@ -386,7 +389,7 @@ geometry = loads(str(project.area.geometry.data))
 <%def name="textarea_with_preview(inputname, size=None)">
   <div class="tab-content">
     ${locale_chooser(inputname=inputname)}
-    % for locale, translation in project.translations.iteritems():
+    % for locale, translation in translations:
     <div id="tab_${inputname}_${locale}"
          data-locale="${locale}"
          class="tab-pane ${'active' if locale == 'en' else ''}">
@@ -428,7 +431,7 @@ geometry = loads(str(project.area.geometry.data))
 
 <%def name="locale_chooser(inputname)">
   <div class="btn-group pull-right" id="locale_chooser_${inputname}">
-    % for locale, translation in project.translations.iteritems():
+    % for locale, translation in translations:
     <a href
       class="btn btn-default btn-xs ${'active' if locale == 'en' else ''}"
       data-locale="${locale}">
