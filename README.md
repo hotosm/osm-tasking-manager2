@@ -67,6 +67,10 @@ to make the project aware of this.
 ## Launch the application
 
     env/bin/pserve --reload development.ini
+    
+## Allowing Users
+
+OSMTM2 allows Private Tasks. Private means that only a given list of users can access this project. In order for the user's name to be available to add to the Allowed Users - they first must visit the URL for your instance of OSMTM and Authorize access to their account. After they've done this, their username should be available for the administrator to add.
 
 ## Styles
 
