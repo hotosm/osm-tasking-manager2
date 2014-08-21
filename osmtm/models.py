@@ -191,7 +191,7 @@ class TaskLock(Base):
     __tablename__ = "task_lock"
     id = Column(Integer, primary_key=True)
     task_id = Column(Integer)
-    project_id = Column(Integer)
+    project_id = Column(Integer, index=True)
     lock = Column(Boolean)
     user_id = Column(BigInteger, ForeignKey('users.id'))
     user = relationship(User)
