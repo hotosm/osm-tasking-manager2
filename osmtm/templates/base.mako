@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
+<%namespace file="custom.mako" name="custom"/>
+<%def name="title()"></%def>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OSM Tasking Manager</title>
+  <title>${custom.instance_name()} - ${self.title()}</title>
+    <link rel="shortcut icon" href="${request.static_url('osmtm:static/img/favicon.ico')}">
     <link rel="stylesheet" href="${request.static_url('osmtm:static/css/main.css', _query={'v':'2.5-dev'})}">
     <link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/leaflet.css', _query={'v':'2.5-dev'})}">
     <script src="${request.static_url('osmtm:static/js/lib/jquery-1.7.2.min.js', _query={'v':'2.5-dev'})}"></script>
@@ -29,10 +32,13 @@ comments = []
       <div class="container">
         <div class="navbar-header">
           <a href="${request.route_path('home')}" class="navbar-brand">
-            <i class="glyphicon glyphicon-home"></i> OSM Tasking Manager
+            <i class="glyphicon glyphicon-home"></i> ${custom.instance_name()}
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right">
+          <li>
+          <a href="${request.route_path('about')}" class="btn btn-link pull-right">${_('About')}</a>
+          </li>
           <%include file="languages_menu.mako" args="languages=languages"/>
           % if user:
           <%
@@ -93,11 +99,10 @@ ${message | n}
 % if page_id is not 'project':
     <footer class="footer">
       <div class="container">
-        <p class="col-md-6">Designed and built for the <a href="http://hot.openstreetmap.org">Humanitarian OpenStreetMap Team</a> with
-		 initial sponsorship from the Australia-Indonesia Facility for Disaster Reduction.
-        </p>
         <p class="pull-right">Fork the code on <a href="http://github.com/hotosm/osm-tasking-manager2">github</a>.
-
+        </p>
+        <p>
+          <a href="${request.route_path('about')}">${_('About')}</a>
         </p>
       </div>
     </footer>
