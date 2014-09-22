@@ -15,7 +15,7 @@ requires = [
     'pyramid_debugtoolbar',
     'zope.sqlalchemy',
     'waitress',
-    'psycopg2cffi',
+    'psycopg2',
     'markdown',
     'bleach==1.4',
     'nose',
