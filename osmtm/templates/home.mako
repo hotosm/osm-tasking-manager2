@@ -181,3 +181,4 @@ sorts = [('priority', 'asc', _('High priority first')),
   </small>
 </div>
 </%def>
+

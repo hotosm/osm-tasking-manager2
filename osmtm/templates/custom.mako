@@ -1,5 +1,5 @@
 <%def  name="instance_name()">
-  OSM Tasking Manager
+  HOT Tasking Manager
 </%def>
 
 <%def  name="main_page_community_info()">
