@@ -1,6 +1,18 @@
 OSM Tasking Manager Changelog
 =============================
 
+## 2.5.0 (2014-09-23)
+
+ * Add xyz to properties when exporting to GeoJSON
+ * Don't load imagery in JOSM if not available
+ * Manager OSM username changes
+ * Fixed issues with markdown + more HTML tags allowed
+ * Performances enhancements (home page)
+ * Pyramid upgraded to 1.5
+ * Layout is now partly customizable
+ * Users can be mentioned using "@" in comment.
+ * + several bug fixes
+
 ## 2.4.2 (2014-08-08)
 
  * More or less important bugs fixed
