@@ -491,7 +491,7 @@ def get_contributors(project):
     tasks = DBSession.query(TaskState.task_id, User.username) \
                      .join(TaskState.user) \
                      .filter(filter) \
-                     .order_by(TaskState.user_id) \
+                     .order_by(User.username) \
                      .all()
 
     contributors = {}
