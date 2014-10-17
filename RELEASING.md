@@ -13,6 +13,9 @@
 - [ ] Update CHANGELOG.md
 - [ ] Update version number in setup.py
 - [ ] Update version number in mako templates (resources)
+```
+sed s/2.6-dev/2.6.0/ -i osmtm/templates/*.mako
+```
 - [ ] git ci -m "Bumping version A.B.C"
 - [ ] git tag A.B.C (for example 2.3.0)
 - [ ] git push upstream --tags

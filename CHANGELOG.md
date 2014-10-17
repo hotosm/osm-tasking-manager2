@@ -1,6 +1,29 @@
 OSM Tasking Manager Changelog
 =============================
 
+## 2.6.0 (2014-10-17)
+ 
+ * Fixed issue with JOSM not ignoring ignore=true tags
+ * Fixed issue with some static resources being loaded from external urls
+ * some other minor fixes and enhancements
+ 
+ Thanks to @oeon, @CloCkWeRX and @NitikaAgarwal for their contributions.
+ 
+ https://github.com/hotosm/osm-tasking-manager2/compare/2.5.0...2.6
+
+## 2.5.0 (2014-09-23)
+
+ * Add xyz to properties when exporting to GeoJSON
+ * Don't load imagery in JOSM if not available
+ * Manager OSM username changes
+ * Fixed issues with markdown + more HTML tags allowed
+ * Performances enhancements (home page)
+ * Pyramid upgraded to 1.5
+ * Layout is now partly customizable
+ * Users can be mentioned using "@" in comment.
+ * + several bug fixes
+ * https://github.com/hotosm/osm-tasking-manager2/compare/2.4.2...2.5.0
+
 ## 2.4.2 (2014-08-08)
 
  * More or less important bugs fixed
