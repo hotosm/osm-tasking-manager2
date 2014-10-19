@@ -36,6 +36,7 @@ comments = []
           </a>
         </div>
         <ul class="nav navbar-nav navbar-right">
+          <%include file="help_menu.mako"/>
           <li>
           <a href="${request.route_path('about')}" class="btn btn-link pull-right">${_('About')}</a>
           </li>
@@ -102,7 +103,6 @@ ${message | n}
         <p class="pull-right">Fork the code on <a href="http://github.com/hotosm/osm-tasking-manager2">github</a>.
         </p>
         <p>
-          <a href="${request.route_path('about')}">${_('About the Tasking Manager')}</a><br />
           ${custom.footer_contact_text()}
         </p>
       </div>
