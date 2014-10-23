@@ -429,7 +429,7 @@ msgstr "Entsperrt"
 
 #: osmtm/templates/task.history.mako:43
 msgid "Comment left"
-msgstr "Kommentar fehlt"
+msgstr "Kommentar hinterlassen"
 
 #: osmtm/templates/task.history.mako:55
 msgid "Nothing has happened yet."
