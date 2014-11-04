@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Alexandre Magno <alexandre.mbm@gmail.com>, 2014
+# Alexandre Magno <alexandre.mbm@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-10-17 14:50+0200\n"
-"PO-Revision-Date: 2014-10-17 12:53+0000\n"
-"Last-Translator: Dražen Odobašić <dodobas@candela-it.com>\n"
+"PO-Revision-Date: 2014-10-29 12:00+0000\n"
+"Last-Translator: Alexandre Magno <alexandre.mbm@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/osm-tasking-manager2/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,7 +93,7 @@ msgstr "Autenticar-se no OpenStreetMap"
 
 #: osmtm/templates/custom.mako:6
 msgid "Questions About Tasks, Mapping or HOT?"
-msgstr ""
+msgstr "Questões sobre tarefas, mapeamento ou HOT?"
 
 #: osmtm/templates/custom.mako:7
 msgid ""
@@ -103,19 +104,19 @@ msgid ""
 "down channel list:<br /><a href=\"http://irc.openstreetmap.org/\">OSM HOT "
 "IRC Channel #hot</a><br /><br />General inquries and comments are welcomed "
 "at: <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
-msgstr ""
+msgstr "Se você tem qualquer questão sobre um projeto, uma tarefa, ou mapeamento em geral, por favor, pergunte na <a href=\"https://lists.openstreetmap.org/listinfo/hot\">lista de e-mails do HOT</a><br /><br />Ou visite nosso canal #hot na <a href=\"http://irc.openstreetmap.org/\">rede de IRC</a><br /><br />Para tratar de assuntos gerais ou submeter comentários, você pode enviar e-mail a <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
 
 #: osmtm/templates/custom.mako:11
 msgid "Email HOT at"
-msgstr ""
+msgstr "E-mail do HOT:"
 
 #: osmtm/templates/custom.mako:12
 msgid "Follow HOT on"
-msgstr ""
+msgstr "Siga o HOT no"
 
 #: osmtm/templates/custom.mako:13
 msgid "Like HOT on"
-msgstr ""
+msgstr "Curta o HOT no"
 
 #: osmtm/templates/home.mako:9
 msgid "urgent"
@@ -317,7 +318,7 @@ msgstr "Filtrar usuários"
 
 #: osmtm/templates/task.assigned.mako:42 osmtm/templates/task.locked.mako:2
 msgid "you"
-msgstr "eu"
+msgstr "mim"
 
 #: osmtm/templates/task.assigned.mako:44
 msgid "Assigned to ${username}"
@@ -384,13 +385,13 @@ msgstr "Editar com"
 
 #: osmtm/templates/task.editors.mako:24
 msgid ".gpx file"
-msgstr ""
+msgstr "arquivo .gpx"
 
 #: osmtm/templates/task.editors.mako:29
 msgid ""
 "Tip: Download the following ${task_gpx_link} and load it in JOSM in order to"
 " see the current task boundary"
-msgstr ""
+msgstr "Dica: baixe o ${task_gpx_link} e carregue-o no JOSM, para ver lá, numa camada, a área da tarefa em que está trabalhando"
 
 #: osmtm/templates/task.empty.mako:15
 msgid "Select a task on the map"

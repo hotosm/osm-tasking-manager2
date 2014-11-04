@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-10-17 14:50+0200\n"
-"PO-Revision-Date: 2014-10-17 12:53+0000\n"
-"Last-Translator: Dražen Odobašić <dodobas@candela-it.com>\n"
+"PO-Revision-Date: 2014-10-18 10:39+0000\n"
+"Last-Translator: Emir Hartato <emir.hartato@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/osm-tasking-manager2/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +93,7 @@ msgstr "masuk ke OpenStreetMap"
 
 #: osmtm/templates/custom.mako:6
 msgid "Questions About Tasks, Mapping or HOT?"
-msgstr ""
+msgstr "Pertanyaan tentang Tasking Manager, Pemetaan, atau HOT?"
 
 #: osmtm/templates/custom.mako:7
 msgid ""
@@ -104,19 +104,19 @@ msgid ""
 "down channel list:<br /><a href=\"http://irc.openstreetmap.org/\">OSM HOT "
 "IRC Channel #hot</a><br /><br />General inquries and comments are welcomed "
 "at: <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
-msgstr ""
+msgstr "Jika anda memiliki pertanyaan mengenai sebuah proyek, sebuah task atau pemetaan secara umum silahkan ajukan pertanyaan anda melalui mailing list kami: <a href=\"https://lists.openstreetmap.org/listinfo/hot\">HOT E-Mail List</a><br /><br />Atau kunjungi kami di IRC Chat Channel, pilih #hot pada daftar pilihan channel:<br /><a href=\"http://irc.openstreetmap.org/\">OSM HOT IRC Channel #hot</a><br /><br />Pertanyaan umum dan komentar juga dipersilahkan untuk dikirimkan melalui: <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
 
 #: osmtm/templates/custom.mako:11
 msgid "Email HOT at"
-msgstr ""
+msgstr "Email HOT di"
 
 #: osmtm/templates/custom.mako:12
 msgid "Follow HOT on"
-msgstr ""
+msgstr "Ikuti HOT di"
 
 #: osmtm/templates/custom.mako:13
 msgid "Like HOT on"
-msgstr ""
+msgstr "Like HOT di"
 
 #: osmtm/templates/home.mako:9
 msgid "urgent"
@@ -384,13 +384,13 @@ msgstr "Edit dengan"
 
 #: osmtm/templates/task.editors.mako:24
 msgid ".gpx file"
-msgstr ""
+msgstr "file .gpx"
 
 #: osmtm/templates/task.editors.mako:29
 msgid ""
 "Tip: Download the following ${task_gpx_link} and load it in JOSM in order to"
 " see the current task boundary"
-msgstr ""
+msgstr "Tips: Download file berikut ini ${task_gpx_link} dan buka file tersebut di JOSM untuk melihat batas task yang dipilih saat ini"
 
 #: osmtm/templates/task.empty.mako:15
 msgid "Select a task on the map"

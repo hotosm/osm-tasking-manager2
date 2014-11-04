@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Manfred Reiter <ma.reiter@gmail.com>, 2014
+# MrPlumbum, 2014
 # Tobias Sauerwein <sauerwein.tobias@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2014-10-17 14:50+0200\n"
-"PO-Revision-Date: 2014-10-17 12:53+0000\n"
-"Last-Translator: Dražen Odobašić <dodobas@candela-it.com>\n"
+"PO-Revision-Date: 2014-10-25 10:52+0000\n"
+"Last-Translator: MrPlumbum\n"
 "Language-Team: German (http://www.transifex.com/projects/p/osm-tasking-manager2/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,7 +163,7 @@ msgstr "Deine Projekte"
 msgid "${locked} user is currently working on this project"
 msgid_plural "${locked} users are currently working on this project"
 msgstr[0] "${locked} Mapper arbeiten z. Zt. an diesem Projekt"
-msgstr[1] "${locked} Mapper arbeiten z. Zt. an diesem Projekt"
+msgstr[1] "${locked} Mapper arbeiten zzt. an diesem Projekt"
 
 #: osmtm/templates/home.mako:170 osmtm/templates/project.instructions.mako:23
 msgid "Access to this project is limited"
@@ -223,7 +224,7 @@ msgstr "Erlaubte Benutzer"
 
 #: osmtm/templates/project.instructions.mako:9
 msgid "This project is not published yet."
-msgstr "Diese Projekt ist noch nicht veröffentlicht."
+msgstr "Dieses Projekt ist noch nicht veröffentlicht."
 
 #: osmtm/templates/project.instructions.mako:12
 msgid "Publish"
@@ -276,7 +277,7 @@ msgstr "Bereit"
 #: osmtm/templates/project.mako:101 osmtm/templates/task.history.mako:30
 #: osmtm/templates/task.status.mako:12
 msgid "Invalidated"
-msgstr "Abgelehnt"
+msgstr "Als unvollständig markiert"
 
 #: osmtm/templates/project.mako:101 osmtm/templates/project.stats.mako:6
 #: osmtm/templates/task.status.mako:10
@@ -385,7 +386,7 @@ msgstr "Bearbeiten mit "
 
 #: osmtm/templates/task.editors.mako:24
 msgid ".gpx file"
-msgstr ""
+msgstr ".gpx-Datei"
 
 #: osmtm/templates/task.editors.mako:29
 msgid ""
@@ -429,7 +430,7 @@ msgstr "Entsperrt"
 
 #: osmtm/templates/task.history.mako:43
 msgid "Comment left"
-msgstr "Kommentar fehlt"
+msgstr "Kommentar hinterlassen"
 
 #: osmtm/templates/task.history.mako:55
 msgid "Nothing has happened yet."
@@ -479,11 +480,11 @@ msgstr "Teilen"
 
 #: osmtm/templates/task.state.done.mako:4
 msgid "Invalidate this task if you consider it needs more work."
-msgstr "Diese Aufgabe markieren, wenn Du meinst, dass noch zusätzliche Arbeiten notwendig sind."
+msgstr "Markiere diese Aufgabe als unvollständig, wenn Du meinst, dass noch zusätzliche Arbeiten notwendig sind."
 
 #: osmtm/templates/task.state.done.mako:18
 msgid "Invalidate"
-msgstr "Ungültig"
+msgstr "Unvollständig"
 
 #: osmtm/templates/task.state.done.mako:22
 msgid "Validate this task if you consider that the work is complete."
@@ -575,7 +576,7 @@ msgstr ""
 
 #: osmtm/views/task.py:282
 msgid "Task ${link} invalidated"
-msgstr "Aufgabe ${link} abgelehnt"
+msgstr "Aufgabe ${link} als unvollständig markiert"
 
 #: osmtm/views/task.py:297
 msgid "Task validated."
@@ -583,7 +584,7 @@ msgstr "Aufgabe geprüft."
 
 #: osmtm/views/task.py:300
 msgid "Task invalidated."
-msgstr "Aufgabe wurde abgelehnt."
+msgstr "Aufgabe als unvollständig markiert"
 
 #: osmtm/views/task.py:427
 msgid "Random task... none available! Sorry."
