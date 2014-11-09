@@ -125,7 +125,7 @@ def user_prefered_language(request):
     
 @view_config(route_name='tour', renderer='tour.mako')
 def tour(request):
-    return dict()
+    return dict(page_id="tour")
 
 @view_config(context='pyramid.httpexceptions.HTTPUnauthorized')
 def unauthorized(request):
