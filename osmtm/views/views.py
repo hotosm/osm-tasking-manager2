@@ -122,7 +122,10 @@ def user_prefered_language(request):
     request.response.set_cookie('_LOCALE_', value=language,
                                 max_age=20 * 7 * 24 * 60 * 60)
     return dict()
-
+    
+@view_config(route_name='tour', renderer='tour.mako')
+def tour(request):
+    return dict()
 
 @view_config(context='pyramid.httpexceptions.HTTPUnauthorized')
 def unauthorized(request):
