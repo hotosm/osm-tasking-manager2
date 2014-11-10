@@ -35,7 +35,7 @@ msgid ""
 "various mappers in a context of emergency. It also permits to control the "
 "progress and the homogeinity of the work done (ie. Elements to cover, "
 "specific tags to use, etc.)."
-msgstr "Der OSM Tasking Manager ist ein Mappingtool, das für das Humanitarion OSM Team zum gemeinsamen Mappen geschaffen wurde. Der Zweck dieses Tools ist es Mappingaufgaben in Teilbereiche zu gliedern, die schnell erledigt werden können. Es zeigt, welche Bereiche gemappt und welche Bereiche geprüft werden müssen. <br /> Dies erleichtert die Aufgabenverteilung an verschiedene Mapper in einem Notfall. Er erlaubt auch den Fortschritt der Mappingaktivitäten und die Homogenität des Mappens (d.h. zu taggende Elemente, Benutzung von Tags usw.) sicherzustellen."
+msgstr "Der OSM Tasking Manager ist ein Kartographierungs-Werkzeug das für das Humaniartion OSM Team zum gemeinsamen Kartographieren geschaffen wurde. Der Zweck dieses Tools ist es Kartographierungs-Aufgaben in Teilbereiche zu gliedern, die schnell erledigt werden können. Es zeigt, welche Bereiche kartographiert und welche Bereiche geprüft werden müssen. <br /> Dieses Vorgehen erlaubt die Verteilung und Koordinierung von Aufgaben an viele Mapper weltweit, die die Hilfsorganisationen in Krisen-Gebieten unterstützen wollen. Der Beabeitungs-Fortschritt als auch die Qualität der Erfassten Karten-Daten kann so jederzeit kontrolliert werden (d.h. zu taggende Elemente, Benutzung von Tags usw.)."
 
 #: osmtm/templates/about.mako:14
 msgid "Sponsorship and Funding"
