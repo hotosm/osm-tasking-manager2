@@ -340,7 +340,7 @@ osmtm.project = (function() {
       handleTaskResponse(data, direction);
     }).fail(function(error) {
       if (error.status == 401) {
-        if (confirm('Please login first')) {
+        if (confirm(pleaseLoginFirstI18n)) {
           window.location = login_url + '?came_from=' + encodeURIComponent(window.location.href);
         }
       }
@@ -518,7 +518,7 @@ osmtm.project = (function() {
       clearSelection();
     }).fail(function(error) {
       if (error.status == 401) {
-        if (confirm('Please login first')) {
+        if (confirm(pleaseLoginFirstI18n)) {
           window.location = login_url + '?came_from=' + encodeURIComponent(window.location.href);
         }
       }
@@ -568,7 +568,7 @@ osmtm.project = (function() {
       $.post(form.action, formData, function(response) {
         handleTaskResponse(response);
       }).fail(function(error) {
-        console.error("Something wrong happened");
+        console.error(somethingWrongHappenedI18n);
       });
     }
 
@@ -738,8 +738,8 @@ osmtm.project = (function() {
       var last = data[data.length - 1];
       var legend = chart.selectAll('.legend')
           .data([
-            ['done', Math.floor((last.done + last.validated) * 100) + '%'],
-            ['validated ', Math.floor(last.validated * 100) + '%']
+            [statesI18n[2], Math.floor((last.done + last.validated) * 100) + '%'], // 'done'
+            [statesI18n[3], Math.floor(last.validated * 100) + '%'] // 'validated '
           ], function(d) { return d[1]});
       legend.exit().remove()
 
