@@ -19,7 +19,7 @@ if (typeof countdownInterval != 'undefined') {
   <a id="task_close" class="btn btn-sm btn-link pull-right" title="${_('Clear selection')}"><i class="glyphicon glyphicon-remove"></i></a>
   <h4 class="pull-left">
   <%include file="task.status.mako" />
-  Task #${task.id}
+  ${_('Task #%d') % task.id}
   </h4>
   <div class="clear"></div>
   <div id="task_actions">
