@@ -190,6 +190,7 @@
 <script>
 $(function(){
     $('#tour').carousel();
+    interval: 30000;
 });
 </script>
 </%block>
@@ -212,14 +213,14 @@ $(function(){
             <img src="${request.static_url('osmtm:static/img/tour/tour_step1.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
 	        <h4>Log into the TM</h4>
-                <p>Log into the Tasking Manager through OSM by click on "login to OpenStreetMap".</p>
+                <p>Log into the Tasking Manager through OSM by clicking on "login to OpenStreetMap".</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step2.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
                 <h4>OpenStreetMap login</h4>
-                <p>Log into OpenStreetMap using your OSM username or email (1) and password(2). Click login (3).</p>
+                <p>Log into OpenStreetMap using your OSM username or email (1) and password (2). Click login (3).</p>
             </div>
          </div>
          <div class="item">
@@ -233,7 +234,7 @@ $(function(){
             <img src="${request.static_url('osmtm:static/img/tour/tour_step4.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
                 <h4>Select a project</h4>
-                <p>Once logged in and back at the Tasking Manager, select the project you wish to work on. You can sort by highest priority, most recently added, and most recently updated. You can also search by name for a particular project.</p>
+                <p>Once logged in and back at the Tasking Manager, select the project you wish to work on. You can sort by highest priority, most recently added, or most recently updated. You can also search by name for a particular project.</p>
             </div>
          </div>
          <div class="item">
