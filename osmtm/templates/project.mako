@@ -98,6 +98,8 @@ window.location.hash = "task/${locked_task.id}";
 % endif
 var priority_areas = ${dumps(priority_areas)|n};
 
+var osmAttribI18n = "${_('Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors')}";
+var curworkedonI18n = "${_('Cur. worked on ')}";
 var statesI18n = ["${_('Ready')}", "${_('Invalidated')}", "${_('Done')}", "${_('Validated')}"];
 var commentRequiredMsg = "${_('You must leave a comment.')}";
 var highPriorityI18n = "${_('High priority')}";
