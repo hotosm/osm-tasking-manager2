@@ -11,7 +11,6 @@
     <script src="${request.static_url('osmtm:static/js/lib/jquery-1.7.2.min.js')}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/showdown.js')}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/jquery-timeago/jquery.timeago.js')}"></script>
-    <script src="${request.static_url('osmtm:static/js/lib/jquery-timeago/locales/jquery.timeago.%s.js' % request.locale_name)}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/sammy-latest.min.js')}"></script>
     <script src="${request.static_url('osmtm:static/js/shared.js')}"></script>
     <script src="${request.static_url('osmtm:static/bootstrap/dist/js/bootstrap.min.js')}"></script>
@@ -100,7 +99,12 @@ ${message | n}
 % if page_id is not 'project':
     <footer class="footer">
       <div class="container">
-        <p class="pull-right">Fork the code on <a href="http://github.com/hotosm/osm-tasking-manager2">github</a>.
+<%
+        link = "<a href='http://github.com/hotosm/osm-tasking-manager2'>github</a>"
+        text = _('Fork the code on ${github_link}.', mapping={'github_link': link})
+%>
+
+        <p class="pull-right">${text|n}
         </p>
         <p>
           <a href="${request.route_path('about')}">${_('About the Tasking Manager')}</a><br />
