@@ -61,7 +61,7 @@ osmtm.project = (function() {
       key = L.DomUtil.create('li', null, ul);
       color = L.DomUtil.create('div', 'key-color', key);
       color.style.border = '2px solid orange';
-      key.innerHTML += 'Cur. worked on ';
+      key.innerHTML += curworkedonI18n;
 
       lockedCounter = $('<span>');
       $(key).append(lockedCounter);
@@ -107,7 +107,7 @@ osmtm.project = (function() {
     L.control.scale().addTo(lmap);
     // create the tile layer with correct attribution
     var osmUrl='http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © OpenStreetMap contributors';
+    var osmAttrib=osmAttribI18n;
     var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     lmap.addLayer(osm);
 
