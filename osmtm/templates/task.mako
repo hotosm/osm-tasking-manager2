@@ -63,7 +63,7 @@ if (typeof countdownInterval != 'undefined') {
     <p><a href="http://www.openstreetmap.org/history?bbox=${bounds[0]},${bounds[1]},${bounds[2]},${bounds[3]}"
           rel="tooltip"
           data-original-title="${_('See the changesets in the OSM database for this area.')}"
-          target="_blank">OSM changesets</a></p>
+          target="_blank">${_('OSM changesets')}</a></p>
 % endif
   </div>
 </div>
