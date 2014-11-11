@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 <%inherit file="base.mako"/>
 <%block name="header">
-<h1>Project New</h1>
+<h1>${_('Project New')}</h1>
 </%block>
 <%block name="content">
 <div class="container">
@@ -27,10 +27,12 @@
 
 <%block name="step1">
 <div id="step1" class="">
-  <h2>Step 1</h2>
+  <h2>${_('Step 1')}</h2>
   <p>
-  <a id="draw"
-    class="btn btn-default">Draw</a> the area of interest on the map.
+  ${
+    anchor='a id="draw" class="btn btn-default"'
+    _('<%s>Draw<%s> the area of interest on the map.') % (anchor, '/a')
+  }
   </p>
   <p>
   or
@@ -38,16 +40,19 @@
   <p>
   <form id="uploadform" method="post" enctype="multipart/form-data">
     <input type="file" val="" name="import" class="hidden" />
-    <a id="import"
-      data-role="button"
-      class="btn btn-default"
-      rel="tooltip"
-      title="Provide a .geojson or .kml file."
-      >Import</a> a <em>GeoJSON</em> or <em>KML</em> file.
+    
+    ${
+        anchor='a id="import"
+                data-role="button"
+                class="btn btn-default"
+                rel="tooltip"
+                title="%s"' % _('Provide a .geojson or .kml file.')
+        _('<%s>Import<%s> a <em>GeoJSON</em> or <em>KML</em> file.') % (anchor, '/a')
+    }
     <span class="help-block">
       <small>
-        Want to use an <em>.osm</em> file instead?<br>
-        You can use <a href="http://geojson.io" target="_blank">GeoJSON.io</a> to convert it to <em>GeoJSON</em>.
+        ${_('Want to use an <em>.osm</em> file instead?')}<br>
+        ${_('You can use <%s>GeoJSON.io<%s> to convert it to <em>GeoJSON</em>') % ('a href="http://geojson.io" target="_blank"', '/a')}.
       </small>
     </span>
   </form>
@@ -57,16 +62,16 @@
 
 <%block name="step2">
 <div id="step2" class="hidden">
-  <h2>Step 2 - Type of project</h2>
+  <h2>${_('Step 2 - Type of project')}</h2>
   <div class="row">
     <div class="col-md-6">
       <label class="radio">
         <input type="radio" name="type" value="grid" checked/>
-        Square Grid
+        ${_('Square Grid')}
         <br>
         <img src="${request.static_url('osmtm:static/img/project_creation_grid.png')}" width="150">
         <p class="help-block">
-        Area of interest is automatically split into grid cells. Each one is a task.<br>
+        ${_('Area of interest is automatically split into grid cells. Each one is a task.')}<br>
         </p>
       </label>
     </div>
@@ -76,11 +81,11 @@
              data-original-title="${_('You cannot select this option unless you import a file with polygons.')}"
              >
         <input type="radio" name="type" value="arbitrary" disabled />
-        Arbitrary Geometries
+        ${_('Arbitrary Geometries')}
         <br>
         <img src="${request.static_url('osmtm:static/img/project_creation_arbitrary.png')}" width="150">
         <p class="help-block">
-        Each polygon represents a task.<br>
+        ${_('Each polygon represents a task.')}<br>
         </p>
       </label>
     </div>
@@ -89,7 +94,7 @@
     <div class="pull-right">
       <a id="step2-back" class="btn btn-default">
         <span class="glyphicon glyphicon-chevron-left"></span>
-        Back
+        ${_('Back')}
       </a>
       <a id="step2-next" class="btn btn-default">Next
         <span class="glyphicon glyphicon-chevron-right"></span>
@@ -102,9 +107,9 @@
 <%block name="step3_grid">
 <div id="step3-grid" class="hidden">
   <form id="gridform" method="post" action="${request.route_url('project_new_grid')}">
-    <h2>Step 3</h2>
+    <h2>${_('Step 3')}</h2>
     <div class="form-group">
-      Tile size
+      ${_('Tile size')}
       <div id="tile_size" class="btn-group" >
         <button class="btn btn-default">XL</button>
         <button class="btn btn-default">L</button>
@@ -112,23 +117,23 @@
         <button class="btn btn-default">S</button>
         <button class="btn btn-default">XS</button>
       </div>
-      <span id="computing" class="help-inline hidden">Computing...</span>
+      <span id="computing" class="help-inline hidden">${_('Computing...')}</span>
     </div>
     <div>
-      A new project will be created with <strong id="grid_geometries_count"></strong> tasks.
+      ${_('A new project will be created with %s tasks.') % '<strong id="grid_geometries_count"></strong>'}
     </div>
     <div class="form-actions pull-right">
       <a class="btn btn-default step3-back">
         <span class="glyphicon glyphicon-chevron-left"></span>
-        Back
+        ${_('Back')}
       </a>
-      <input type="submit" value="Create project"
+      <input type="submit" value="${_('Create project')}"
              name="form.submitted" class="btn btn-success"/>
     </div>
     <div class="clearfix"></div>
     <div class="clearfix"></div>
     <div class="pull-right loading help hidden">
-      Creating tiles, please wait...
+      ${_('Creating tiles, please wait...')}
     </div>
     <input type="hidden" name="tile_size"/>
     <input id="geometry" type="hidden" name="geometry"/>
@@ -139,19 +144,19 @@
 <%block name="step3_arbitrary">
 <div id="step3-arbitrary" class="hidden">
   <form id="gridform" method="post" action="${request.route_url('project_new_arbitrary')}">
-    <h2>Step 3</h2>
-    A new project will be created with <strong><span id="arbitrary_geometries_count"></span></strong> tasks.
+    <h2>${_('Step 3')}</h2>
+    ${_('A new project will be created with %s tasks.') % '<strong><span id="arbitrary_geometries_count"></span></strong>'}
     <div class="form-actions pull-right">
       <a class="btn btn-default step3-back">
         <span class="glyphicon glyphicon-chevron-left"></span>
-        Back
+        ${_('Back')}
       </a>
-      <input type="submit" value="Create project"
+      <input type="submit" value="${_('Create project')}"
              name="form.submitted" class="btn btn-success"/>
     </div>
     <div class="clearfix"></div>
     <div class="loading pull-right help hidden">
-      Creating project, please wait...
+      ${_('Creating project, please wait...')}
     </div>
     <input id="geometry_arbitrary" type="hidden" name="geometry"/>
   </form>

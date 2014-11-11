@@ -24,7 +24,7 @@ from xml.dom import minidom
 
 @view_config(route_name='users', renderer='users.mako')
 def users(request):
-    users = DBSession.query(User).all()
+    users = DBSession.query(User).order_by(User.username).all()
 
     return dict(page_id="users", users=users)
 
