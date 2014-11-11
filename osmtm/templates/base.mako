@@ -99,7 +99,7 @@ ${message | n}
 % if page_id is not 'project':
     <footer class="footer">
       <div class="container">
-        <p class="pull-right">Fork the code on <a href="http://github.com/hotosm/osm-tasking-manager2">github</a>.
+        <p class="pull-right">${_('Fork the code on %s') % ('<a href="http://github.com/hotosm/osm-tasking-manager2">github</a>',)}.
         </p>
         <p>
           <a href="${request.route_path('about')}">${_('About the Tasking Manager')}</a><br />

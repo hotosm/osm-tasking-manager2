@@ -61,7 +61,7 @@ osmtm.project = (function() {
       key = L.DomUtil.create('li', null, ul);
       color = L.DomUtil.create('div', 'key-color', key);
       color.style.border = '2px solid orange';
-      key.innerHTML += 'Cur. worked on ';
+      key.innerHTML += curworkedonI18n;
 
       lockedCounter = $('<span>');
       $(key).append(lockedCounter);
@@ -107,7 +107,7 @@ osmtm.project = (function() {
     L.control.scale().addTo(lmap);
     // create the tile layer with correct attribution
     var osmUrl='http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © OpenStreetMap contributors';
+    var osmAttrib=osmAttribI18n;
     var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     lmap.addLayer(osm);
 
@@ -340,7 +340,7 @@ osmtm.project = (function() {
       handleTaskResponse(data, direction);
     }).fail(function(error) {
       if (error.status == 401) {
-        if (confirm('Please login first')) {
+        if (confirm(pleaseLoginFirstI18n)) {
           window.location = login_url + '?came_from=' + encodeURIComponent(window.location.href);
         }
       }
@@ -518,7 +518,7 @@ osmtm.project = (function() {
       clearSelection();
     }).fail(function(error) {
       if (error.status == 401) {
-        if (confirm('Please login first')) {
+        if (confirm(pleaseLoginFirstI18n)) {
           window.location = login_url + '?came_from=' + encodeURIComponent(window.location.href);
         }
       }
@@ -568,7 +568,7 @@ osmtm.project = (function() {
       $.post(form.action, formData, function(response) {
         handleTaskResponse(response);
       }).fail(function(error) {
-        console.error("Something wrong happened");
+        console.error(somethingWrongHappenedI18n);
       });
     }
 
@@ -738,8 +738,8 @@ osmtm.project = (function() {
       var last = data[data.length - 1];
       var legend = chart.selectAll('.legend')
           .data([
-            ['done', Math.floor((last.done + last.validated) * 100) + '%'],
-            ['validated ', Math.floor(last.validated * 100) + '%']
+            [statesI18n[2], Math.floor((last.done + last.validated) * 100) + '%'], // 'done'
+            [statesI18n[3], Math.floor(last.validated * 100) + '%'] // 'validated '
           ], function(d) { return d[1]});
       legend.exit().remove()
 
