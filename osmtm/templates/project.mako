@@ -100,7 +100,7 @@ var priority_areas = ${dumps(priority_areas)|n};
 
 var somethingWrongHappenedI18n = "${_('Something wrong happened')}";
 var pleaseLoginFirstI18n = "${_('Please login first')}";
-var osmAttribI18n = "${_('Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors')}";
+var osmAttribI18n = "${_(u'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors')}";
 var curworkedonI18n = "${_('Cur. worked on ')}";
 var statesI18n = ["${_('Ready')}", "${_('Invalidated')}", "${_('Done')}", "${_('Validated')}"];
 var commentRequiredMsg = "${_('You must leave a comment.')}";
