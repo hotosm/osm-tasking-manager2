@@ -212,64 +212,64 @@ $(function(){
         <div class="item active">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step1.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-	        <h4>${_('Log into the TM')}</h4>
-                <p>${_('Log into the Tasking Manager through OSM by clicking on: login to OpenStreetMap.')}</p>
+	        <h4>Log into the TM</h4>
+                <p>Log into the Tasking Manager through OSM by clicking on "login to OpenStreetMap".</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step2.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('OpenStreetMap login')}</h4>
-                <p>${_('Log into OpenStreetMap using your OSM username or email (1) and password (2). Click login (3).')}</p>
+                <h4>OpenStreetMap login</h4>
+                <p>Log into OpenStreetMap using your OSM username or email (1) and password (2). Click login (3).</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step3.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Authorize TM access')}</h4>
-                <p>${_('Authorize the Tasking Manager to access your OSM user preferences (1) and save changes (2).')}</p>
+                <h4>Authorize TM access</h4>
+                <p>Authorize the Tasking Manager to access your OSM user preferences (1) and save changes (2).</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step4.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Select a project')}</h4>
-                <p>${_('Once logged in and back at the Tasking Manager, select the project you wish to work on. You can sort by highest priority, most recently added, or most recently updated. You can also search by name for a particular project.')}</p>
+                <h4>Select a project</h4>
+                <p>Once logged in and back at the Tasking Manager, select the project you wish to work on. You can sort by highest priority, most recently added, or most recently updated. You can also search by name for a particular project.</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step5.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Understand the project workflow')}</h4>
-                <p>${_('Read what the project workflow is, or what needs to be mapped (1); areas to be mapped are visible on the right side (2). Once you understand what to do, click Contribute (3).')}</p>
+                <h4>Understand the project workflow</h4>
+                <p>Read what the project workflow is, or what needs to be mapped (1); areas to be mapped are visible on the right side (2). Once you understand what to do, click "Contribute" (3).</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step6.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Select a task')}</h4>
-                <p>${_('Either select a particular task on the map (1) or pick a random one (2).')}</p>
+                <h4>Select a task</h4>
+                <p>Either select a particular task on the map (1) or pick a random one (2).</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step7.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Start mapping')}</h4>
-                <p>${_('Once a grid is selected, you can see the history of work completed on that task on the center left side. Click Start Mapping to begin.')}</p>
+                <h4>Start mapping</h4>
+                <p>Once a grid is selected, you can see the history of work completed on that task on the center left side. Click "Start mapping" to begin.</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step8.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Map!')}</h4>
-                <p>${_('Click Edit With (1) and select the map editor you wish to use. The editor will load your task to be edited.')}</p>
+                <h4>Map!</h4>
+                <p>Click "Edit with" (1) and select the map editor you wish to use. The editor will load your task to be edited.</p>
             </div>
          </div>
          <div class="item">
             <img src="${request.static_url('osmtm:static/img/tour/tour_step9.JPG')}" alt="" width="590" height="500">
             <div class="carousel-caption">
-                <h4>${_('Free the task')}</h4>
-                <p>${_('Once you are finished editing, return to the Tasking Manager and leave a comment if you desire (1). If you did not complete all the items requested in the workflow, unlock the task for more editing (2). Otherwise, mark the task as done (3). You have completed your first task!')}</p>
+                <h4>Free the task</h4>
+                <p>Once you are finished editing, return to the Tasking Manager and leave a comment if you desire (1). If you did not complete all the items requested in the workflow, unlock the task for more editing (2). Otherwise, mark the task as done (3). You have completed your first task!</p>
             </div>
          </div>
 
