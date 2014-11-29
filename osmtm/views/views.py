@@ -72,6 +72,7 @@ def home(request):
         ids = DBSession.query(ProjectTranslation.id) \
                        .filter(search_filter) \
                        .all()
+        secrityOnlyFilter = filter
         filter = and_(Project.id.in_(ids), filter)
 
         '''The below code extracts all the numerals in the
@@ -84,7 +85,7 @@ def home(request):
         digits = re.findall('\d+', s)
         if digits:
             ids = DBSession.query(Project.id) \
-                           .filter(Project.id == (int(''.join(digits)))) \
+                           .filter(secrityOnlyFilter, Project.id == (int(''.join(digits)))) \
                            .all()
             if len(ids) > 0:
                 filter = or_(Project.id.in_(ids), filter)
@@ -113,7 +114,6 @@ def home(request):
     page = int(request.params.get('page', 1))
     page_url = PageURL_WebOb(request)
     paginator = Page(query, page, url=page_url, items_per_page=10)
-
     return dict(page_id="home", paginator=paginator)
 
 
