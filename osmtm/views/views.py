@@ -84,8 +84,8 @@ def home(request):
         digits = re.findall('\d+', s)
         if digits:
             ids = DBSession.query(Project.id) \
-                        .filter(Project.id == (int(''.join(digits)))) \
-                        .all()
+                           .filter(Project.id == (int(''.join(digits)))) \
+                           .all()
             if len(ids) > 0:
                 filter = or_(Project.id.in_(ids), filter)
 
