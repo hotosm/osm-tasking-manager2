@@ -1,6 +1,6 @@
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound, HTTPUnauthorized
-
+import re
 import sqlalchemy
 from sqlalchemy import (
     desc,
@@ -73,6 +73,13 @@ def home(request):
                        .filter(search_filter) \
                        .all()
         filter = and_(Project.id.in_(ids), filter)
+
+        digits = re.findall('\d+', s)
+        if digits:
+            ids = DBSession.query(Project.id).filter(Project.id == (int(''.join(digits)))).all()
+            if len(ids) > 0:
+                filter = or_(Project.id.in_(ids), filter)
+
 
     # filter projects on which the current user worked on
     if request.params.get('my_projects', '') == 'on':
