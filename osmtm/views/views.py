@@ -74,6 +74,13 @@ def home(request):
                        .all()
         filter = and_(Project.id.in_(ids), filter)
 
+        '''The below code extracts all the numerals in the 
+           search string as a list, if there are some it 
+           joins that list of number characters into a string,
+           casts it as an integer and searchs to see if there
+           is a project with that id. If there is, it adds
+           it to the search results.'''
+
         digits = re.findall('\d+', s)
         if digits:
             ids = DBSession.query(Project.id).filter(Project.id == (int(''.join(digits)))).all()
