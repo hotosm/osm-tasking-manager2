@@ -1,5 +1,6 @@
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound, HTTPUnauthorized
+
 import re
 import sqlalchemy
 from sqlalchemy import (
@@ -69,12 +70,6 @@ def home(request):
         search_filter = or_(PT.name.ilike('%%%s%%' % s),
                             PT.short_description.ilike('%%%s%%' % s),
                             PT.description.ilike('%%%s%%' % s),)
-        ids = DBSession.query(ProjectTranslation.id) \
-                       .filter(search_filter) \
-                       .all()
-        secrityOnlyFilter = filter
-        filter = and_(Project.id.in_(ids), filter)
-
         '''The below code extracts all the numerals in the
            search string as a list, if there are some it
            joins that list of number characters into a string,
@@ -84,11 +79,13 @@ def home(request):
 
         digits = re.findall('\d+', s)
         if digits:
-            ids = DBSession.query(Project.id) \
-                           .filter(secrityOnlyFilter, Project.id == (int(''.join(digits)))) \
-                           .all()
-            if len(ids) > 0:
-                filter = or_(Project.id.in_(ids), filter)
+            search_filter = or_(
+                ProjectTranslation.id == (int(''.join(digits))),
+                search_filter)
+        ids = DBSession.query(ProjectTranslation.id) \
+                       .filter(search_filter) \
+                       .all()
+        filter = and_(Project.id.in_(ids), filter)
 
     # filter projects on which the current user worked on
     if request.params.get('my_projects', '') == 'on':
@@ -114,6 +111,7 @@ def home(request):
     page = int(request.params.get('page', 1))
     page_url = PageURL_WebOb(request)
     paginator = Page(query, page, url=page_url, items_per_page=10)
+
     return dict(page_id="home", paginator=paginator)
 
 
