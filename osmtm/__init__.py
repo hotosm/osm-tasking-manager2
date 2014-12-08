@@ -61,6 +61,7 @@ def main(global_config, **settings):
                            cachebust=GitCacheBuster())
     config.add_route('home', '/')
     config.add_route('about', '/about')
+    config.add_route('tour', '/tour')
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
     config.add_route('oauth_callback', '/oauth_callback')

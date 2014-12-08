@@ -93,6 +93,10 @@ msgid "Questions About Tasks, Mapping or HOT?"
 msgstr ""
 
 #: osmtm/templates/custom.mako:7
+msgid "Take a tour of the Tasking Manager."
+msgstr ""
+
+#: osmtm/templates/custom.mako:8
 msgid ""
 "If you have any questions about a project, a task or mapping in general "
 "please ask on our mailing list: <a "
@@ -103,15 +107,15 @@ msgid ""
 "<a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
 msgstr ""
 
-#: osmtm/templates/custom.mako:11
+#: osmtm/templates/custom.mako:12
 msgid "Email HOT at"
 msgstr ""
 
-#: osmtm/templates/custom.mako:12
+#: osmtm/templates/custom.mako:13
 msgid "Follow HOT on"
 msgstr ""
 
-#: osmtm/templates/custom.mako:13
+#: osmtm/templates/custom.mako:14
 msgid "Like HOT on"
 msgstr ""
 
@@ -508,6 +512,78 @@ msgstr ""
 
 #: osmtm/templates/task.unlocked.mako:26
 msgid "Review the work"
+msgstr ""
+
+#: osmtm/templates/tour.mako:215
+msgid "Log into the TM"
+msgstr ""
+
+#: osmtm/templates/tour.mako:216
+msgid "Log into the Tasking Manager through OSM by clicking on: login to OpenStreetMap."
+msgstr ""
+
+#: osmtm/templates/tour.mako:222
+msgid "OpenStreetMap login"
+msgstr ""
+
+#: osmtm/templates/tour.mako:223
+msgid "Log into OpenStreetMap using your OSM username or email (1) and password (2). Click login (3)."
+msgstr ""
+
+#: osmtm/templates/tour.mako:229
+msgid "Authorize TM access"
+msgstr ""
+
+#: osmtm/templates/tour.mako:230
+msgid "Authorize the Tasking Manager to access your OSM user preferences (1) and save changes (2)."
+msgstr ""
+
+#: osmtm/templates/tour.mako:236
+msgid "Select a project"
+msgstr ""
+
+#: osmtm/templates/tour.mako:237
+msgid "Once logged in and back at the Tasking Manager, select the project you wish to work on. You can sort by highest priority, most recently added, or most recently updated. You can also search by name for a particular project."
+msgstr ""
+
+#: osmtm/templates/tour.mako:243
+msgid "Understand the project workflow"
+msgstr ""
+
+#: osmtm/templates/tour.mako:244
+msgid "Read what the project workflow is, or what needs to be mapped (1); areas to be mapped are visible on the right side (2). Once you understand what to do, click Contribute (3)."
+msgstr ""
+
+#: osmtm/templates/tour.mako:250
+msgid "Select a task"
+msgstr ""
+
+#: osmtm/templates/tour.mako:251
+msgid "Either select a particular task on the map (1) or pick a random one (2)."
+msgstr ""
+
+#: osmtm/templates/tour.mako:257
+msgid "Start mapping"
+msgstr ""
+
+#: osmtm/templates/tour.mako:258
+msgid "Once a grid is selected, you can see the history of work completed on that task on the center left side. Click Start Mapping to begin."
+msgstr ""
+
+#: osmtm/templates/tour.mako:264
+msgid "Map!"
+msgstr ""
+
+#: osmtm/templates/tour.mako:265
+msgid "Click Edit With (1) and select the map editor you wish to use. The editor will load your task to be edited."
+msgstr ""
+
+#: osmtm/templates/tour.mako:271
+msgid "Free the task"
+msgstr ""
+
+#: osmtm/templates/tour.mako:272
+msgid "Once you are finished editing, return to the Tasking Manager and leave a comment if you desire (1). If you did not complete all the items requested in the workflow, unlock the task for more editing (2). Otherwise, mark the task as done (3). You have completed your first task!"
 msgstr ""
 
 #: osmtm/templates/user.mako:3 osmtm/templates/user.mako:5
