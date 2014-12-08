@@ -23,8 +23,6 @@ import markdown
   ${_('Access to this project is limited')}
 </p>
 % endif
-<p>${bleach.clean(markdown.markdown(project.description), strip=True) |n}</p>
-<hr />
 <dl>
   % if project.entities_to_map:
   <dt>
