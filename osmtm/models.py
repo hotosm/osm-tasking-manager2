@@ -534,7 +534,7 @@ class Project(Base, Translatable):
             progress_floor = 100
         else:
             progress_floor = done * 100 / total
-        
+
         return progress_floor if total != 0 else 0
 
     def get_validated(self):
