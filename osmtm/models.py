@@ -530,7 +530,12 @@ class Project(Base, Translatable):
         if not done:
             done = 0
 
-        return math.floor(done * 100 / total) if total != 0 else 0
+        if round(done) == round(total):
+            progress_floor = 100
+        else:
+            progress_floor = done * 100 / total
+
+        return progress_floor if total != 0 else 0
 
     def get_validated(self):
         total = DBSession.query(func.sum(ST_Area(Task.geometry))) \
