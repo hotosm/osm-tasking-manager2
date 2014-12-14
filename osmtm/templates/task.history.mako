@@ -20,16 +20,20 @@ from osmtm.mako_filters import (
     %>
 
     <div class="history ${first} ${last}">
-    % if section == 'project':
-      <a href="#task/${step.task_id}">#${step.task_id}</a>
-    % endif
+    <%
+    if section == 'project':
+      tasklink = '<a href="#task/' + str(step.task_id) +'">#' + str(step.task_id) + '</a>'
+    else:
+      tasklink = ''
+    endif
+    %>
     % if isinstance(step, TaskState):
       % if step.state == step.state_done:
-      <span><i class="glyphicon glyphicon-ok text-success"></i> <b>${_('Marked as done')}</b> ${_('by')} ${step.user.username if step.user is not None else unknown | n}</span>
+      <span><i class="glyphicon glyphicon-ok text-success"></i> ${step.user.username if step.user is not None else unknown | n} <b>${_('marked')} ${tasklink | n} ${_('as done')}</b>  </span>
       % elif step.state == step.state_invalidated:
-      <span><i class="glyphicon glyphicon-thumbs-down text-danger"></i> <b>${_('Invalidated')}</b> ${_('by')} ${step.user.username if step.user is not None else unknown | n}</span>
+      <span><i class="glyphicon glyphicon-thumbs-down text-danger"></i> ${step.user.username if step.user is not None else unknown | n} <b>${_('invalidated')}</b> ${tasklink | n}</span>
       % elif step.state == step.state_validated:
-      <span><i class="glyphicon glyphicon-thumbs-up text-success"></i> <b>${_('Validated')}</b> ${_('by')} ${step.user.username if step.user is not None else unknown | n}</span>
+      <span><i class="glyphicon glyphicon-thumbs-up text-success"></i> ${step.user.username if step.user is not None else unknown | n} <b>${_('validated')}</b> ${tasklink | n}</span>
       % endif
     % endif
     % if isinstance(step, TaskLock):
