@@ -270,7 +270,7 @@ msgstr ""
 msgid "Ready"
 msgstr ""
 
-#: osmtm/templates/project.mako:101 osmtm/templates/task.history.mako:30
+#: osmtm/templates/project.mako:101
 #: osmtm/templates/task.status.mako:12
 msgid "Invalidated"
 msgstr ""
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: osmtm/templates/project.mako:101 osmtm/templates/task.history.mako:32
+#: osmtm/templates/project.mako:101
 #: osmtm/templates/task.status.mako:14
 msgid "Validated"
 msgstr ""
@@ -403,13 +403,23 @@ msgstr ""
 msgid "Comment"
 msgstr ""
 
-#: osmtm/templates/task.history.mako:28
-msgid "Marked as done"
+#: osmtm/templates/task.history.mako:32
+msgid "marked"
 msgstr ""
 
-#: osmtm/templates/task.history.mako:28 osmtm/templates/task.history.mako:30
-#: osmtm/templates/task.history.mako:32 osmtm/templates/task.history.mako:37
-#: osmtm/templates/task.history.mako:43
+#: osmtm/templates/task.history.mako:32
+msgid "as done"
+msgstr ""
+
+#: osmtm/templates/task.history.mako:34
+msgid "invalidated"
+msgstr ""
+
+#: osmtm/templates/task.history.mako:36
+msgid "validated"
+msgstr ""
+
+#: osmtm/templates/task.history.mako:41 osmtm/templates/task.history.mako:47
 msgid "by"
 msgstr ""
 
