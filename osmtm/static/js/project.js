@@ -435,15 +435,21 @@ osmtm.project = (function() {
             alert("JOSM remote control did not respond. Do you have JOSM running and configured to be controlled remotely?");
           } else {
             if (typeof imagery_url != "undefined" && imagery_url !== '') {
-              $.ajax({
-                url: 'http://127.0.0.1:8111/imagery',
-                data: {
-                  title: "Tasking Manager - #" + project_id,
-                  type: imagery_url.toLowerCase().substring(0,3),
-                  url: imagery_url
-                }
-              });
+              var data = {
+                title: "Tasking Manager - #" + project_id,
+                type: imagery_url.toLowerCase().substring(0, 3),
+                url: imagery_url
+              };
+            } else {
+              var data = {
+                  type: 'bing',
+                  url: 'http://www.bing.com/maps/'
+              };
             }
+            $.ajax({
+                url: 'http://127.0.0.1:8111/imagery',
+                data: data
+            });
           }
         }
       });
