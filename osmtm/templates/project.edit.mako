@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.css')}"/>
 <script src="${request.static_url('osmtm:static/js/lib/leaflet.js')}"></script>
 <script src="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/leaflet.draw.js')}"></script>
+% if request.locale_name != 'en':
+<script src="${request.static_url('osmtm:static/js/lib/Leaflet.draw/dist/locales/Leaflet.draw-%s.js' % request.locale_name)}"></script>
+% endif
 <div id="markdown_cheat_sheet" class="modal fade">
   <div class="modal-dialog">
   <div class="modal-content">
