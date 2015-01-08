@@ -1,7 +1,3 @@
-<%
-import bleach
-import markdown
-%>
 <dl>
   % if project.entities_to_map:
   <dt>
@@ -48,7 +44,7 @@ import markdown
 </p>
 % endif
 <hr />
-<p>${bleach.clean(markdown.markdown(project.instructions), strip=True) |n}</p>
+<p>${project.instructions |n}</p>
 <p class="text-center">
   <a id="start"
      class="btn btn-success btn-lg">

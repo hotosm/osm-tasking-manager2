@@ -1,16 +1,9 @@
-import re
-import bleach
-import markdown
+''' Should move to javascript showdown/markdown extension ??
+'''
 from .models import (
     DBSession,
     User,
 )
-
-
-def markdown_filter(text):
-    ''' Mako filter for markdown and bleach
-    '''
-    return bleach.clean(markdown.markdown(text), strip=True)
 
 
 p = re.compile(ur'(@\d+)')

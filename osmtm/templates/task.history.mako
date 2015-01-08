@@ -7,7 +7,6 @@ from osmtm.models import (
 )
 from osmtm.mako_filters import (
     convert_mentions,
-    markdown_filter,
 )
 %>
 <%page args="section='task'"/>
@@ -62,7 +61,7 @@ from osmtm.mako_filters import (
       % elif isinstance(step, TaskComment):
         <span><i class="glyphicon glyphicon-comment text-muted"></i> ${_('Comment left')} ${_('by')} ${user_link | n}</span>
         <blockquote>
-          ${step.comment | convert_mentions(request), markdown_filter, n}
+          ${step.comment | convert_mentions(request), n}
         </blockquote>
       % endif
     % endif
