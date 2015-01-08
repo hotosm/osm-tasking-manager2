@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="${request.static_url('osmtm:static/css/main.css')}">
     <link rel="stylesheet" href="${request.static_url('osmtm:static/js/lib/leaflet.css')}">
     <script src="${request.static_url('osmtm:static/js/lib/jquery-1.7.2.min.js')}"></script>
-    <script src="${request.static_url('osmtm:static/js/lib/showdown.js')}"></script>
+    <script src="${request.static_url('osmtm:static/js/lib/showdown/src/showdown.js')}"></script>
+    <script src="${request.static_url('osmtm:static/js/lib/showdown/src/extensions/table.js')}"></script>
+    <script src="${request.static_url('osmtm:static/js/lib/showdown/src/extensions/github.js')}"></script>
+    <script src="${request.static_url('osmtm:static/js/lib/showdown/src/extensions/twitter.js')}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/jquery-timeago/jquery.timeago.js')}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/jquery-timeago/locales/jquery.timeago.%s.js' % request.locale_name)}"></script>
     <script src="${request.static_url('osmtm:static/js/lib/sammy-latest.min.js')}"></script>
@@ -117,7 +120,7 @@ ${message | n}
   </body>
 </html>
 <script>
-  var converter = new Showdown.converter();
+  var converter = new Showdown.converter({ extensions: ['github', 'table', 'twitter']});
   $("[showdown]").each(function(){
     $(this).html( converter.makeHtml($(this).text()) );
   });

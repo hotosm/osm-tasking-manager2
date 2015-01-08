@@ -88,7 +88,6 @@ var imagery_url = "${project.imagery}";
 % endif
 var changeset_comment = "${quote(project.changeset_comment, '')}";
 osmtm.project.initAtWho();
-var converter = new Showdown.converter();
 $("[showdown]").each(function(){
   $(this).html( converter.makeHtml($(this).text()) );
 });

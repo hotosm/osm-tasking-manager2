@@ -7,3 +7,6 @@
 [submodule "osmtm/static/js/lib/jquery-timeago"]
 	path = osmtm/static/js/lib/jquery-timeago
     url = https://github.com/rmm5t/jquery-timeago.git
+[submodule "osmtm/static/js/lib/showdown"]
+	path = osmtm/static/js/lib/showdown
+	url = https://github.com/showdownjs/showdown.git
