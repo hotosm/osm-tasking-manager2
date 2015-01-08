@@ -44,7 +44,7 @@
 </p>
 % endif
 <hr />
-<p>${project.instructions |n}</p>
+<p showdown>${project.instructions |n}</p>
 <p class="text-center">
   <a id="start"
      class="btn btn-success btn-lg">

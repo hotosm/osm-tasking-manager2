@@ -22,7 +22,7 @@ import re
   ${_('Access to this project is limited')}
 </p>
 % endif
-<p>${re.sub('&amp;', '&', project.description) |n}</p>
+<p showdown>${re.sub('&amp;', '&', project.description) |n}</p>
 <p class="text-center">
   <a class="btn btn-success btn-lg instructions">
     <span class="glyphicon glyphicon-share-alt"></span>&nbsp;

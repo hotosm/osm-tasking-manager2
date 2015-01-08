@@ -116,3 +116,10 @@ ${message | n}
 % endif
   </body>
 </html>
+<script>
+  var converter = new Showdown.converter();
+  $("[showdown]").each(function(){
+    $(this).html( converter.makeHtml($(this).text()) );
+  });
+</script>
+

@@ -10,9 +10,7 @@
             <ul>
             % for license in licenses:
             <li><h4>${license.name}</h4>
-                <div class="help-inline">
-                  ${license.plain_text}
-                </div>
+                <div class="help-inline" showdown>${license.plain_text}</div>
                 <a href="${request.route_path('license_edit', license=license.id)}" class="btn pull-right">${_('edit')}</a><br />
                 </li>
             % endfor

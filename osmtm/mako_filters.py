@@ -1,5 +1,7 @@
 ''' Should move to javascript showdown/markdown extension ??
 '''
+import re
+
 from .models import (
     DBSession,
     User,
