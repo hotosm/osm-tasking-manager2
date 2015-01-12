@@ -9,7 +9,7 @@
           title="${_('The list of elements of elements we ask you to map')}">
     </span>
   </dt>
-  <dd>${project.entities_to_map}</dd>
+  <dd showdown>${project.entities_to_map}</dd>
   % endif
   % if project.changeset_comment:
   <dt>
