@@ -69,6 +69,13 @@ from osmtm.mako_filters import (
 
     <p class="text-muted">
       <em title="${step.date}Z" class="timeago"></em>
+    % if section != 'project' and isinstance(step, TaskLock) and not step.lock:
+        % for ids in history:
+            % if ids.id == step.id-1:
+                <em>${_('for duration')}: ${str(step.date - ids.date)[:-7]}</em>
+            % endif
+        % endfor
+    % endif
     </p>
     </div>
 % endfor
