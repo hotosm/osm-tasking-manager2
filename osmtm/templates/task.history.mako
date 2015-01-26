@@ -71,8 +71,25 @@ from osmtm.mako_filters import (
       <em title="${step.date}Z" class="timeago"></em>
     % if section != 'project' and isinstance(step, TaskLock) and not step.lock:
         % for ids in history:
-            % if ids.id == step.id-1:
-                <em>${_('for duration')}: ${str(step.date - ids.date)[:-7]}</em>
+            % if ids.id == step.id-1 and isinstance(ids, TaskLock):
+                <%
+                timediff = step.date - ids.date
+                hrtime, remainder = divmod(timediff.seconds, 3600)
+                mntime = divmod(remainder, 60)[0]
+                %>
+                <em title=${timediff}>${_('after')}
+                    % if hrtime > 1:
+                       ${hrtime} ${_('hours')}</em>
+                    % elif (hrtime == 1 and mntime == 59):
+                        2 ${_('hours')}</em>
+                    % elif hrtime == 1:
+                        ${hrtime} ${_('hour')}, ${mntime} ${_('minutes')}</em>
+                    % elif mntime > 1:
+                        ${mntime} ${_('minutes')}</em>
+                    % else:
+                        ${_('about a minute')}</em>
+                    % endif
+                <% break %>
             % endif
         % endfor
     % endif
