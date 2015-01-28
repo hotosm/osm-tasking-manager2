@@ -10,6 +10,16 @@ from osmtm.mako_filters import (
     markdown_filter,
 )
 %>
+<%
+matchidlist = []
+timelist = {}
+
+for idl in history:
+    for index, step in enumerate(history):
+        if isinstance(step, TaskLock) and step.id+1 == idl.id:
+            matchidlist.append(step.id)
+            timelist[step.id] = (idl.date - step.date)
+%>
 <%page args="section='task'"/>
 % for index, step in enumerate(history):
     <%
@@ -30,8 +40,8 @@ from osmtm.mako_filters import (
       user_link = 'unknown'
     %>
 
-    <div class="history ${first} ${last}">
     % if section == 'project':
+      <div class="history ${first} ${last}">
       % if isinstance(step, TaskState):
         % if step.state == step.state_done:
           <span><i class="glyphicon glyphicon-ok text-success"></i> 
@@ -44,8 +54,14 @@ from osmtm.mako_filters import (
           ${_('${user} <b>validated</b> ${tasklink}', mapping={'user':user_link, 'tasklink':task_link}) | n}</span>
         % endif
       % endif
+      <p class="text-muted">
+      <em title="${step.date}Z" class="timeago"></em>
+      </p>
+      </div>
     % else:
+      <% first = "first" if (index == 0 or index == 1) else "" %>
       % if isinstance(step, TaskState):
+        <div class="history ${first} ${last}">
         % if step.state == step.state_done:
           <span><i class="glyphicon glyphicon-ok text-success"></i> <b>${_('Marked as done')}</b> ${_('by')} ${user_link | n}</span>
         % elif step.state == step.state_invalidated:
@@ -54,23 +70,45 @@ from osmtm.mako_filters import (
           <span><i class="glyphicon glyphicon-thumbs-up text-success"></i> <b>${_('Validated')}</b> ${_('by')} ${user_link | n}</span>
         % endif
       % elif isinstance(step, TaskLock):
-        % if step.lock:
-          <span><i class="glyphicon glyphicon-lock text-muted"></i> ${_('Locked')} ${_('by')} ${user_link | n}</span>
-        % else:
-          <span>${_('Unlocked')}</span>
+        % if step.id in matchidlist and step.lock:
+          <div class="history ${first} ${last}">
+          <span>${_('Was locked')} ${_('by')} ${user_link | n}</span>
+          <%
+          hrtime, remainder = divmod(timelist[step.id].seconds, 3600)
+          mntime = divmod(remainder, 60)[0]
+          %>
+        % elif step.id not in matchidlist and step.lock:
+          <div class="history ${first} ${last}">
+          <span><i class="glyphicon glyphicon-lock text-muted"></i> ${_('Currently locked')} ${_('by')} ${user_link | n}</span>
         % endif
       % elif isinstance(step, TaskComment):
+        <div class="history ${first} ${last}">
         <span><i class="glyphicon glyphicon-comment text-muted"></i> ${_('Comment left')} ${_('by')} ${user_link | n}</span>
         <blockquote>
           ${step.comment | convert_mentions(request), markdown_filter, n}
         </blockquote>
       % endif
+      % if not isinstance(step, TaskLock) or step.lock:
+        <p class="text-muted">
+        <em title="${step.date}Z" class="timeago"></em>
+        % if step.id in matchidlist:
+          <em title=${timelist[step.id]}>${_('for')}
+          % if hrtime > 1:
+             ${hrtime} ${_('hours')}</em>
+          % elif (hrtime == 1 and mntime == 59):
+             2 ${_('hours')}</em>
+          % elif hrtime == 1:
+             ${hrtime} ${_('hour')}, ${mntime} ${_('minutes')}</em>
+          % elif mntime > 1:
+             ${mntime} ${_('minutes')}</em>
+          % else:
+             ${_('about a minute')}</em>
+          % endif
+        % endif
+        </p>
+        </div>
+      % endif
     % endif
-
-    <p class="text-muted">
-      <em title="${step.date}Z" class="timeago"></em>
-    </p>
-    </div>
 % endfor
 
 % if len(history) == 0:
