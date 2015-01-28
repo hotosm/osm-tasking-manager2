@@ -11,14 +11,15 @@ from osmtm.mako_filters import (
 )
 %>
 <%
-matchidlist = []
-timelist = {}
+if section != 'project':
+	matchidlist = []
+	timelist = {}
 
-for idl in history:
-    for index, step in enumerate(history):
-        if isinstance(step, TaskLock) and step.id+1 == idl.id:
-            matchidlist.append(step.id)
-            timelist[step.id] = (idl.date - step.date)
+	for idl in history:
+	    for index, step in enumerate(history):
+		if isinstance(step, TaskLock) and step.id+1 == idl.id:
+		    matchidlist.append(step.id)
+		    timelist[step.id] = (idl.date - step.date)
 %>
 <%page args="section='task'"/>
 % for index, step in enumerate(history):
@@ -72,7 +73,7 @@ for idl in history:
       % elif isinstance(step, TaskLock):
         % if step.id in matchidlist and step.lock:
           <div class="history ${first} ${last}">
-          <span>${_('Was locked')} ${_('by')} ${user_link | n}</span>
+          <span>${_('Previously locked')} ${_('by')} ${user_link | n}</span>
           <%
           hrtime, remainder = divmod(timelist[step.id].seconds, 3600)
           mntime = divmod(remainder, 60)[0]
@@ -83,7 +84,7 @@ for idl in history:
         % endif
       % elif isinstance(step, TaskComment):
         <div class="history ${first} ${last}">
-        <span><i class="glyphicon glyphicon-comment text-muted"></i> ${_('Comment left')} ${_('by')} ${user_link | n}</span>
+        <span><i class="glyphicon glyphicon-comment text-muted"></i> ${_('Comment')} ${_('by')} ${user_link | n}</span>
         <blockquote>
           ${step.comment | convert_mentions(request), markdown_filter, n}
         </blockquote>
