@@ -42,15 +42,6 @@
       </p>
     </div>
     <div class="col-md-5">
-      <h3>${_('Getting Started')}</h3>
-      <p>
-        ${_('Some resources to help you start using the Tasking Manager:')}
-        <ul>
-          <li><a href="http://wiki.openstreetmap.org/wiki/OSM_Tasking_Manager">OSM Wiki</a></li>
-          <li><a href="http://learnosm.org/en/coordination/tasking-manager/">LearnOSM</a></li>
-          <li><a href="http://mapgive.state.gov/">MapGive</a></li>
-        </ul>
-      </p>
       <h3>Open Source</h3>
       <p>
       ${_('OSM Tasking Manager is an open source software.<br>Feel free to report issues and contribute.') | n}
