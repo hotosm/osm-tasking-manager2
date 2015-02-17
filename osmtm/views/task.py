@@ -30,7 +30,6 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy.sql.expression import (
     not_,
     and_,
-    func,
 )
 
 from pyramid.security import authenticated_userid
@@ -63,9 +62,9 @@ def __get_user(request, allow_none=False):
 
 
 def __get_task(request, lock_for_update=False):
-    check_task_expiration()
     task_id = request.matchdict['task']
     project_id = request.matchdict['project']
+    check_task_expiration(project_id)
     filter = and_(Task.project_id == project_id, Task.id == task_id)
     query = DBSession.query(Task) \
                      .options(joinedload(Task.cur_lock)) \
@@ -515,23 +514,13 @@ def task_difficulty_delete(request):
 
 
 # unlock any expired task
-def check_task_expiration():  # pragma: no cover
-    subquery = DBSession.query(
-        TaskLock,
-        func.rank().over(
-            partition_by=(TaskLock.task_id, TaskLock.project_id),
-            order_by=TaskLock.date.desc()
-        ).label("rank")
-    ).subquery()
+def check_task_expiration(project_id):  # pragma: no cover
 
-    query = DBSession.query(
-        TaskLock
-    ).select_entity_from(subquery) \
-     .filter(subquery.c.rank == 1, subquery.c.lock.is_(True))
+    query = DBSession.query(Task).options(joinedload(Task.cur_lock)) \
+        .filter(and_(Task.cur_lock.has(lock=True),
+                     Task.project_id == project_id))
 
-    for lock in query:
-        if lock.date < datetime.datetime.utcnow() - EXPIRATION_DELTA:
-            new_lock = TaskLock()
-            new_lock.task_id = lock.task_id
-            new_lock.project_id = lock.project_id
-            DBSession.add(new_lock)
+    for task in query:
+        if task.cur_lock.date < datetime.datetime.utcnow() - EXPIRATION_DELTA:
+            task.locks.append(TaskLock())
+            DBSession.add(task)
