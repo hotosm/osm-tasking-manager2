@@ -581,7 +581,7 @@ class Project(Base, Translatable):
         properties['status'] = self.status
         properties['created'] = self.created.strftime('%FT%TZ')
         if self.author:
-          properties['author'] = self.author.username
+            properties['author'] = self.author.username
         properties['last_update'] = self.last_update.strftime('%FT%TZ')
         properties['license'] = self.license_id
         properties['priority'] = self.priority
