@@ -1,7 +1,3 @@
-<%
-import bleach
-import markdown
-%>
 <dl>
   % if project.entities_to_map:
   <dt>
@@ -13,7 +9,7 @@ import markdown
           title="${_('The list of elements of elements we ask you to map')}">
     </span>
   </dt>
-  <dd>${project.entities_to_map}</dd>
+  <dd showdown>${project.entities_to_map}</dd>
   % endif
   % if project.changeset_comment:
   <dt>
@@ -48,7 +44,7 @@ import markdown
 </p>
 % endif
 <hr />
-<p>${bleach.clean(markdown.markdown(project.instructions), strip=True) |n}</p>
+<p showdown>${project.instructions |n}</p>
 <p class="text-center">
   <a id="start"
      class="btn btn-success btn-lg">

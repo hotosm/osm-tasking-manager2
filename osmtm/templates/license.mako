@@ -11,11 +11,11 @@
 	text = _('Access via this site to imagery identified as <em>"${license_name}"</em> is subject to the following usage terms:', mapping={'license_name': license.name})
 %>
         <h1>${title}</h1>
-        <p>${text|n}</p>
+        <p showdown>${text|n}</p>
         <hr />
-        <p><em>&ldquo;${license.description}&rdquo;</em></p>
+        <p showdown><em>&ldquo;${license.description}&rdquo;</em></p>
         % if license.plain_text != None and license.plain_text != '':
-        ${license.plain_text}
+        <p showdown>${license.plain_text}</p>
         % endif
         <hr />
         <div>

@@ -20,9 +20,7 @@
     ${_('From:')} ${message.from_user.username}<br>
     <em title="${message.date}Z" class="timeago small"></em>
   </p>
-  <p>
-    ${message.message|n}
-  </p>
+  <p showdown>${message.message|n}</p>
 </div>
 <script>$('.timeago').timeago()</script>
 </%block>

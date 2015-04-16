@@ -88,6 +88,10 @@ var imagery_url = "${project.imagery}";
 % endif
 var changeset_comment = "${quote(project.changeset_comment.encode('utf8'), '')}";
 osmtm.project.initAtWho();
+$("[showdown]").each(function(){
+  $(this).html( converter.makeHtml($(this).text()) );
+});
+
 </script>
 
 <%def name="overpassturbo_link(history,task,bounds)" >

@@ -125,3 +125,4 @@ var highPriorityI18n = "${_('High priority')}";
   <script src="${request.static_url('osmtm:static/js/lib/At.js/js/jquery.caret.min.js')}"></script>
   <script src="${request.static_url('osmtm:static/js/lib/At.js/js/jquery.atwho.js')}"></script>
 </%block>
+
