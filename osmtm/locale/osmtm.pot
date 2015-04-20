@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: osmtm 2.9.0\n"
+"Project-Id-Version: osmtm 2.10\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-03-11 12:54+0100\n"
+"POT-Creation-Date: 2015-04-20 09:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,6 +153,10 @@ msgstr ""
 
 #: osmtm/templates/home.mako:13
 msgid "Last update"
+msgstr ""
+
+#: osmtm/templates/home.mako:17 osmtm/templates/user.mako:70
+msgid "Projects"
 msgstr ""
 
 #: osmtm/templates/home.mako:43
@@ -578,7 +582,7 @@ msgstr ""
 msgid "Please login first"
 msgstr ""
 
-#: osmtm/templates/project.mako:113 osmtm/templates/project.new.mako:31
+#: osmtm/templates/project.mako:113 osmtm/templates/project.new.mako:33
 msgid "Map data © ${osm_link} contributors"
 msgstr ""
 
@@ -617,113 +621,113 @@ msgstr ""
 msgid "Project New"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:25
+#: osmtm/templates/project.new.mako:27
 msgid "Draw the area of interest"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:26
+#: osmtm/templates/project.new.mako:28
 msgid "Dropped file could not be loaded"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:27
+#: osmtm/templates/project.new.mako:29
 msgid "Dropped file was unreadable"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:28
+#: osmtm/templates/project.new.mako:30
 msgid "Please provide a .geojson or a .kml file"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:42 osmtm/templates/project.new.mako:82
-#: osmtm/templates/project.new.mako:131 osmtm/templates/project.new.mako:174
+#: osmtm/templates/project.new.mako:44 osmtm/templates/project.new.mako:84
+#: osmtm/templates/project.new.mako:133 osmtm/templates/project.new.mako:176
 msgid "Step ${number}"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:47
+#: osmtm/templates/project.new.mako:49
 msgid "Draw"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:48
+#: osmtm/templates/project.new.mako:50
 msgid "${draw_link} the area of interest on the map."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:53 osmtm/templates/task.empty.mako:21
+#: osmtm/templates/project.new.mako:55 osmtm/templates/task.empty.mako:21
 msgid "or"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:60
+#: osmtm/templates/project.new.mako:62
 msgid "Provide a .geojson or .kml file."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:60
+#: osmtm/templates/project.new.mako:62
 msgid "Import"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:61
+#: osmtm/templates/project.new.mako:63
 msgid "${import_link} a <em>GeoJSON</em> or <em>KML</em> file."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:66
+#: osmtm/templates/project.new.mako:68
 msgid "Want to use an <em>.osm</em> file instead?"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:69
+#: osmtm/templates/project.new.mako:71
 msgid "You can use ${geojson_link} to convert it to <em>GeoJSON</em>."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:83
+#: osmtm/templates/project.new.mako:85
 msgid "${step_number}  - Type of project"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:90
+#: osmtm/templates/project.new.mako:92
 msgid "Square Grid"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:94
+#: osmtm/templates/project.new.mako:96
 msgid "Area of interest is automatically split into grid cells. Each one is a task."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:101
+#: osmtm/templates/project.new.mako:103
 msgid "You cannot select this option unless you import a file with polygons."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:104
+#: osmtm/templates/project.new.mako:106
 msgid "Arbitrary Geometries"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:108
+#: osmtm/templates/project.new.mako:110
 msgid "Each polygon represents a task."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:117 osmtm/templates/project.new.mako:154
-#: osmtm/templates/project.new.mako:184
+#: osmtm/templates/project.new.mako:119 osmtm/templates/project.new.mako:156
+#: osmtm/templates/project.new.mako:186
 msgid "Back"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:119
+#: osmtm/templates/project.new.mako:121
 msgid "Next"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:135
+#: osmtm/templates/project.new.mako:137
 msgid "Tile size"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:143
+#: osmtm/templates/project.new.mako:145
 msgid "Computing..."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:147 osmtm/templates/project.new.mako:178
+#: osmtm/templates/project.new.mako:149 osmtm/templates/project.new.mako:180
 msgid "A new project will be created with ${number} tasks."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:156 osmtm/templates/project.new.mako:186
+#: osmtm/templates/project.new.mako:158 osmtm/templates/project.new.mako:188
 msgid "Create project"
 msgstr ""
 
-#: osmtm/templates/project.new.mako:162
+#: osmtm/templates/project.new.mako:164
 msgid "Creating tiles, please wait..."
 msgstr ""
 
-#: osmtm/templates/project.new.mako:191
+#: osmtm/templates/project.new.mako:193
 msgid "Creating project, please wait..."
 msgstr ""
 
@@ -1008,10 +1012,6 @@ msgstr ""
 msgid "Set as project manager"
 msgstr ""
 
-#: osmtm/templates/user.mako:70
-msgid "Projects"
-msgstr ""
-
 #: osmtm/templates/user.mako:72
 msgid "This user contributed to the following projects:"
 msgstr ""
@@ -1093,20 +1093,20 @@ msgstr ""
 msgid "Sorry, this project doesn't  exist"
 msgstr ""
 
-#: osmtm/views/project.py:148 osmtm/views/project.py:192
+#: osmtm/views/project.py:141 osmtm/views/project.py:185
 msgid "Untitled project"
 msgstr ""
 
-#: osmtm/views/project.py:171
+#: osmtm/views/project.py:164
 msgid "Project #${project_id} created successfully"
 msgstr ""
 
-#: osmtm/views/project.py:177 osmtm/views/project.py:202
+#: osmtm/views/project.py:170 osmtm/views/project.py:195
 #, python-format
 msgid "Sorry, could not create the project. <br />%s"
 msgstr ""
 
-#: osmtm/views/project.py:196
+#: osmtm/views/project.py:189
 msgid "Successfully imported ${n} geometries"
 msgstr ""
 
