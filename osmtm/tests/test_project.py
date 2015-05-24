@@ -16,6 +16,7 @@ class TestProjectFunctional(BaseTestCase):
         project = Project(u'test project')
         project.area = area
         project.auto_fill(12)
+        project.status = project.status_published
 
         DBSession.add(project)
         DBSession.flush()
