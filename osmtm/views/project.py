@@ -74,7 +74,7 @@ def project(request):
         user = DBSession.query(User).get(user_id)
 
     if project is None or project.status == project.status_draft and \
-        (user is None or not (user.is_admin or user.is_project_manager)):
+            (user is None or not (user.is_admin or user.is_project_manager)):
         _ = request.translate
         request.session.flash(_("Sorry, this project doesn't  exist"))
         return HTTPFound(location=route_path('home', request))
