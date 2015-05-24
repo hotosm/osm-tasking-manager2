@@ -93,7 +93,6 @@ def project(request):
     if user_id:
         locked_task = get_locked_task(project.id, user)
 
-
     features = []
     for area in project.priority_areas:
         features.append(Feature(geometry=shape.to_shape(area.geometry)))
