@@ -68,7 +68,13 @@ def project(request):
     id = request.matchdict['project']
     project = DBSession.query(Project).get(id)
 
-    if project is None:
+    user_id = authenticated_userid(request)
+    user = None
+    if user_id:
+        user = DBSession.query(User).get(user_id)
+
+    if project is None or project.status == project.status_draft and \
+            (user is None or not (user.is_admin or user.is_project_manager)):
         _ = request.translate
         request.session.flash(_("Sorry, this project doesn't  exist"))
         return HTTPFound(location=route_path('home', request))
@@ -83,11 +89,8 @@ def project(request):
                        .order_by(TaskState.date.desc()) \
                        .limit(20).all()
 
-    user_id = authenticated_userid(request)
     locked_task = None
-    user = None
     if user_id:
-        user = DBSession.query(User).get(user_id)
         locked_task = get_locked_task(project.id, user)
 
     features = []
