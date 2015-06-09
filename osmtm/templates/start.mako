@@ -14,13 +14,10 @@ login_url= request.route_path('login', _query=[('came_from', request.url)])
     </h2>
     <div>
       <p>
-        ${_('You\'re ready to use the Tasking Manager.')}
+        ${_('You\'re ready to use the Tasking Manager.')} ${_('Since you are the first user you\'ll be given admin rights.')}
       </p>
       <p>
-        ${_('Please')} <a href="${login_url}">${_('login')}</a>
-      </p>
-      <p>
-        ${_('Since you are the first user you\'ll be given admin rights.')}
+        <a class="btn btn-default" href="${login_url}">${_('Please login')}</a>
       </p>
     </div>
   </div>
