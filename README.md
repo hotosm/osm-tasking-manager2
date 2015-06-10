@@ -195,6 +195,7 @@ In general managing translation files involves:
   * if the catalogue is already created use: `python setup.py update_catalog`
 * eventually compile messages: `python setup.py compile_catalog`
 * append new language to the `available_languages` configuration variable in *production.ini* file, for example `available_languages = en fr`
+* append full name of the new language (native name) to the `available_languages_full` configuration variable in *production.ini* file, for example `available_languages_full = English, Français`. Make sure that elements are __comma__ separated!
 
 ### Using Transifex service
 
