@@ -194,7 +194,9 @@ In general managing translation files involves:
 * initialize a message catalogue file (english): `python setup.py init_catalog -l en`
   * if the catalogue is already created use: `python setup.py update_catalog`
 * eventually compile messages: `python setup.py compile_catalog`
-* append new language to the `available_languages` configuration variable in *production.ini* file, for example `available_languages = en fr`
+* append new language to the `available_languages` configuration variable in *production.ini* file, for example `available_languages = en fr`. Elements are separated with a __space__!
+* append full name of the new language (native name) to the `available_languages_full` configuration variable in *production.ini* file, for example `available_languages_full = English, Français`. Make sure that elements are __comma__ separated!
+* open Flag Sprites web page [http://www.flag-sprites.com]() and under _CSS Code_ locate `.flag` line that corresponds to the newly added language. Copy that line to the `osmtm/static/css/flags.css` file and change suffix to the short code if neccesary (eg. `.flag.flag-jp` to `.flag.flag-ja` for Japanese language because `development.ini` file uses __ja__ code instead of __jp__ code)
 
 ### Using Transifex service
 
