@@ -64,7 +64,7 @@
       from gitversion import determine_git_version
       
       try:
-      	  ver = determine_git_version('.')
+          ver = determine_git_version('.')
           url = 'https://github.com/hotosm/osm-tasking-manager2/commit/' + ver.rsplit('.',1)[1]
           txt = '<a href="%s">%s</a>' % (url, ver)
       except:
