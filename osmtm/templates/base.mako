@@ -39,6 +39,43 @@ comments = []
 
   </head>
   <body id="${page_id}">
+
+    <!-- Remove ribbon css and element for final prod version -->
+    <style>
+      /* The ribbons */
+      .corner-ribbon {
+        z-index: 1031;
+        width: 210px;
+        background: #e43;
+        position: absolute;
+        top: 30px;
+        left: -50px;
+        text-align: center;
+        line-height: 40px;
+        letter-spacing: 1px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        cursor: default;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+      .corner-ribbon a {
+        color: #f0f0f0;
+      }
+      /* Custom styles */
+      .corner-ribbon.sticky {
+        position: fixed;
+      }
+      .corner-ribbon.shadow {
+        box-shadow: 0 0 3px rgba(0,0,0,.3);
+      }
+      /* Colors */
+      .corner-ribbon.orange {
+        background: #e82;
+      }
+    </style>
+
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -124,5 +161,8 @@ ${message | n}
       </div>
     </footer>
 % endif
+    <div class="corner-ribbon top-left sticky orange shadow ">
+      <a href="http://donate.hotosm.org">Please donate!</a>
+    </div>
   </body>
 </html>
