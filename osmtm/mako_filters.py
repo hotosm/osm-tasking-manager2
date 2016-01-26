@@ -27,7 +27,6 @@ p = re.compile(ur'(@\d+)')
 def convert_mentions(request):
     ''' Mako filter to convert any @id mention to link to user profile
     '''
-
     def d(text):
         def repl(val):
             user_id = val.group()[1:]
