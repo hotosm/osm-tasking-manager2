@@ -1028,7 +1028,7 @@ msgstr "Mit dem Mappen beginnen"
 msgid ""
 "Lock this task to tell others that you are currently reviewing it. Validate "
 "that this task has been mapped correctly and completely."
-msgstr "Sperre diese Aufgabe um anderen mitzuteilen, dass du sie gerade überprüfst. Unersuche, dass diese Aufgabe korrekt und vollständig kartographiert wurde."
+msgstr "Sperre diese Aufgabe, um anderen mitzuteilen, dass du sie gerade überprüfst. Untersuche, dass diese Aufgabe korrekt und vollständig kartographiert wurde."
 
 #: osmtm/templates/task.unlocked.mako:26
 msgid "Review the work"
@@ -1048,11 +1048,11 @@ msgstr "Das bist <b>Du</b>!"
 
 #: osmtm/templates/user.mako:28
 msgid "OSM User Profile"
-msgstr "OSM Benutzer Profil"
+msgstr "OSM Benutzer-Profil"
 
 #: osmtm/templates/user.mako:29
 msgid "OSM Profile"
-msgstr "OSM Profil"
+msgstr "OSM-Profil"
 
 #: osmtm/templates/user.mako:35
 msgid "This user joined OSM "
