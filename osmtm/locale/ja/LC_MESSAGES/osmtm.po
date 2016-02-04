@@ -120,12 +120,6 @@ msgid "New to Mapping?"
 msgstr "マッピングははじめてですか？"
 
 #: osmtm/templates/custom.mako:7
-#, fuzzy
-#| msgid "" "Just jump over to <a target=\"_blank\" "
-#| "href=\"http//www.openstreetmap.org\">OpenStreetMap</a>, create an "
-#| "account, and then visit <a target=\"_blank\" "
-#| "href=\"http://learnosm.org/en/beginner/id-editor\">this tutorial</a>. "
-#| "Then come back here to help map for people on the ground!"
 msgid ""
 "Just jump over to <a target=\"_blank\" "
 "href=\"http://www.openstreetmap.org\">OpenStreetMap</a>, create an "
@@ -642,10 +636,6 @@ msgid ""
 msgstr "デフォルトのコメントは、OSMデータベースにデータをアップロードする際に入力されます。自身が変更した内容を、コメント欄に追記するようにしてください。"
 
 #: osmtm/templates/project.instructions.mako:31
-#, fuzzy
-#| msgid "" "When saving your work, pleaes leave the default comment but add
-#| what you " "actually mapped, for example \"added buildings and a residential
-#| road\"."
 msgid ""
 "When saving your work, please leave the default comment but add what you "
 "actually mapped, for example \"added buildings and a residential road\"."
