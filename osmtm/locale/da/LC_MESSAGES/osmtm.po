@@ -1,40 +1,49 @@
-# English translations for osmtm.
-# Copyright (C) 2015 ORGANIZATION
+# Danish translations for osmtm.
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the osmtm project.
-# 
-# Translators:
-# Neogeografen <soren.johannessen@gmail.com>, 2014-2015
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: osm-tasking-manager2\n"
+"Project-Id-Version:  osm-tasking-manager2\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-07 11:16+0100\n"
+"POT-Creation-Date: 2016-02-04 19:58+0100\n"
 "PO-Revision-Date: 2015-12-08 12:17+0000\n"
 "Last-Translator: Neogeografen <soren.johannessen@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.com/hotosm/osm-tasking-manager2/language/da/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
 "Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: Danish (http://www.transifex.com/hotosm/osm-tasking-"
+"manager2/language/da/)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
 
-#: osmtm/templates/about.mako:10 osmtm/templates/base.mako:121
+#: osmtm/templates/about.mako:10 osmtm/templates/base.mako:123
 #: osmtm/templates/home.mako:93
 msgid "About the Tasking Manager"
 msgstr "Om Tasking Manager"
 
-#: osmtm/templates/about.mako:12
+#: osmtm/templates/about.mako:12 osmtm/templates/home.mako:95
 msgid ""
 "OSM Tasking Manager is a mapping tool designed and built for the "
-"Humanitarian OSM Team collaborative mapping. The purpose of the tool is to "
-"divide up a mapping job into smaller tasks that can be completed rapidly. It"
-" shows which areas need to be mapped and which areas need the mapping "
-"validated. <br />This approach facilitates the distribution of tasks to the "
-"various mappers in a context of emergency. It also permits to control the "
-"progress and the homogeneity of the work done (ie. Elements to cover, "
-"specific tags to use, etc.)."
-msgstr "OSM Tasking Manager er et kortlægningsværktøj der er designet og bygget til Humanitarian OSM for at understøtte samarbejde. Formålet med værktøjet er at opdele en større kortlægning hurtigt ud i mindre opgaver. Værktøjet viser hvilke områder der skal kortlægges og hvilke områder der skal valideres.<br/>Denne arbejdsdeling i tilfælde af krisesituationer gør distribution af opgaver til forskellige kortlæggere meget lettere. Det tillader også kontrol over processen og giver en vis standardisering af arbejdsopgaverne. (fx hvilke objekter der skal kortlægges, bestemte tags der skal benyttes osv)."
+"Humanitarian OSM Team collaborative mapping. The purpose of the tool is "
+"to divide up a mapping job into smaller tasks that can be completed "
+"rapidly. It shows which areas need to be mapped and which areas need the "
+"mapping validated. <br />This approach facilitates the distribution of "
+"tasks to the various mappers in a context of emergency. It also permits "
+"to control the progress and the homogeneity of the work done (ie. "
+"Elements to cover, specific tags to use, etc.)."
+msgstr ""
+"OSM Tasking Manager er et kortlægningsværktøj der er designet og bygget "
+"til Humanitarian OSM for at understøtte samarbejde. Formålet med "
+"værktøjet er at opdele en større kortlægning hurtigt ud i mindre opgaver."
+" Værktøjet viser hvilke områder der skal kortlægges og hvilke områder der"
+" skal valideres.<br/>Denne arbejdsdeling i tilfælde af krisesituationer "
+"gør distribution af opgaver til forskellige kortlæggere meget lettere. "
+"Det tillader også kontrol over processen og giver en vis standardisering "
+"af arbejdsopgaverne. (fx hvilke objekter der skal kortlægges, bestemte "
+"tags der skal benyttes osv)."
 
 #: osmtm/templates/about.mako:14
 msgid "Sponsorship and Funding"
@@ -43,8 +52,12 @@ msgstr "Sponsorer og finansiering"
 #: osmtm/templates/about.mako:15
 msgid ""
 "OSM Tasking Manager was designed and built for the <a "
-"href=\"http://hot.openstreetmap.org\">Humanitarian OpenStreetMap Team</a>."
-msgstr "OSM Tasking Manager er udviklet og bygget til brug for <a href=\"http://hot.openstreetmap.org\">Humanitarian OpenStreetMap Team</a>."
+"href=\"http://hot.openstreetmap.org\">Humanitarian OpenStreetMap "
+"Team</a>."
+msgstr ""
+"OSM Tasking Manager er udviklet og bygget til brug for <a "
+"href=\"http://hot.openstreetmap.org\">Humanitarian OpenStreetMap "
+"Team</a>."
 
 #: osmtm/templates/about.mako:17
 msgid "With the invaluable help from:"
@@ -66,39 +79,47 @@ msgstr "Open source"
 msgid ""
 "OSM Tasking Manager is an open source software.<br>Feel free to report "
 "issues and contribute."
-msgstr "OSM Tasking Manager er open source software.<br>Finder du fejl er du velkommen til at bidrage med dette."
+msgstr ""
+"OSM Tasking Manager er open source software.<br>Finder du fejl er du "
+"velkommen til at bidrage med dette."
 
 #: osmtm/templates/about.mako:58
 msgid ""
-"The <a href=\"http://github.com/hotosm/osm-tasking-manager2\">application "
-"code</a> is available on github"
-msgstr "Softwaren og <a href=\"http://github.com/hotosm/osm-tasking-manager2\">kode</a> er tilgængelig på GitHub"
+"The <a href=\"http://github.com/hotosm/osm-tasking-manager2\">application"
+" code</a> is available on github"
+msgstr ""
+"Softwaren og <a href=\"http://github.com/hotosm/osm-tasking-"
+"manager2\">kode</a> er tilgængelig på GitHub"
 
 #: osmtm/templates/about.mako:60
 msgid ""
 "Lead developer: Pierre GIRAUD (<a "
 "href=\"//www.camptocamp.com\">Camptocamp</a>)"
-msgstr "Udviklerleder Pierre GIRAUD (<a href=\"//www.camptocamp.com\">Camptocamp</a>)"
+msgstr ""
+"Udviklerleder Pierre GIRAUD (<a "
+"href=\"//www.camptocamp.com\">Camptocamp</a>)"
 
 #: osmtm/templates/about.mako:61
 msgid ""
 "with the help of <a href=\"https://github.com/hotosm/osm-tasking-"
 "manager2/graphs/contributors\">other contributors</a>."
-msgstr "med hjælp af <a href=\"https://github.com/hotosm/osm-tasking-manager2/graphs/contributors\">følgende andre bidragsydere</a>."
+msgstr ""
+"med hjælp af <a href=\"https://github.com/hotosm/osm-tasking-"
+"manager2/graphs/contributors\">følgende andre bidragsydere</a>."
 
 #: osmtm/templates/about.mako:70
 msgid "Version"
 msgstr "Version"
 
-#: osmtm/templates/base.mako:51
+#: osmtm/templates/base.mako:53
 msgid "About"
 msgstr "Om"
 
-#: osmtm/templates/base.mako:63
+#: osmtm/templates/base.mako:65
 msgid "login to OpenStreetMap"
 msgstr "login til OpenStreetMap"
 
-#: osmtm/templates/base.mako:115
+#: osmtm/templates/base.mako:117
 msgid "Fork the code on ${github_link}."
 msgstr "Hent koden på  ${github_link}."
 
@@ -107,13 +128,24 @@ msgid "New to Mapping?"
 msgstr "Ny vedr. kortlægning?"
 
 #: osmtm/templates/custom.mako:7
+#, fuzzy
+#| msgid "" "Just jump over to <a target=\"_blank\" "
+#| "href=\"http//www.openstreetmap.org\">OpenStreetMap</a>, create an "
+#| "account, and then visit <a target=\"_blank\" "
+#| "href=\"http://learnosm.org/en/beginner/id-editor\">this tutorial</a>. "
+#| "Then come back here to help map for people on the ground!"
 msgid ""
 "Just jump over to <a target=\"_blank\" "
-"href=\"http//www.openstreetmap.org\">OpenStreetMap</a>, create an account, "
-"and then visit <a target=\"_blank\" href=\"http://learnosm.org/en/beginner"
-"/id-editor\">this tutorial</a>. Then come back here to help map for people "
-"on the ground!"
-msgstr "Hop over til <a target=\"_blank\" href=\"http//www.openstreetmap.org\">OpenStreetMap</a> og opret en konto og dernæst besøg <a target=\"_blank\" href=\"http://learnosm.org/en/beginner/id-editor\">denne begynderguide</a>.  Kom så tilbage hertil igen og hjælp med at kortlægge."
+"href=\"http://www.openstreetmap.org\">OpenStreetMap</a>, create an "
+"account, and then visit <a target=\"_blank\" "
+"href=\"http://learnosm.org/en/beginner/id-editor\">this tutorial</a>. "
+"Then come back here to help map for people on the ground!"
+msgstr ""
+"Hop over til <a target=\"_blank\" "
+"href=\"http//www.openstreetmap.org\">OpenStreetMap</a> og opret en konto "
+"og dernæst besøg <a target=\"_blank\" "
+"href=\"http://learnosm.org/en/beginner/id-editor\">denne "
+"begynderguide</a>.  Kom så tilbage hertil igen og hjælp med at kortlægge."
 
 #: osmtm/templates/custom.mako:11
 msgid "Questions About Tasks, Mapping or HOT?"
@@ -123,12 +155,21 @@ msgstr "Spørgsmål om opgaver, kortlægnng eller HOT?"
 msgid ""
 "If you have any questions about a project, a task or mapping in general "
 "please ask on our mailing list: <a "
-"href=\"https://lists.openstreetmap.org/listinfo/hot\">HOT E-Mail List</a><br"
-" /><br />Or visit us in our IRC Chat Channel, just select #hot from the pop "
-"down channel list:<br /><a href=\"http://irc.openstreetmap.org/\">OSM HOT "
-"IRC Channel #hot</a><br /><br />General inquries and comments are welcomed "
-"at: <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
-msgstr "Hvis du har nogen spørgsmål om et projekt, en opgave eller kortlægning generelt, så stil dette på vores mailing-liste: <a href=\"https://lists.openstreetmap.org/listinfo/hot\">HOT E-Mail List</a><br /><br />Eller besøg os på vores IRC Chat kanal, vælg #hot på drop-down menu listen:  <br /><a href=\"http://irc.openstreetmap.org/\">OSM HOT IRC Channel #hot</a><br /><br />Generelle spørgsmål eller kommentarer er velkommen på: <a href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
+"href=\"https://lists.openstreetmap.org/listinfo/hot\">HOT E-Mail "
+"List</a><br /><br />Or visit us in our IRC Chat Channel, just select #hot"
+" from the pop down channel list:<br /><a "
+"href=\"http://irc.openstreetmap.org/\">OSM HOT IRC Channel #hot</a><br "
+"/><br />General inquries and comments are welcomed at: <a "
+"href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
+msgstr ""
+"Hvis du har nogen spørgsmål om et projekt, en opgave eller kortlægning "
+"generelt, så stil dette på vores mailing-liste: <a "
+"href=\"https://lists.openstreetmap.org/listinfo/hot\">HOT E-Mail "
+"List</a><br /><br />Eller besøg os på vores IRC Chat kanal, vælg #hot på "
+"drop-down menu listen:  <br /><a "
+"href=\"http://irc.openstreetmap.org/\">OSM HOT IRC Channel #hot</a><br "
+"/><br />Generelle spørgsmål eller kommentarer er velkommen på: <a "
+"href=\"mailto:info@hotosm.org\" target=\"_top\">info@hotosm.org</a>"
 
 #: osmtm/templates/custom.mako:16
 msgid "Email HOT at"
@@ -145,16 +186,6 @@ msgstr "Lide HOT på"
 #: osmtm/templates/custom.mako:100
 msgid "Please donate!"
 msgstr "Vær venlig at donere!"
-
-#: osmtm/templates/custom.mako:106
-msgid ""
-"Each day, nearly 1000 people use the Tasking Manager, one of several mapping"
-" tools supported by the Humanitarian OpenStreetMap Team (HOT). HOT is a "
-"nonprofit organization that relies entirely on grants and donations from "
-"people like you. We need your help today to meet our goal of raising $50,000"
-" by December 31 so we can all keep mapping. We're counting on your support -"
-" donate now and #mapthedifference!"
-msgstr "Hver dag bruger næsten 1000 frivillige Tasking Manager, et blandt mange kortlægningsværktøjer som støttes af  Humanitarian OpenStreetMap Team (HOT).  HOT er en nonprofit organisation som er afhængig af legater og donationer fra personer som dig. Vi behøver din støtte for at nå målet med at indsamle $50.000 inden 31. december. Vi værdsætter din støtte - donere nu og #mapthedifference !"
 
 #: osmtm/templates/home.mako:9
 msgid "urgent"
@@ -199,18 +230,6 @@ msgstr "Sortér efter:"
 #: osmtm/templates/home.mako:75
 msgid "Your projects"
 msgstr "Dine projekter"
-
-#: osmtm/templates/home.mako:95
-msgid ""
-"OSM Tasking Manager is a mapping tool designed and built for the "
-"Humanitarian OSM Team collaborative mapping. The purpose of the tool is to "
-"divide up a mapping job into smaller tasks that can be completed rapidly. It"
-" shows which areas need to be mapped and which areas need the mapping "
-"validated. <br />This approach facilitates the distribution of tasks to the "
-"various mappers in a context of emergency. It also permits to control the "
-"progress and the homogeinity of the work done (ie. Elements to cover, "
-"specific tags to use, etc.)."
-msgstr "OSM Tasking Manager er et kortlægningsværktøj der er designet og bygget til Humanitarian OSM for at understøtte samarbejde. Formålet med værktøjet er at opdele en større kortlægning hurtigt ud i mindre opgaver. Værktøjet viser hvilke områder der skal kortlægges og hvilke områder der skal valideres.<br/>Denne arbejdsdeling i tilfælde af krisesituationer gør distribution af opgaver til forskellige kortlæggere meget lettere. Det tillader også kontrol over processen og giver en vis standardisering af arbejdsopgaverne. (fx hvilke objekter der skal kortlægges, bestemte tags der skal benyttes osv)"
 
 #: osmtm/templates/home.mako:133
 msgid "${locked} user is currently working on this project"
@@ -321,9 +340,11 @@ msgstr "${license_name}  licens kreditering"
 
 #: osmtm/templates/license.mako:11
 msgid ""
-"Access via this site to imagery identified as <em>\"${license_name}\"</em> "
-"is subject to the following usage terms:"
-msgstr "Adgang til dette steds billedelag er identificeret som  <em>\"${license_name}\"</em> og er under følgende betingelser:"
+"Access via this site to imagery identified as "
+"<em>\"${license_name}\"</em> is subject to the following usage terms:"
+msgstr ""
+"Adgang til dette steds billedelag er identificeret som  "
+"<em>\"${license_name}\"</em> og er under følgende betingelser:"
 
 #: osmtm/templates/license.mako:24 osmtm/views/license.py:41
 msgid "I AGREE"
@@ -382,14 +403,17 @@ msgstr "Er du sikker?"
 
 #: osmtm/templates/project.edit.mako:50
 msgid ""
-"This will mark all tasks currently marked as 'done' as invalid. Please use "
-"this only if you are sure of what you are doing."
-msgstr "Dette vil markere alle jobs som lige er blevet markeret som 'færdig' som ugyldige. Brug kun denne funktion hvis du ved hvad du gør."
+"This will mark all tasks currently marked as 'done' as invalid. Please "
+"use this only if you are sure of what you are doing."
+msgstr ""
+"Dette vil markere alle jobs som lige er blevet markeret som 'færdig' som "
+"ugyldige. Brug kun denne funktion hvis du ved hvad du gør."
 
 #: osmtm/templates/project.edit.mako:53
-msgid ""
-"Please leave a comment. It will be displayed in all the invalidated tasks."
-msgstr "Vær venlig at efterlade en kommentar. Dette vil blive vist i alle ej godkendte jobs."
+msgid "Please leave a comment. It will be displayed in all the invalidated tasks."
+msgstr ""
+"Vær venlig at efterlade en kommentar. Dette vil blive vist i alle ej "
+"godkendte jobs."
 
 #: osmtm/templates/project.edit.mako:56
 msgid "This will be sent as the invalidation comment to users."
@@ -397,7 +421,9 @@ msgstr "Dette vil blive sendt som en ej godkendt kommentar til brugerne."
 
 #: osmtm/templates/project.edit.mako:59
 msgid "Please type in the project number id of the repository to confirm."
-msgstr "Vær venlig at indtaste projekt id nummeret for repository for at bekræftige."
+msgstr ""
+"Vær venlig at indtaste projekt id nummeret for repository for at "
+"bekræftige."
 
 #: osmtm/templates/project.edit.mako:68
 msgid "Invalidate all done tasks"
@@ -474,7 +500,10 @@ msgstr "Changeset kommentar"
 msgid ""
 "Default comments added to uploaded changeset comment field. Users should "
 "also be encouraged add text describing what they mapped."
-msgstr "Standardkommentarer tilføjet når der uploades ændringssæt felt. Bruger anbefales at skrive en tekstbeskrivelse der angiver hvad de konkret har kortlagt."
+msgstr ""
+"Standardkommentarer tilføjet når der uploades ændringssæt felt. Bruger "
+"anbefales at skrive en tekstbeskrivelse der angiver hvad de konkret har "
+"kortlagt."
 
 #: osmtm/templates/project.edit.mako:254
 msgid "Example defaults:"
@@ -484,7 +513,9 @@ msgstr "Standard eksempel:"
 msgid ""
 "Hashtags are sometimes used for analysis later, but should be human "
 "informative and not overused, #group #event for example."
-msgstr "Hashtags er sommetider brugt til analyser, men bør være menneskelige forståelige og ikke brugt for meget, fx #gruppe #begivenhed ."
+msgstr ""
+"Hashtags er sommetider brugt til analyser, men bør være menneskelige "
+"forståelige og ikke brugt for meget, fx #gruppe #begivenhed ."
 
 #: osmtm/templates/project.edit.mako:264
 msgid "Detailed Instructions"
@@ -496,9 +527,13 @@ msgstr "Hver opgave instruktioner (valgfrit)"
 
 #: osmtm/templates/project.edit.mako:282
 msgid ""
-"Put here anything that can be useful to users while taking a task. {x}, {y} "
-"and {z} will be replaced by the corresponding parameters for each task."
-msgstr "Indsæt her alting der kan være relevant for kortlæggerne under en opgave. {x}, {y} og {z} vil blive erstattet af de tilhørende parametre for hver opgave."
+"Put here anything that can be useful to users while taking a task. {x}, "
+"{y} and {z} will be replaced by the corresponding parameters for each "
+"task."
+msgstr ""
+"Indsæt her alting der kan være relevant for kortlæggerne under en opgave."
+" {x}, {y} og {z} vil blive erstattet af de tilhørende parametre for hver "
+"opgave."
 
 #: osmtm/templates/project.edit.mako:283
 msgid "For example:"
@@ -509,7 +544,10 @@ msgid ""
 "\" This task involves loading extra data. Click "
 "[here](http://localhost:8111/import?new_layer=true&url=http://www.domain.com/data/{x}/{y}/{z}/routes_2009.osm)"
 " to load the data into JOSM"
-msgstr "\" Denne opgave indebærer indlæsning af eksterne data. Klik [her](http://localhost:8111/import?new_layer=true&url=http://www.domain.com/data/{x}/{y}/{z}/routes_2009.osm) for at indlæse data ind i JOSM"
+msgstr ""
+"\" Denne opgave indebærer indlæsning af eksterne data. Klik "
+"[her](http://localhost:8111/import?new_layer=true&url=http://www.domain.com/data/{x}/{y}/{z}/routes_2009.osm)"
+" for at indlæse data ind i JOSM"
 
 #: osmtm/templates/project.edit.mako:294
 msgid "Area modifications are not available yet."
@@ -521,9 +559,11 @@ msgstr "${count_of} fokusområde(r)"
 
 #: osmtm/templates/project.edit.mako:306
 msgid ""
-"If you want mappers to work on the highest priority areas first, draw one or"
-" more polygons within the project area."
-msgstr "Hvis du vil have kortlæggere til at arbejde i de mest relvante fokusområder først, så tegn en eller flere polygoner i projektområdet."
+"If you want mappers to work on the highest priority areas first, draw one"
+" or more polygons within the project area."
+msgstr ""
+"Hvis du vil have kortlæggere til at arbejde i de mest relvante "
+"fokusområder først, så tegn en eller flere polygoner i projektområdet."
 
 #: osmtm/templates/project.edit.mako:323
 msgid "URL to service"
@@ -537,7 +577,9 @@ msgstr "Note:"
 msgid ""
 "Follow this format for TMS urls.<br>tms[22]:http://hiu-"
 "maps.net/hot/1.0.0/kathmandu_flipped/{zoom}/{x}/{y}.png"
-msgstr "Brug følgende format for TMS URLer. <br>tms[22]:http://hiu-maps.net/hot/1.0.0/kathmandu_flipped/{zoom}/{x}/{y}.png"
+msgstr ""
+"Brug følgende format for TMS URLer. <br>tms[22]:http://hiu-"
+"maps.net/hot/1.0.0/kathmandu_flipped/{zoom}/{x}/{y}.png"
 
 #: osmtm/templates/project.edit.mako:332
 msgid "Required License"
@@ -549,12 +591,17 @@ msgstr "Privat"
 
 #: osmtm/templates/project.edit.mako:361
 msgid ""
-"Private means that only a given list of users can access this project. In "
-"order for the user's name to be available to add to the Allowed Users - they"
-" first must visit the URL for your instance of OSMTM and Authorize access to"
-" their OpenStreetMap account. After they've done this, their username should"
-" be available for the administrator to add."
-msgstr "Privat betyder at kun folk på en bestemt liste har adgang til projektet. For at tilføje folk på en list med hvem der har adgang - Først skal disse besøge URLen for dit OSMTM og bede om adgang and så skal de give autorisation til deres OpenStreetMap konto. Når dette er gjort, så kan administratorer tilføje dem."
+"Private means that only a given list of users can access this project. In"
+" order for the user's name to be available to add to the Allowed Users - "
+"they first must visit the URL for your instance of OSMTM and Authorize "
+"access to their OpenStreetMap account. After they've done this, their "
+"username should be available for the administrator to add."
+msgstr ""
+"Privat betyder at kun folk på en bestemt liste har adgang til projektet. "
+"For at tilføje folk på en list med hvem der har adgang - Først skal disse"
+" besøge URLen for dit OSMTM og bede om adgang and så skal de give "
+"autorisation til deres OpenStreetMap konto. Når dette er gjort, så kan "
+"administratorer tilføje dem."
 
 #: osmtm/templates/project.edit.mako:366
 msgid "Allowed users"
@@ -596,7 +643,10 @@ msgstr "Ej godkende alle jobs"
 msgid ""
 "Click this button if project instructions have changed, or if for some "
 "reason you need to invalidate all done tasks in a single step."
-msgstr "Klik på denne knap hvis projekt instruktioner er blevet ændret eller hvis du af en eller anden grund er nødt til at ugyldiggøre alle jobs i et trin."
+msgstr ""
+"Klik på denne knap hvis projekt instruktioner er blevet ændret eller hvis"
+" du af en eller anden grund er nødt til at ugyldiggøre alle jobs i et "
+"trin."
 
 #: osmtm/templates/project.edit.mako:446
 msgid "WARNING: This cannot be undone."
@@ -608,7 +658,9 @@ msgstr "Tip:"
 
 #: osmtm/templates/project.edit.mako:456
 msgid "You can use <a href class=\"markdown\">Markdown</a>. (HTML is not allowed)"
-msgstr "Du kan bruge <a href class=\"markdown\">marker ned</a>. (HTML er ikke tilladt)"
+msgstr ""
+"Du kan bruge <a href class=\"markdown\">marker ned</a>. (HTML er ikke "
+"tilladt)"
 
 #: osmtm/templates/project.edit.mako:472
 msgid "Preview"
@@ -620,15 +672,25 @@ msgstr "Liste af elementer vi beder dig om at kortlægge"
 
 #: osmtm/templates/project.instructions.mako:24
 msgid ""
-"The default comment entered when uploading data to the OSM database. Please "
-"add to the default comment a description of what you actually mapped."
-msgstr "Standardkommentaren når du uploader geodata til OSM databasen. Vær venlig at bruge en kommentar der beskriver hvad du har kortlagt."
+"The default comment entered when uploading data to the OSM database. "
+"Please add to the default comment a description of what you actually "
+"mapped."
+msgstr ""
+"Standardkommentaren når du uploader geodata til OSM databasen. Vær venlig"
+" at bruge en kommentar der beskriver hvad du har kortlagt."
 
 #: osmtm/templates/project.instructions.mako:31
+#, fuzzy
+#| msgid "" "When saving your work, pleaes leave the default comment but add
+#| what you " "actually mapped, for example \"added buildings and a residential
+#| road\"."
 msgid ""
-"When saving your work, pleaes leave the default comment but add what you "
+"When saving your work, please leave the default comment but add what you "
 "actually mapped, for example \"added buildings and a residential road\"."
-msgstr "Når du gemmer dit arbejde, så vær venlig at ikke at bruge standardkommentarer, men i stedet for beskrive hvad du konkret har kortlagt fx \"tilføjet bygninger og villavej\""
+msgstr ""
+"Når du gemmer dit arbejde, så vær venlig at ikke at bruge "
+"standardkommentarer, men i stedet for beskrive hvad du konkret har "
+"kortlagt fx \"tilføjet bygninger og villavej\""
 
 #: osmtm/templates/project.instructions.mako:46
 msgid "preset"
@@ -672,9 +734,11 @@ msgstr "der skete en fejl"
 
 #: osmtm/templates/project.mako:107
 msgid ""
-"JOSM remote control did not respond. Do you have JOSM running and configured"
-" to be controlled remotely?"
-msgstr "JOSM remote control svarer ikke. Har du JOSM kørende samt sat den op til at blive kontrolleret fjernstyret?"
+"JOSM remote control did not respond. Do you have JOSM running and "
+"configured to be controlled remotely?"
+msgstr ""
+"JOSM remote control svarer ikke. Har du JOSM kørende samt sat den op til "
+"at blive kontrolleret fjernstyret?"
 
 #: osmtm/templates/project.mako:109
 msgid "Something wrong happened"
@@ -786,12 +850,17 @@ msgstr "Firkantet gitter"
 
 #: osmtm/templates/project.new.mako:96
 msgid ""
-"Area of interest is automatically split into grid cells. Each one is a task."
-msgstr "Fokusområder er automatisk opsplittet i cellegitre. Hver cellegitter er en opgave."
+"Area of interest is automatically split into grid cells. Each one is a "
+"task."
+msgstr ""
+"Fokusområder er automatisk opsplittet i cellegitre. Hver cellegitter er "
+"en opgave."
 
 #: osmtm/templates/project.new.mako:103
 msgid "You cannot select this option unless you import a file with polygons."
-msgstr "Du kan ikke vælge denne her mulighed med mindre du importerer en fil med polygoner."
+msgstr ""
+"Du kan ikke vælge denne her mulighed med mindre du importerer en fil med "
+"polygoner."
 
 #: osmtm/templates/project.new.mako:106
 msgid "Arbitrary Geometries"
@@ -947,9 +1016,11 @@ msgstr ".gpx fil"
 
 #: osmtm/templates/task.editors.mako:30
 msgid ""
-"Tip: Download the following ${task_gpx_link} and load it in JOSM in order to"
-" see the current task boundary"
-msgstr "Tips - Download følgende ${task_gpx_link} og indlæs i JOSM for at se nuværende opgave afgrænsninger"
+"Tip: Download the following ${task_gpx_link} and load it in JOSM in order"
+" to see the current task boundary"
+msgstr ""
+"Tips - Download følgende ${task_gpx_link} og indlæs i JOSM for at se "
+"nuværende opgave afgrænsninger"
 
 #: osmtm/templates/task.empty.mako:15
 msgid "Select a task on the map"
@@ -1009,8 +1080,7 @@ msgstr "Ekstra instruktioner"
 msgid "Locked by ${username}"
 msgstr "Låst af ${username}"
 
-#: osmtm/templates/task.locked.mako:14
-#: osmtm/templates/task.state.ready.mako:15
+#: osmtm/templates/task.locked.mako:14 osmtm/templates/task.state.ready.mako:15
 msgid "Stop mapping"
 msgstr "Stop kortlægning"
 
@@ -1018,7 +1088,9 @@ msgstr "Stop kortlægning"
 msgid ""
 "If you do not complete or release this task in time, it will be "
 "automatically unlocked"
-msgstr "Hvis du ikke når at færdiggøre  eller udgive denne opgave, så vil den automatisk blive låst op"
+msgstr ""
+"Hvis du ikke når at færdiggøre  eller udgive denne opgave, så vil den "
+"automatisk blive låst op"
 
 #: osmtm/templates/task.locked.mako:18
 msgid "min. left"
@@ -1082,7 +1154,9 @@ msgstr "Validere denne opgave hvis du synes at arbejdet er komplet."
 
 #: osmtm/templates/task.state.done.mako:27
 msgid "You cannot validate a task that you have personally marked as done."
-msgstr "Du kan ikke validere et job som du personligt selv har markeret som færdigt."
+msgstr ""
+"Du kan ikke validere et job som du personligt selv har markeret som "
+"færdigt."
 
 #: osmtm/templates/task.state.done.mako:43
 msgid "Validate"
@@ -1092,7 +1166,9 @@ msgstr "Godkend"
 msgid ""
 "Stop working on this task and unlock it. You may resume work on it again "
 "later."
-msgstr "Stop med at arbejde på dette job og lås det op. Du kan genoptage jobbet senere."
+msgstr ""
+"Stop med at arbejde på dette job og lås det op. Du kan genoptage jobbet "
+"senere."
 
 #: osmtm/templates/task.state.ready.mako:5
 msgid "Submit for review when all instructions are completed."
@@ -1112,9 +1188,12 @@ msgstr "Start kortlægning"
 
 #: osmtm/templates/task.unlocked.mako:21
 msgid ""
-"Lock this task to tell others that you are currently reviewing it. Validate "
-"that this task has been mapped correctly and completely."
-msgstr "Lås denne opgave for at fortælle andre at du er igang med kvalitetsvurdere det. Godkendelse af denne opgave betyder er den korrekt kortlagt."
+"Lock this task to tell others that you are currently reviewing it. "
+"Validate that this task has been mapped correctly and completely."
+msgstr ""
+"Lås denne opgave for at fortælle andre at du er igang med "
+"kvalitetsvurdere det. Godkendelse af denne opgave betyder er den korrekt "
+"kortlagt."
 
 #: osmtm/templates/task.unlocked.mako:26
 msgid "Review the work"
@@ -1374,3 +1453,65 @@ msgstr "Du  ønsker sandsynligvis ikke at fjerne dine privilegier"
 #: osmtm/views/user.py:109
 msgid "Sorry, this user doesn't  exist"
 msgstr "Beklager, denne bruger findes ikke"
+
+#~ msgid ""
+#~ "Each day, nearly 1000 people use "
+#~ "the Tasking Manager, one of several "
+#~ "mapping tools supported by the "
+#~ "Humanitarian OpenStreetMap Team (HOT). HOT "
+#~ "is a nonprofit organization that relies"
+#~ " entirely on grants and donations "
+#~ "from people like you. We need your"
+#~ " help today to meet our goal of"
+#~ " raising $50,000 by December 31 so"
+#~ " we can all keep mapping. We're "
+#~ "counting on your support - donate "
+#~ "now and #mapthedifference!"
+#~ msgstr ""
+#~ "Hver dag bruger næsten 1000 frivillige"
+#~ " Tasking Manager, et blandt mange "
+#~ "kortlægningsværktøjer som støttes af  "
+#~ "Humanitarian OpenStreetMap Team (HOT).  HOT"
+#~ " er en nonprofit organisation som er"
+#~ " afhængig af legater og donationer "
+#~ "fra personer som dig. Vi behøver "
+#~ "din støtte for at nå målet med "
+#~ "at indsamle $50.000 inden 31. december."
+#~ " Vi værdsætter din støtte - donere"
+#~ " nu og #mapthedifference !"
+
+#~ msgid ""
+#~ "OSM Tasking Manager is a mapping "
+#~ "tool designed and built for the "
+#~ "Humanitarian OSM Team collaborative mapping."
+#~ " The purpose of the tool is to"
+#~ " divide up a mapping job into "
+#~ "smaller tasks that can be completed "
+#~ "rapidly. It shows which areas need "
+#~ "to be mapped and which areas need"
+#~ " the mapping validated. <br />This "
+#~ "approach facilitates the distribution of "
+#~ "tasks to the various mappers in a"
+#~ " context of emergency. It also "
+#~ "permits to control the progress and "
+#~ "the homogeinity of the work done "
+#~ "(ie. Elements to cover, specific tags"
+#~ " to use, etc.)."
+#~ msgstr ""
+#~ "OSM Tasking Manager er et "
+#~ "kortlægningsværktøj der er designet og "
+#~ "bygget til Humanitarian OSM for at "
+#~ "understøtte samarbejde. Formålet med værktøjet"
+#~ " er at opdele en større kortlægning"
+#~ " hurtigt ud i mindre opgaver. "
+#~ "Værktøjet viser hvilke områder der skal"
+#~ " kortlægges og hvilke områder der "
+#~ "skal valideres.<br/>Denne arbejdsdeling i "
+#~ "tilfælde af krisesituationer gør distribution"
+#~ " af opgaver til forskellige kortlæggere "
+#~ "meget lettere. Det tillader også kontrol"
+#~ " over processen og giver en vis "
+#~ "standardisering af arbejdsopgaverne. (fx "
+#~ "hvilke objekter der skal kortlægges, "
+#~ "bestemte tags der skal benyttes osv)"
+
