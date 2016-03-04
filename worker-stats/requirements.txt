@@ -1,0 +1,6 @@
+futures==3.0.5
+psycopg2==2.6.1
+requests==2.9.1
+simplejson==3.8.2
+tinys3==0.1.11
+wsgiref==0.1.2
