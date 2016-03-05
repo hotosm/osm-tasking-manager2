@@ -65,7 +65,8 @@ def load_local_settings(settings):
 
 
 def parse_feature(feature):
-    if isinstance(feature.geometry, (geojson.geometry.Polygon, geojson.geometry.MultiPolygon)):
+    if isinstance(feature.geometry, (geojson.geometry.Polygon,
+                                     geojson.geometry.MultiPolygon)):
         feature.geometry = shapely.geometry.asShape(feature.geometry)
         return feature
     else:
@@ -82,7 +83,7 @@ def parse_geojson(input):
 # need translation
 
     shapely_features = filter(lambda x: x is not None,
-                   map(parse_feature, collection.features))
+                              map(parse_feature, collection.features))
 
     if len(shapely_features) == 0:
         raise ValueError("GeoJSON file doesn't contain any polygon nor " +

@@ -523,7 +523,13 @@ class Project(Base, Translatable):
 
             import_url = feature.properties.get('import_url')
 
-            tasks.append(Task(None, None, None, 'SRID=4326;%s' % feature.geometry.wkt, import_url))
+            tasks.append(Task(
+                None,
+                None,
+                None,
+                'SRID=4326;%s' % feature.geometry.wkt,
+                import_url
+            ))
 
         self.tasks = tasks
 
