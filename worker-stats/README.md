@@ -1,10 +1,10 @@
-# tasking-manager-stats
+# worker-user-stats
 
-A small script to generate OSM user statistics from the HOTOSM Tasking Manager
+A small worker script to generate OSM user statistics from the HOTOSM Tasking Manager database. 
 
 ### Overview 
 
-This script is generates timestamp data for users who have used the HOTOSM tasking manager database. Specifically, edit timestamps in the categories of done, validated, and invalidated, arranged by project and by user. For example:
+This script generates timestamp data for users who have used the HOTOSM tasking manager. Specifically, edit timestamps in the categories of done, validated, and invalidated, arranged by project and by user. For example:
 
 ```
 "2156(userid)": {
@@ -38,13 +38,17 @@ This script is generates timestamp data for users who have used the HOTOSM taski
 
 The script generates JSON and posts to an Amazon S3 bucket to be served as static JSON endpoint. 
 
-## Dependencies
-- pip install psycopg2 (SQL connection for Python)
-- This script depends on a running version of the HOTOSM Tasking Manager pgsql database schema, a clean copy of which can be downloaded along with the HOTOSM Tasking Server itself from https://github.com/hotosm/osm-tasking-manager2.
-
 ## Usage
+
+To be run as a worker alongside the Tasking Manager every 10 mins. 
 
 ```
 $ pip install -r requirements.txt
-$ python taskingDbEndpoint.py
+$ python user-stats.py
 ```
+
+## Requirements
+
+- Read access to the Tasking Manager database
+- Amazon S3 bucket with public read access
+- Amazon S3 write credentials. See `users-stats.py` for environment variables. 

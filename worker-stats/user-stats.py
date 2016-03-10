@@ -12,7 +12,7 @@
 #
 # Usage
 #
-# python taskingDBendpoint.py
+# python user-stats.py
 
 import psycopg2
 import psycopg2.extras
@@ -25,8 +25,8 @@ import os
 def connectDB():
     # login info
     host = 'localhost'
-    database = 'tasking'
-    user = 'nsmith'
+    database = 'osmtm'
+    user = 'postgres'
     # define connection string
     conn_string = "host='%s' dbname='%s' user='%s'" % (host, database, user)
     # get a connection
