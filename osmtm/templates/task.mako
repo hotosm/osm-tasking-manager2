@@ -58,6 +58,7 @@ if (typeof countdownInterval != 'undefined') {
     </div>
 
     <%include file="task.instructions.mako" />
+    <%include file="task.import_url.mako" />
     <%include file="task.freecomment.mako" />
 % if len(task.states) != 0:
     <hr>

@@ -18,17 +18,6 @@
       <li id="fp"><a role="menuitem">Field Papers</a></li>
     </ul>
   </div>
-  % if task.import_url:
-  <p/>
-  <div class="btn-group btn-default">
-    <button id="downloadData" class="btn">
-      <i class="glyphicon glyphicon-download"></i> ${_('Download OSM Data')}
-    </button>
-    <button id="josmData" class="btn btn-default">
-      <i class="glyphicon glyphicon-download"></i> ${_('Load OSM Data into JOSM')}
-    </button>
-  </div>
-  % endif
   <div id="josm_task_boundary_tip" class="help-block small text-left">
     <em>
       <i class="glyphicon glyphicon-info-sign"></i>
