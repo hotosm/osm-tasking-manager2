@@ -55,15 +55,14 @@ def getTaskstate():
         proj_id = str(r.project_id)
         # create empty dict for each user
         users[user_id] = {}
+        users[user_id][proj_id] = {'done': {'times': []},
+                                   'validated': {'times': []},
+                                   'invalidated': {'times': []}}
         # check if user exists in the users dict
         if user_id in users:
             if proj_id in users[user_id]:
                 users[user_id][proj_id][stateLookup[r.state]]['times']\
                     .append(str(r.date).split(".")[0])
-            else:
-                users[user_id][proj_id] = {'done': {'times': []},
-                                           'validated': {'times': []},
-                                           'invalidated': {'times': []}}
 
     return users
 
