@@ -52,3 +52,9 @@ $ python user-stats.py
 - Read access to the Tasking Manager database
 - Amazon S3 bucket with public read access
 - Amazon S3 write credentials. See `users-stats.py` for environment variables. 
+
+### Environment variables
+
+- `S3_ACCESS_KEY=your_access_key`
+- `S3_SECRET_KEY=your_secret_key`
+- `BUCKET=your_bucket`
