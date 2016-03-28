@@ -58,6 +58,7 @@ if (typeof countdownInterval != 'undefined') {
     </div>
 
     <%include file="task.instructions.mako" />
+    <%include file="task.import_url.mako" />
     <%include file="task.freecomment.mako" />
 % if len(task.states) != 0:
     <hr>
@@ -74,6 +75,7 @@ if (typeof countdownInterval != 'undefined') {
 <script>
 var task_id = ${task.id};
 var task_osm_url = "${request.route_url('task_osm', project=task.project_id, task=task.id)}";
+var task_import_url = "${task.import_url}";
 var task_geometry = ${geojson.dumps(geometry_as_shape)|n};
 var task_centroid = [${centroid.x}, ${centroid.y}];
 var task_bounds = [${bounds[0]}, ${bounds[1]}, ${bounds[2]}, ${bounds[3]}];

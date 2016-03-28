@@ -271,6 +271,7 @@ class Task(Base):
     x = Column(Integer)
     y = Column(Integer)
     zoom = Column(Integer)
+    import_url = Column(Unicode)
     project_id = Column(Integer, ForeignKey('project.id'), index=True)
     geometry = Column(Geometry('MultiPolygon', srid=4326))
     date = Column(DateTime, default=datetime.datetime.utcnow)
@@ -337,10 +338,11 @@ class Task(Base):
                       Index('task_lock_date_', date.desc()),
                       {},)
 
-    def __init__(self, x, y, zoom, geometry=None):
+    def __init__(self, x, y, zoom, geometry=None, import_url=None):
         self.x = x
         self.y = y
         self.zoom = zoom
+        self.import_url = import_url
         if geometry is None:
             geometry = self.to_polygon()
             multipolygon = MultiPolygon([geometry])
@@ -512,13 +514,22 @@ class Project(Base, Translatable):
 
     def import_from_geojson(self, input):
 
-        geoms = parse_geojson(input)
+        features = parse_geojson(input)
 
         tasks = []
-        for geom in geoms:
-            if not isinstance(geom, MultiPolygon):
-                geom = MultiPolygon([geom])
-            tasks.append(Task(None, None, None, 'SRID=4326;%s' % geom.wkt))
+        for feature in features:
+            if not isinstance(feature.geometry, MultiPolygon):
+                feature.geometry = MultiPolygon([feature.geometry])
+
+            import_url = feature.properties.get('import_url')
+
+            tasks.append(Task(
+                None,
+                None,
+                None,
+                'SRID=4326;%s' % feature.geometry.wkt,
+                import_url
+            ))
 
         self.tasks = tasks
 

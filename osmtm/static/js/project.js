@@ -524,6 +524,32 @@ osmtm.project = (function() {
   }
 
   /**
+   * Uses the JOSM remote control API to load the OSM data from the task's import_url.
+   *
+   * e {Object} - JQuery Event
+   */
+  function josmData(e) {
+    var url = 'http://127.0.0.1:8111/import?url=' + encodeURIComponent(task_import_url);
+    $.ajax({
+      url: url,
+      complete: function(t) {
+        if (t.status != 200) {
+          alert("JOSM remote control did not respond. Do you have JOSM running and configured to be controlled remotely?");
+        }
+      }
+    });
+  }
+
+  /**
+   * Download the data from the task's import_url.
+   *
+   * e {Object} - JQuery Event
+   */
+  function downloadData(e) {
+    window.location = task_import_url;
+  }
+
+  /**
    * Sets the prefered editor
    */
   function setPreferedEditor() {
@@ -873,6 +899,8 @@ osmtm.project = (function() {
       $(document).on('click', '#task_close', clearSelection);
       $(document).on('click', '#edit', exportOpen);
       $(document).on('click', '#editDropdown li', exportOpen);
+      $(document).on('click', '#downloadData', downloadData);
+      $(document).on('click', '#josmData', josmData);
       $(document).on('click', '#random', function(e) {
         loadRandom(e);
         return false;
