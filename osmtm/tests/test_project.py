@@ -143,6 +143,8 @@ class TestProjectFunctional(BaseTestCase):
     def test_project_new_arbitrary_extra_properties(self):
         from osmtm.models import DBSession, Project
         import json
+        import transaction
+
         headers = self.login_as_admin()
         self.testapp.post('/project/new/arbitrary',
                           headers=headers,
@@ -155,6 +157,13 @@ class TestProjectFunctional(BaseTestCase):
         task1 = project.tasks[0]
         self.assertEqual(json.loads(task1.extra_properties)['test1'], 'val1')
         self.assertEqual(json.loads(task1.extra_properties)['test2'], 'val2')
+        project.per_task_instructions = 'replace {test1} and {test2}'
+        DBSession.add(project)
+        DBSession.flush()
+        transaction.commit()
+        project = DBSession.query(Project).order_by(Project.id.desc()).first()
+        task1 = project.tasks[0]
+        self.assertEqual(task1.get_extra_instructions(), 'replace val1 and val2')
 
     def test_project_edit_forbidden(self):
         headers = self.login_as_user1()

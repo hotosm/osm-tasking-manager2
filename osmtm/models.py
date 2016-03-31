@@ -58,6 +58,7 @@ from .utils import (
     get_tiles_in_geom,
     max,
     parse_geojson,
+    interpolate_text,
 )
 
 from zope.sqlalchemy import ZopeTransactionExtension
@@ -67,6 +68,7 @@ import datetime
 from json import (
     JSONEncoder,
     dumps as _dumps,
+    loads as _loads,
 )
 import functools
 
@@ -374,6 +376,18 @@ class Task(Base):
             id=self.id,
             properties=properties
         )
+
+    def get_extra_instructions(self):
+        instructions = self.project.per_task_instructions
+        properties = {}
+        if self.x:
+            properties['x'] = str(self.x)
+        if self.y:
+            properties['y'] = str(self.y)
+        if self.zoom:
+            properties['z'] = str(self.zoom)
+        properties.update(_loads(self.extra_properties))
+        return interpolate_text(instructions, properties)
 
 
 @event.listens_for(Task, "after_update")
