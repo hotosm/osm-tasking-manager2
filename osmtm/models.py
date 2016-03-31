@@ -275,6 +275,7 @@ class Task(Base):
     geometry = Column(Geometry('MultiPolygon', srid=4326))
     date = Column(DateTime, default=datetime.datetime.utcnow)
     lock_date = Column(DateTime, default=None)
+    extra_properties = Column(Unicode)
 
     assigned_to_id = Column(Integer, ForeignKey('users.id'))
     assigned_to = relationship(User)
