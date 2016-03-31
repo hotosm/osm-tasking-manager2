@@ -163,7 +163,8 @@ class TestProjectFunctional(BaseTestCase):
         transaction.commit()
         project = DBSession.query(Project).order_by(Project.id.desc()).first()
         task1 = project.tasks[0]
-        self.assertEqual(task1.get_extra_instructions(), 'replace val1 and val2')
+        self.assertEqual(task1.get_extra_instructions(),
+                         'replace val1 and val2')
 
     def test_project_edit_forbidden(self):
         headers = self.login_as_user1()
