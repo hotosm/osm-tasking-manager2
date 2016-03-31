@@ -338,10 +338,12 @@ class Task(Base):
                       Index('task_lock_date_', date.desc()),
                       {},)
 
-    def __init__(self, x, y, zoom, geometry=None):
+    def __init__(self, x, y, zoom, geometry=None, properties=None):
         self.x = x
         self.y = y
         self.zoom = zoom
+        if properties is not None:
+            self.extra_properties = _dumps(properties)
         if geometry is None:
             geometry = self.to_polygon()
             multipolygon = MultiPolygon([geometry])
@@ -513,13 +515,22 @@ class Project(Base, Translatable):
 
     def import_from_geojson(self, input):
 
-        geoms = parse_geojson(input)
+        features = parse_geojson(input)
 
         tasks = []
-        for geom in geoms:
-            if not isinstance(geom, MultiPolygon):
-                geom = MultiPolygon([geom])
-            tasks.append(Task(None, None, None, 'SRID=4326;%s' % geom.wkt))
+        for feature in features:
+            if not isinstance(feature.geometry, MultiPolygon):
+                feature.geometry = MultiPolygon([feature.geometry])
+
+            properties = feature.properties
+
+            tasks.append(Task(
+                None,
+                None,
+                None,
+                'SRID=4326;%s' % feature.geometry.wkt,
+                properties
+            ))
 
         self.tasks = tasks
 
