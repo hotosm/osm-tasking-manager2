@@ -58,7 +58,6 @@ from .utils import (
     get_tiles_in_geom,
     max,
     parse_geojson,
-    interpolate_text,
 )
 
 from zope.sqlalchemy import ZopeTransactionExtension
@@ -387,7 +386,7 @@ class Task(Base):
         if self.zoom:
             properties['z'] = str(self.zoom)
         properties.update(_loads(self.extra_properties))
-        return interpolate_text(instructions, properties)
+        return instructions.format(**properties)
 
 
 @event.listens_for(Task, "after_update")

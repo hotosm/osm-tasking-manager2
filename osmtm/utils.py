@@ -111,19 +111,3 @@ def convert_to_multipolygon(features):
     geom2d = shapely.wkt.loads(wkt2d)
 
     return geom2d
-
-
-def interpolate_text(text, properties):
-    '''
-        Takes text and properties and returns a property name within
-        {} braces in the text with the corresponding value in properties.
-
-        >>>interpolate_text('{foo} is bar', {'foo': 'bar'})
-        >>>'bar is bar'
-    '''
-    import re
-    regex = re.compile(r'\{(.*?)\}')
-    for match in re.findall(regex, text):
-        if match in properties:
-            text = text.replace('{%s}' % match, str(properties[match]))
-    return text
