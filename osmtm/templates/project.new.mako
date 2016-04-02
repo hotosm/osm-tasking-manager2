@@ -27,7 +27,7 @@
   var drawAreaOfInterestI18n = "${_('Draw the area of interest')}";
   var droppedFileCouldntBeLoadedI18n = "${_('Dropped file could not be loaded')}";
   var droppedFileWasUnreadable = "${_('Dropped file was unreadable')}";
-  var pleaseProvideGeojsonOrKmlFile = "${_('Please provide a .geojson or a .kml file')}";
+  var pleaseProvideGeojsonOrKmlFileI18n = "${_('Please provide a .geojson or a .kml file')}";
 <%
     link = '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     text = _(u'Map data © ${osm_link} contributors', mapping={'osm_link': link})
