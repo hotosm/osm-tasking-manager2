@@ -70,6 +70,14 @@ sorts = [('priority', 'asc', _('High priority first')),
         <div class="col-md-12">
           % if user and user.username:
           <div class="checkbox input-sm pull-right">
+            % if user.is_admin or user.is_project_manager:
+            <label>
+              <input type="checkbox" name="show_archived"
+                ${'checked' if request.params.get('show_archived') == 'on' else ''}
+                onclick="this.form.submit();"> ${_('Include archived projects')}
+            </label>
+            &nbsp;&nbsp;
+            % endif
             <label>
               <input type="checkbox" name="my_projects"
                 ${'checked' if request.params.get('my_projects') == 'on' else ''}
