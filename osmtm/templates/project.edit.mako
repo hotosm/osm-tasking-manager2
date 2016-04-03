@@ -9,6 +9,10 @@
 <script type="text/javascript" src="${request.static_url('osmtm:static/js/lib/bootstrap-datepicker.js')}"></script>
 <script>
     var locale_name = "${request.locale_name}";
+    var drawAreaOfInterestI18n = "${_('Draw the area of interest')}";
+    var droppedFileCouldntBeLoadedI18n = "${_('Dropped file could not be loaded')}";
+    var droppedFileWasUnreadableI18n = "${_('Dropped file was unreadable')}";
+    var pleaseProvideTxtOrCSVFileI18n = "${_('Please provide a .txt or a .csv file')}";
 </script>
 
 <%
@@ -392,6 +396,24 @@ geometry = loads(str(project.area.geometry.data))
                 id="do_add_user">${_('Add user')}</button>
         </span>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <center><h5>${_('or')}</h5></center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <form id="uploadform" method="post" enctype="multipart/form-data">
+        <input type="file" val="" name="user_import" class="hidden" />
+<%
+      link = '<a id="user_import" data-role="button" class="btn btn-default" rel="tooltip" title="%s">%s</a>' \
+           % (_('Provide a .txt or .csv file of usernames separated by commas or lines.'), _('Import'))
+      text = _('${user_import_link} a <em>txt</em> or <em>csv</em> file of Tasking Manager usernames.', mapping={'user_import_link': link})
+%>
+        ${text|n}
+      </form>
     </div>
   </div>
 </div>

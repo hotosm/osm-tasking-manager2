@@ -54,6 +54,29 @@ $(document).ready(function() {
   });
 });
 
+// taken from the great GeoJSON.io
+function readAsText(f, callback) {
+  try {
+    var reader = new FileReader();
+    reader.readAsText(f);
+    reader.onload = function(e) {
+      if (e.target && e.target.result) callback(null, e.target.result);
+      else callback({
+        message: droppedFileCouldntBeLoadedI18n
+      });
+    };
+    reader.onerror = function(e) {
+      callback({
+        message: droppedFileWasUnreadableI18n
+      });
+    };
+  } catch (e) {
+    callback({
+      message: droppedFileWasUnreadableI18n
+    });
+  }
+}
+
 function allowedUsersCrtl($scope) {
   $scope.allowed_users = allowed_users;
 
@@ -82,6 +105,51 @@ function allowedUsersCrtl($scope) {
       }
     });
   });
+
+  $('#user_import').click(function() {
+    $('input[name=user_import]').click();
+    return false;
+  });
+
+
+  $('input[name=user_import]').change(function() {
+    function addUserToProject(userToAdd) {
+      $.ajax({
+        url: base_url + 'project/' + project_id + '/user/' + userToAdd,
+        type: 'PUT',
+        success: function(data) {
+          $scope.$apply(function() {
+          allowed_users[data.user.id] = data.user;
+          $scope.allowed_users = allowed_users;
+          });
+        }
+      });
+    }
+
+    var file = $(this).val();
+    if ((file.substr(-3) == 'txt') || (file.substr(-3) == 'csv')) {
+      readAsText($(this)[0].files[0], function(err, text) {
+        var lines = text.split(/\r\n|\n/);
+        var usersToAdd = [];
+
+        for (var i=0; i<lines.length; i++) {
+          var lineData = lines[i].split(',');
+          for (var j=0; j<lineData.length; j++) {
+            if (lineData[j] != "") {
+              usersToAdd.push(lineData[j]);
+            }
+          }
+        }
+        for (var i=0; i<usersToAdd.length; i++) {
+          addUserToProject(usersToAdd[i]);
+        }
+      });
+    } else {
+      alert(pleaseProvideTxtOrCSVFileI18n);
+    }
+    $(this).val('');
+  });
+
 }
 angular.module('allowed_users', []);
 
