@@ -385,7 +385,8 @@ class Task(Base):
             properties['y'] = str(self.y)
         if self.zoom:
             properties['z'] = str(self.zoom)
-        properties.update(_loads(self.extra_properties))
+        if self.extra_properties:
+            properties.update(_loads(self.extra_properties))
         return instructions.format(**properties)
 
 
