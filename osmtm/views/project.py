@@ -647,8 +647,8 @@ def get_stats(project):
 
 def check_project_expiration():
     ''' Verifies if a project has expired, ie. that its due date is over '''
-    filter = or_((Project.status != Project.status_archived),\
-                  (Project.status != Project.status_closed))
+    filter = or_(Project.status != Project.status_archived,
+                 Project.status != Project.status_closed)
     expired = DBSession.query(Project) \
                        .filter(Project.due_date < datetime.datetime.now()) \
                        .filter(filter)

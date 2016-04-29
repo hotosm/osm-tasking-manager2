@@ -39,19 +39,34 @@ class RootFactory(object):
             project = DBSession.query(Project).get(project_id)
             if project is not None:
                 if project.private:
-                    acl = [
-                        (Allow, 'project:' + project_id, 'project_show'),
-                        (Allow, 'project:' + project_id, 'task_contribute'),
-                        (Allow, 'group:admin', 'project_show'),
-                        (Allow, 'group:admin', 'task_contribute'),
-                        (Allow, 'group:project_manager', 'project_show'),
-                        (Allow, 'group:project_manager', 'task_contribute'),
-                        (Deny, Everyone, 'project_show'),
-                        (Deny, Everyone, 'task_contribute'),
-                    ]
-                    self.__acl__ = acl + list(self.__acl__)
+                    if project.status == Project.status_closed:
+                        acl = [
+                            (Allow, 'project:' + project_id, 'project_show'),
+                            (Allow, 'group:admin', 'project_show'),
+                            (Allow, 'group:admin', 'task_contribute'),
+                            (Allow, 'group:project_manager', 'project_show'),
+                            (Allow, 'group:project_manager',
+                                'task_contribute'),
+                            (Deny, Everyone, 'project_show'),
+                            (Deny, Everyone, 'task_contribute'),
+                        ]
+                        self.__acl__ = acl + list(self.__acl__)
+                    else:
+                        acl = [
+                            (Allow, 'project:' + project_id, 'project_show'),
+                            (Allow, 'project:' + project_id,
+                                'task_contribute'),
+                            (Allow, 'group:admin', 'project_show'),
+                            (Allow, 'group:admin', 'task_contribute'),
+                            (Allow, 'group:project_manager', 'project_show'),
+                            (Allow, 'group:project_manager',
+                                'task_contribute'),
+                            (Deny, Everyone, 'project_show'),
+                            (Deny, Everyone, 'task_contribute'),
+                        ]
+                        self.__acl__ = acl + list(self.__acl__)
                 if project.status == Project.status_draft or \
-                  project.status == Project.status_archived:
+                   project.status == Project.status_archived:
                     acl = [
                         (Allow, 'group:admin', 'project_show'),
                         (Allow, 'group:admin', 'task_contribute'),

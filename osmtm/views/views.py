@@ -80,7 +80,7 @@ def get_projects(request, items_per_page):
         filter = True  # make it work with an and_ filter
 
     if not user or (not user.is_admin and not user.is_project_manager):
-        filter = and_(or_(Project.status == Project.status_published, \
+        filter = and_(or_(Project.status == Project.status_published,
                           Project.status == Project.status_closed), filter)
 
     if 'search' in request.params:
