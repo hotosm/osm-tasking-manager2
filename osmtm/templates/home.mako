@@ -125,6 +125,8 @@ sorts = [('priority', 'asc', _('High priority first')),
 
     if project.status == project.status_archived:
         status = 'Archived'
+    elif project.status == project.status_closed:
+        status = 'Closed'
     elif project.status == project.status_draft:
         status = 'Draft'
     else:

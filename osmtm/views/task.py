@@ -147,7 +147,8 @@ def task_empty(request):
                 assigned_tasks=assigned_tasks, user=user)
 
 
-@view_config(route_name='task_done', renderer='json')
+@view_config(route_name='task_done', renderer='json',
+             permission='task_contribute')
 def done(request):
     user = __get_user(request)
     task = __get_task(request, lock_for_update=True)
@@ -165,7 +166,8 @@ def done(request):
                 msg=_("Task marked as done. Thanks for your contribution"))
 
 
-@view_config(route_name='task_lock', renderer="json")
+@view_config(route_name='task_lock', renderer="json",
+             permission='task_contribute')
 def lock(request):
     _ = request.translate
 
@@ -195,7 +197,8 @@ def lock(request):
                 msg=_("Task locked. You can start mapping."))
 
 
-@view_config(route_name='task_unlock', renderer="json")
+@view_config(route_name='task_unlock', renderer="json",
+             permission='task_contribute')
 def unlock(request):
     user = __get_user(request)
     task = __get_task(request, lock_for_update=True)
@@ -212,7 +215,8 @@ def unlock(request):
                 msg=_("Task unlocked."))
 
 
-@view_config(route_name='task_comment', renderer="json")
+@view_config(route_name='task_comment', renderer="json",
+             permission='task_contribute')
 def comment(request):
     user = __get_user(request)
     task = __get_task(request)
@@ -293,7 +297,8 @@ def send_invalidation_message(request, task, user):
             send_message(subject, from_, to, comment)
 
 
-@view_config(route_name='task_validate', renderer="json")
+@view_config(route_name='task_validate', renderer="json",
+             permission='task_contribute')
 def validate(request):
     user = __get_user(request)
     task = __get_task(request, lock_for_update=True)
@@ -320,7 +325,8 @@ def validate(request):
     return dict(success=True, msg=msg)
 
 
-@view_config(route_name='task_split', renderer='json')
+@view_config(route_name='task_split', renderer='json',
+             permission='task_contribute')
 def split(request):
     user = __get_user(request)
     task = __get_task(request, lock_for_update=True)
@@ -385,7 +391,8 @@ def find_matching_task(project_id, filter):
     return None
 
 
-@view_config(route_name='task_random', http_cache=0, renderer='json')
+@view_config(route_name='task_random', http_cache=0, renderer='json',
+             permission='task_contribute')
 def random_task(request):
     """Gets a random not-done task. First it tries to get one that does not
        border any in-progress tasks."""

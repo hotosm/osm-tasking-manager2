@@ -6,6 +6,8 @@
   #${project.id} - ${project.name}
   % if project.status == project.status_draft:
    (${_('Draft')})
+  % elif project.status == project.status_closed:
+   (${_('Closed')})
   % elif project.status == project.status_archived:
    (${_('Archived')})
   % endif
