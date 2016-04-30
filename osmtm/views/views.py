@@ -80,8 +80,17 @@ def get_projects(request, items_per_page):
         filter = True  # make it work with an and_ filter
 
     if not user or (not user.is_admin and not user.is_project_manager):
-        filter = and_(or_(Project.status == Project.status_published,
-                          Project.status == Project.status_closed), filter)
+        if (request.params.get('show_closed', '') == 'on'):
+            filter = and_(or_(Project.status == Project.status_published,
+                              Project.status == Project.status_closed),
+                          filter)
+        else:
+            filter = and_(Project.status == Project.status_published, filter)
+    elif user.is_admin or user.is_project_manager:
+        if (request.params.get('show_closed', '') != 'on'):
+            filter = and_(Project.status != Project.status_closed, filter)
+        if (request.params.get('show_archived', '') != 'on'):
+            filter = and_(Project.status != Project.status_archived, filter)
 
     if 'search' in request.params:
         s = request.params.get('search')
@@ -116,9 +125,6 @@ def get_projects(request, items_per_page):
         else:
             # IN-predicate  with emty sequence can be expensive
             filter = and_(False == True)  # noqa
-
-    if (request.params.get('show_archived', '') != 'on'):
-        filter = and_(Project.status != Project.status_archived, filter)
 
     sort_by = 'project.%s' % request.params.get('sort_by', 'priority')
     direction = request.params.get('direction', 'asc')

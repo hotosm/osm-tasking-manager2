@@ -34,7 +34,7 @@ if (typeof countdownInterval != 'undefined') {
   <%include file="task.assigned.mako" />
   </div>
   <hr>
-% if project.status == project.status_closed and (not user) or (user and not (user.is_admin or user.is_project_manager)):
+% if project.status == project.status_closed and (not user or (user and not (user.is_admin or user.is_project_manager))):
   <p class="alert alert-warning text-muted">
     <span class="glyphicon glyphicon-warning-sign"></span>
     ${_('This project has been closed to further contributions.')}
