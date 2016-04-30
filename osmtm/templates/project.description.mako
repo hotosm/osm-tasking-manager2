@@ -2,7 +2,7 @@
 <%
 from osmtm.mako_filters import markdown_filter
 %>
-% if project.status in [project.status_draft, project.status_archived] :
+% if project.status in [project.status_draft, project.status_closed, project.status_archived] :
 <p class="alert alert-warning text-muted">
   <span class="glyphicon glyphicon-warning-sign"></span>
   % if project.status == project.status_draft:
@@ -12,6 +12,8 @@ from osmtm.mako_filters import markdown_filter
       <span class="glyphicon glyphicon-share-alt"></span> ${_('Publish')}
     </a>
     % endif
+  % elif project.status == project.status_closed:
+    ${_('This project was closed to contributors.')}
   % elif project.status == project.status_archived:
     ${_('This project was archived.')}
   % endif

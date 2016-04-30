@@ -76,7 +76,15 @@ sorts = [('priority', 'asc', _('High priority first')),
                 onclick="this.form.submit();"> ${_('Your projects')}
             </label>
           </div>
-            % if user.is_admin or user.is_project_manager:
+          % endif
+          <div class="checkbox input-sm pull-right">
+            <label>
+              <input type="checkbox" name="show_closed"
+                ${'checked' if request.params.get('show_closed') == 'on' else ''}
+                onclick="this.form.submit();"> ${_('Include closed projects')}
+            </label>
+          </div>
+            % if user and (user.is_admin or user.is_project_manager):
             <div class="checkbox input-sm pull-right">
               <label>
                 <input type="checkbox" name="show_archived"
@@ -85,9 +93,6 @@ sorts = [('priority', 'asc', _('High priority first')),
               </label>
             </div>
             % endif
-          % else:
-          <br>
-          % endif
         </div>
       </div>
     </form>
@@ -125,6 +130,8 @@ sorts = [('priority', 'asc', _('High priority first')),
 
     if project.status == project.status_archived:
         status = 'Archived'
+    elif project.status == project.status_closed:
+        status = 'Closed'
     elif project.status == project.status_draft:
         status = 'Draft'
     else:

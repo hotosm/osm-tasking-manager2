@@ -34,31 +34,37 @@ if (typeof countdownInterval != 'undefined') {
   <%include file="task.assigned.mako" />
   </div>
   <hr>
-
-% if task.cur_lock and task.cur_lock.lock:
-  % if user and task.cur_lock.user == user:
-    <%include file="task.editors.mako" />
-  % endif
+% if project.status == project.status_closed and (not user or (user and not (user.is_admin or user.is_project_manager))):
+  <p class="alert alert-warning text-muted">
+    <span class="glyphicon glyphicon-warning-sign"></span>
+    ${_('This project has been closed to further contributions.')}
+  </p>
 % else:
-  <%include file="task.unlocked.mako" />
-% endif
+  % if task.cur_lock and task.cur_lock.lock:
+    % if user and task.cur_lock.user == user:
+      <%include file="task.editors.mako" />
+    % endif
+  % else:
+    <%include file="task.unlocked.mako" />
+  % endif
 
-% if not task.assigned_to and (task.cur_state.state == TaskState.state_ready or task.cur_state.state == TaskState.state_invalidated):
-  <%include file="task.split.mako" />
-% endif
+  % if not task.assigned_to and (task.cur_state.state == TaskState.state_ready or task.cur_state.state == TaskState.state_invalidated):
+    <%include file="task.split.mako" />
+  % endif
 
-    <div class="text-center">
-% if task.cur_state.state == TaskState.state_ready or task.cur_state.state == TaskState.state_invalidated:
-    <%include file="task.state.ready.mako" />
-% endif
+      <div class="text-center">
+  % if task.cur_state.state == TaskState.state_ready or task.cur_state.state == TaskState.state_invalidated:
+      <%include file="task.state.ready.mako" />
+  % endif
 
-% if task.cur_lock and task.cur_lock.lock and task.cur_state and task.cur_state.state in [TaskState.state_done, TaskState.state_validated]:
-    <%include file="task.state.done.mako" />
-% endif
-    </div>
+  % if task.cur_lock and task.cur_lock.lock and task.cur_state and task.cur_state.state in [TaskState.state_done, TaskState.state_validated]:
+      <%include file="task.state.done.mako" />
+  % endif
+      </div>
 
-    <%include file="task.instructions.mako" />
-    <%include file="task.freecomment.mako" />
+      <%include file="task.instructions.mako" />
+      <%include file="task.freecomment.mako" />
+% endif
 % if len(task.states) != 0:
     <hr>
     <div><%include file="task.history.mako" /></div>

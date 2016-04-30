@@ -144,6 +144,7 @@ geometry = loads(str(project.area.geometry.data))
           from osmtm.models import Project
           statuses = {
             Project.status_archived: _('Archived'),
+            Project.status_closed: _('Closed'),
             Project.status_published: _('Published'),
             Project.status_draft: _('Draft'),
           }
@@ -415,7 +416,7 @@ geometry = loads(str(project.area.geometry.data))
              value="${project.due_date.strftime('%m/%d/%Y') if project.due_date is not None else ''}">
       <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
     </div>
-    <div class="help-block">${_('The date after which the project will automatically be archived.')}</div>
+    <div class="help-block">${_('The date after which the project will automatically be closed.')}</div>
   </div>
 </div>
 

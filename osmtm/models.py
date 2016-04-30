@@ -446,7 +446,8 @@ class Project(Base, Translatable):
     __tablename__ = 'project'
     id = Column(Integer, primary_key=True)
 
-    status_archived = 0
+    status_archived = -1
+    status_closed = 0
     status_published = 1
     status_draft = 2
     status = Column(Integer, default=status_draft)
