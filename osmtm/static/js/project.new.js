@@ -263,7 +263,7 @@ osmtm.project_new = (function() {
         });
       });
 
-      $('#gridform, #arbitraryform').submit(function() {
+      $('#gridform, #arbitraryform, #cloneform').submit(function() {
         window.setTimeout(function() {
           $('input[type=submit]').attr('disabled', 'disabled');
           $('.loading').removeClass('hidden');

@@ -76,6 +76,46 @@
     </span>
   </form>
   </p>
+  <p>
+  ${_('or')}
+  </p>
+  <p>
+<%
+  link = '<a id="clone" class="btn btn-default" data-toggle="modal" data-target="#cloneModal">%s</a>' % (_('Clone'),)
+  text = _('${clone_link} an already existing project.', mapping={'clone_link': link})
+%>
+  ${text|n}
+  </p>
+</div>
+<div class="modal fade" id="cloneModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <form id="cloneform" method="post" action="${request.route_url('project_clone')}">
+      <div class="modal-body">
+        <p>
+          ${_('This will clone a project that currently exists. The original project area and tiling will be used.')}
+        </p>
+        <p class="form-group">
+          <input name="project" class="input form-control" placeholder="${_('Project #')}"/>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <div class="form-actions pull-right">
+          <a class="btn btn-default" data-dismiss="modal">
+            ${_('Cancel')}
+          </a>
+          <input type="submit" value=${_('Clone project')}"
+                 class="btn btn-success"/>
+        </div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+        <div class="pull-right loading help hidden">
+          ${_('Cloning project, please wait...')}
+        </div>
+      </div> 
+      </form>
+    </div>
+  </div>
 </div>
 </%block>
 
