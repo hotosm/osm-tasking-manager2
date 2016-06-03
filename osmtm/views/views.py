@@ -15,6 +15,7 @@ from ..models import (
     ProjectTranslation,
     User,
     TaskLock,
+    Tag,
 )
 
 from webhelpers.paginate import (
@@ -43,9 +44,9 @@ def home(request):
         request.override_renderer = 'start.mako'
         return dict(page_id="start")
 
-    paginator = get_projects(request, 10)
+    paginator, tags = get_projects(request, 10)
 
-    return dict(page_id="home", paginator=paginator)
+    return dict(page_id="home", paginator=paginator, tags=tags)
 
 
 @view_config(route_name='home_json', renderer='json')
@@ -53,7 +54,7 @@ def home_json(request):
     if not request.is_xhr:
         request.response.content_disposition = \
             'attachment; filename="hot_osmtm.json"'
-    paginator = get_projects(request, 100)
+    paginator, _ = get_projects(request, 100)
     request.response.headerlist.append(('Access-Control-Allow-Origin', '*'))
     return FeatureCollection([project.to_feature() for project in paginator])
 
@@ -85,6 +86,23 @@ def get_projects(request, items_per_page):
     if 'search' in request.params:
         s = request.params.get('search')
         PT = ProjectTranslation
+
+        '''This pulls out search strings with "tag:" from the query
+           and searches for project tags that match those strings.'''
+        t = re.findall('tag:\S+', s)
+        if t:
+            s = re.sub('tag:\S+', '', s)
+            tags = DBSession.query(Tag) \
+                            .filter(or_(*[Tag.name.ilike('%%%s%%' % tag[4:])
+                                          for tag in t])).all()
+            if len(tags) > 0:
+                tag_ids = DBSession.query(Project.id) \
+                          .filter(and_(*[Project.tags.any(id=tag.id)
+                                         for tag in tags])).all()
+                filter = and_(Project.id.in_(tag_ids), filter)
+        else:
+            tags = None
+
         search_filter = or_(PT.name.ilike('%%%s%%' % s),
                             PT.short_description.ilike('%%%s%%' % s),
                             PT.description.ilike('%%%s%%' % s),)
@@ -103,6 +121,9 @@ def get_projects(request, items_per_page):
                        .filter(search_filter) \
                        .all()
         filter = and_(Project.id.in_(ids), filter)
+
+    else:
+        tags = None
 
     # filter projects on which the current user worked on
     if request.params.get('my_projects', '') == 'on':
@@ -132,7 +153,7 @@ def get_projects(request, items_per_page):
     page_url = PageURL_WebOb(request)
     paginator = Page(query, page, url=page_url, items_per_page=items_per_page)
 
-    return paginator
+    return paginator, tags
 
 
 @view_config(route_name='about', renderer='about.mako')

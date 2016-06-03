@@ -125,6 +125,11 @@ def main(global_config, **settings):
                      '/project/{project:\d+}/task/{task:\d+}/difficulty',
                      xhr=True, request_method='DELETE')
 
+    config.add_route('tags', '/tags')
+    config.add_route('tag_new', '/tag/new')
+    config.add_route('tag_edit', '/tag/{tag:\d+}/edit')
+    config.add_route('tag_delete', '/tag/{tag:\d+}/delete')
+
     config.add_route('users', '/users')
     config.add_route('users_json', '/users.json')
     config.add_route('user_messages', '/user/messages')

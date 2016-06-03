@@ -457,6 +457,12 @@ project_priority_areas = Table(
 )
 
 
+project_tags_table = Table(
+    'project_tags', Base.metadata,
+    Column('project', Integer, ForeignKey('project.id')),
+    Column('tag', Integer, ForeignKey('tags.id')))
+
+
 # A project corresponds to a given mapping job to do on a given area
 # Example 1: trace the major roads
 # Example 2: trace the buildings
@@ -512,6 +518,8 @@ class Project(Base, Translatable):
 
     priority_areas = relationship(PriorityArea,
                                   secondary=project_priority_areas)
+
+    tags = relationship("Tag", secondary=project_tags_table)
 
     def __init__(self, name, user=None):
         self.name = name
@@ -703,6 +711,25 @@ class Message(Base):
         self.from_user = from_
         self.to_user = to
         self.message = message
+
+
+class Tag(Base, Translatable):
+    __tablename__ = 'tags'
+    id = Column(Integer, primary_key=True)
+    name = Column(Unicode)
+    admin_description = Column(Unicode)
+    projects = relationship("Project", secondary=project_tags_table)
+
+    locale = 'en'
+
+    def __init__(self, name='', admin_description=''):
+        pass
+
+
+class TagTranslation(translation_base(Tag)):
+    __tablename__ = 'tag_translation'
+
+    spotlight_text = Column(Unicode, default=u'')
 
 
 class ExtendedJSONEncoder(JSONEncoder):
