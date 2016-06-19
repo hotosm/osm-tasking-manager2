@@ -47,11 +47,11 @@ from osmtm.mako_filters import (
     % else:
       % if isinstance(step, TaskState):
         % if step.state == step.state_done:
-          <span><i class="glyphicon glyphicon-ok text-success"></i> ${_('${user} marked ${tasklink} as <b>done</b>', mapping={'user':user_link, 'tasklink':task_link}) | n}</span>
+          <span><i class="glyphicon glyphicon-ok text-success"></i> <b>${_('Marked as done by')}</b> ${user_link | n}</span>
         % elif step.state == step.state_invalidated:
-          <span><i class="glyphicon glyphicon-thumbs-down text-danger"></i> <b>${_('Invalidated')}</b> ${_('by')} ${user_link | n}</span>
+          <span><i class="glyphicon glyphicon-thumbs-down text-danger"></i> <b>${_('Invalidated by')}</b> ${user_link | n}</span>
         % elif step.state == step.state_validated:
-          <span><i class="glyphicon glyphicon-thumbs-up text-success"></i> <b>${_('Validated')}</b> ${_('by')} ${user_link | n}</span>
+          <span><i class="glyphicon glyphicon-thumbs-up text-success"></i> <b>${_('Validated by')}</b> ${user_link | n}</span>
         % elif step.state == step.state_removed:
           <span><i class="glyphicon icon-split"></i> ${_('<b>Split</b> by ${link}', mapping={'link': user_link}) | n}</span>
         % endif
