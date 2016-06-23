@@ -17,7 +17,7 @@ osmtm.project = (function() {
 
   var states = [
     ['#dfdfdf'],
-    ['gray'],
+    ['mediumorchid'],
     ['orange'],
     ['green']
   ];
@@ -53,7 +53,7 @@ osmtm.project = (function() {
 
       key = L.DomUtil.create('li', null, ul);
       color = L.DomUtil.create('div', 'key-color', key);
-      color.style.border = '2px solid orange';
+      color.style.border = '2px solid red';
       key.innerHTML += curWorkedOnI18n;
 
       lockedCounter = $('<span>');
@@ -122,7 +122,7 @@ osmtm.project = (function() {
         var color = states[feature.properties.state];
         return {
           fillColor: color,
-          color: feature.properties.locked ? "orange" : "gray",
+          color: feature.properties.locked ? "red" : "gray",
           fillOpacity: feature.state === 0 ? 0.1 : 0.4,
           weight: feature.properties.locked ? 2 : 1,
           opacity: feature.properties.locked ? 1 : 0.7
@@ -157,8 +157,11 @@ osmtm.project = (function() {
 
     selectedTaskLayer = L.geoJson(null, {
         style: {
-            weight: 1,
-            opacity: 0
+            weight: 5,
+            opacity: 1,
+            color: "black",
+            dashArray: 12,
+            fill: 0
         }
     }).addTo(lmap);
 
