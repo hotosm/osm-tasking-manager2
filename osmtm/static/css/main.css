@@ -6,6 +6,15 @@
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9b0d0b', endColorstr='#ffb4242e', GradientType=0);
 }
+.label-tag {
+  border: 1px solid #000;
+  border-radius: .25em;
+  display: inline;
+  font-size: 90%;
+  font-weight: bold;
+  padding: .2em .5em .2em;
+  vertical-align: baseline;
+}
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;

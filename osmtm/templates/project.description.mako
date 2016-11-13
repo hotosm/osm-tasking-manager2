@@ -21,6 +21,15 @@ from osmtm.mako_filters import markdown_filter
 <p>
   ${helpers.display_project_info(project=project)}
 </p>
+<p>
+  % if len(project.tags) is not 0:
+    <small class="text-muted">${_('Project tags:')}
+    % for tag in project.tags:
+      <span class="label label-tag">${tag.name}</span>
+    % endfor
+    </small>
+  % endif
+</p>
 <p class="text-center">
   <a class="btn btn-success btn-lg instructions">
     <span class="glyphicon glyphicon-share-alt"></span>&nbsp;
