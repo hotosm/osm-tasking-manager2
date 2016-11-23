@@ -727,7 +727,7 @@ class Tag(Base, Translatable):
 
 
 class TagTranslation(translation_base(Tag)):
-    __tablename__ = 'tag_translation'
+    __tablename__ = 'tags_translation'
 
     spotlight_text = Column(Unicode, default=u'')
 

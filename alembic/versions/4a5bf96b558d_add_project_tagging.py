@@ -22,15 +22,27 @@ def upgrade():
         sa.Column('admin_description', sa.Unicode),
     )
 
+
+    tag_translation_table = op.create_table(
+        'tags_translations',
+        sa.Column('id', sa.Integer, nullable=False),
+        sa.Column('locale', sa.String(10), nullable=False),
+        sa.Column('spotlight_text', sa.String),
+        sa.UniqueConstraint('id', 'locale'),
+        sa.ForeignKeyConstraint(['id'], ['tags.id'], ondelete="CASCADE")
+    )
+
+
     project_tags_table = op.create_table(
         'project_tags',
-        sa.MetaData(),
         sa.Column('project', sa.Integer),
         sa.Column('tag', sa.Integer),
         sa.ForeignKeyConstraint(['project'], ['project.id']),
         sa.ForeignKeyConstraint(['tag'], ['tags.id'])
     )
 
+
 def downgrade():
     op.drop_table('project_tags')
+    op.drop_table('tags_translations')
     op.drop_table('tags')
