@@ -101,6 +101,42 @@ class TestViewsFunctional(BaseTestCase):
         DBSession.delete(user)
         transaction.commit()
 
+    def test_verified_statuses(self):
+        from osmtm.models import User, DBSession
+        import transaction
+
+        edi_userid = 1111
+        edi_username = u'verified_editor_soon'
+
+        val_userid = 2222
+        val_username = u'verified_validator_soon'
+
+        edi_user = User(edi_userid, edi_username)
+        val_user = User(val_userid, val_username)
+
+        DBSession.add(edi_user)
+        DBSession.add(val_user)
+        DBSession.flush()
+        transaction.commit()
+
+        edi_user_before = DBSession.query(User).get(edi_userid)
+        val_user_before = DBSession.query(User).get(val_userid)
+
+        self.assertFalse(edi_user_before.is_verified_editor)
+        self.assertFalse(val_user_before.is_verified_validator)
+
+        headers = self.login_as_admin()
+        self.testapp.get('/user/%s/verified_editor' % edi_userid,
+                         headers=headers, status=302)
+        self.testapp.get('/user/%s/verified_validator' % val_userid,
+                         headers=headers, status=302)
+
+        edi_user_after = DBSession.query(User).get(edi_userid)
+        val_user_after = DBSession.query(User).get(val_userid)
+
+        self.assertTrue(edi_user_after.is_verified_editor)
+        self.assertTrue(val_user_after.is_verified_validator)
+
     def test_user(self):
         httpretty.enable()
         from . import USER1_ID

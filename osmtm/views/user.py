@@ -97,6 +97,32 @@ def user_project_manager(request):
                                          username=user.username))
 
 
+@view_config(route_name='user_verified_editor', permission="user_edit")
+def user_verified_editor(request):
+    id = request.matchdict['id']
+    user = DBSession.query(User).get(id)
+
+    user.editor_status = User.verified_editor if not user.is_verified_editor \
+        else None
+    DBSession.flush()
+
+    return HTTPFound(location=route_path("user", request,
+                                         username=user.username))
+
+
+@view_config(route_name='user_verified_validator', permission="user_edit")
+def user_verified_validator(request):
+    id = request.matchdict['id']
+    user = DBSession.query(User).get(id)
+
+    user.validator_status = User.verified_validator if not \
+        user.is_verified_validator else None
+    DBSession.flush()
+
+    return HTTPFound(location=route_path("user", request,
+                                         username=user.username))
+
+
 @view_config(route_name='user', renderer='user.mako')
 def user(request):
 
