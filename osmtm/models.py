@@ -118,6 +118,9 @@ users_licenses_table = Table(
 ADMIN = 1
 PROJECT_MANAGER = 2
 
+VERIFIED_EDITOR = 1
+VERIFIED_VALIDATOR = 1
+
 
 class User(Base):
     __tablename__ = "users"
@@ -137,6 +140,12 @@ class User(Base):
             Message.read.isnot(True)
         ))
 
+    editor_status = Column(Integer)
+    validator_status = Column(Integer)
+
+    verified_editor = VERIFIED_EDITOR
+    verified_validator = VERIFIED_VALIDATOR
+
     def __init__(self, id, username):
         self.id = id
         self.username = username
@@ -149,12 +158,22 @@ class User(Base):
     def is_project_manager(self):
         return self.role is self.role_project_manager
 
+    @hybrid_property
+    def is_verified_editor(self):
+        return self.editor_status is self.verified_editor
+
+    @hybrid_property
+    def is_verified_validator(self):
+        return self.validator_status is self.verified_validator
+
     def as_dict(self):
         return {
             "id": self.id,
             "username": self.username,
             "is_admin": self.is_admin,
-            "is_project_manager": self.is_project_manager
+            "is_project_manager": self.is_project_manager,
+            "is_verified_editor": self.is_verified_editor,
+            "is_verified_validator": self.is_verified_validator
         }
 
 
