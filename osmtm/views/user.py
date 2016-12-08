@@ -97,26 +97,26 @@ def user_project_manager(request):
                                          username=user.username))
 
 
-@view_config(route_name='user_verified_editor', permission="user_edit")
-def user_verified_editor(request):
+@view_config(route_name='user_editor_level', permission="user_edit")
+def user_editor_level(request):
     id = request.matchdict['id']
+    level = request.matchdict['level']
     user = DBSession.query(User).get(id)
 
-    user.editor_status = User.verified_editor if not user.is_verified_editor \
-        else None
+    user.editor_level = level
     DBSession.flush()
 
     return HTTPFound(location=route_path("user", request,
                                          username=user.username))
 
 
-@view_config(route_name='user_verified_validator', permission="user_edit")
-def user_verified_validator(request):
+@view_config(route_name='user_validator_level', permission="user_edit")
+def user_validator_level(request):
     id = request.matchdict['id']
+    level = request.matchdict['level']
     user = DBSession.query(User).get(id)
 
-    user.validator_status = User.verified_validator if not \
-        user.is_verified_validator else None
+    user.validator_level = level
     DBSession.flush()
 
     return HTTPFound(location=route_path("user", request,

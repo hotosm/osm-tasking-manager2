@@ -131,10 +131,10 @@ def main(global_config, **settings):
     config.add_route('user', '/user/{username}')
     config.add_route('user_admin', '/user/{id:\d+}/admin')
     config.add_route('user_project_manager', '/user/{id:\d+}/project_manager')
-    config.add_route('user_verified_editor',
-                     '/user/{id:\d+}/verified_editor')
-    config.add_route('user_verified_validator',
-                     '/user/{id:\d+}/verified_validator')
+    config.add_route('user_editor_level',
+                     '/user/{id:\d+}/editor_level/{level:\d+}')
+    config.add_route('user_validator_level',
+                     '/user/{id:\d+}/validator_level/{level:\d+}')
     config.add_route('user_prefered_editor',
                      '/user/prefered_editor/{editor}', xhr=True)
     config.add_route('user_prefered_language',

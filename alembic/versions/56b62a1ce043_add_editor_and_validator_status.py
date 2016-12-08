@@ -15,10 +15,11 @@ import sqlalchemy as sa
 
 
 def upgrade():
-    op.add_column('users', sa.Column('editor_status', sa.Integer))
-    op.add_column('users', sa.Column('validator_status', sa.Integer))
+    op.add_column('users', sa.Column('editor_level', sa.Integer))
+    op.add_column('users', sa.Column('validator_level', sa.Integer))
+    op.execute('UPDATE users SET (editor_level, validator_level) = (0, 0);')
 
 
 def downgrade():
-    op.drop_column('users', 'editor_status')
-    op.drop_column('users', 'validator_status')
+    op.drop_column('users', 'editor_level')
+    op.drop_column('users', 'validator_level')

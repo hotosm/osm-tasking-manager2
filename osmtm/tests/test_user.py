@@ -16,7 +16,7 @@ class TestViewsFunctional(BaseTestCase):
 
     def test_users_json(self):
         res = self.testapp.get('/users.json', status=200)
-        self.assertEqual(len(res.json), 5)
+        self.assertEqual(len(res.json), 7)
 
     def test_users_json__query(self):
         res = self.testapp.get('/users.json',
@@ -101,15 +101,15 @@ class TestViewsFunctional(BaseTestCase):
         DBSession.delete(user)
         transaction.commit()
 
-    def test_verified_statuses(self):
+    def test_editor_validator_levels(self):
         from osmtm.models import User, DBSession
         import transaction
 
         edi_userid = 1111
-        edi_username = u'verified_editor_soon'
+        edi_username = u'editor_level_soon'
 
         val_userid = 2222
-        val_username = u'verified_validator_soon'
+        val_username = u'validator_level_soon'
 
         edi_user = User(edi_userid, edi_username)
         val_user = User(val_userid, val_username)
@@ -122,20 +122,20 @@ class TestViewsFunctional(BaseTestCase):
         edi_user_before = DBSession.query(User).get(edi_userid)
         val_user_before = DBSession.query(User).get(val_userid)
 
-        self.assertFalse(edi_user_before.is_verified_editor)
-        self.assertFalse(val_user_before.is_verified_validator)
+        self.assertEqual(edi_user_before.editor_level, 0)
+        self.assertEqual(val_user_before.validator_level, 0)
 
         headers = self.login_as_admin()
-        self.testapp.get('/user/%s/verified_editor' % edi_userid,
+        self.testapp.get('/user/%s/editor_level/%s' % (edi_userid, 1),
                          headers=headers, status=302)
-        self.testapp.get('/user/%s/verified_validator' % val_userid,
+        self.testapp.get('/user/%s/validator_level/%s' % (val_userid, 1),
                          headers=headers, status=302)
 
         edi_user_after = DBSession.query(User).get(edi_userid)
         val_user_after = DBSession.query(User).get(val_userid)
 
-        self.assertTrue(edi_user_after.is_verified_editor)
-        self.assertTrue(val_user_after.is_verified_validator)
+        self.assertEqual(edi_user_after.editor_level, 1)
+        self.assertEqual(val_user_after.validator_level, 1)
 
     def test_user(self):
         httpretty.enable()
