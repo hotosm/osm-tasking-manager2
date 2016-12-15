@@ -166,6 +166,17 @@ msgstr ""
 msgid "Please donate!"
 msgstr ""
 
+#: osmtm/templates/custom.mako:124
+msgid ""
+"Each day, nearly 1000 people use this Tasking Manager site, a tool "
+"developed by the Humanitarian OpenStreetMap Team (HOT). HOT is a "
+"nonprofit organization that relies entirely on grants and donations "
+"from people like you. Your donation is needed urgently to raise $30,000 "
+"in support of critical mapping projects around the world. You can help "
+"by giving any amount you can: our partner Mapbox will donate an additional "
+"$5000 if you help us reach 150 donors by January 1st."
+msgstr ""
+
 #: osmtm/templates/helpers.mako:3 osmtm/templates/home.mako:10
 msgid "urgent"
 msgstr ""
