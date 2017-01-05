@@ -322,6 +322,8 @@ osmtm.project = (function() {
 
     if ($(this).hasClass('disabled')) {
       return false;
+    } else {
+      $(this).addClass('disabled'); // give an indication of activity
     }
 
     var params = {};
