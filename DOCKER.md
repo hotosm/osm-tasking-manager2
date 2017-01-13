@@ -25,5 +25,8 @@ docker-compose exec db su - postgres -c "pg_restore \
   /srv/osmtm2.dmp"
 ```
 
-Monitor database restore in another window
+Monitor database restore in another terminal window
 `docker-compose exec db su - postgres -c "pg_top"`
+
+Monitor TM2 logs in another terminal window
+`docker-compose logs -f app`
