@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  db:
+    build:
+      context: ./
+      dockerfile: db.Dockerfile
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-db-volume:/data/postgres
+      - /tmp:/tmp
+    cpu_shares: 8
+    cpuset: 0-8
+  app:
+    build:
+      context: ./
+      dockerfile: app.Dockerfile
+    ports:
+      - "6543:6543"
+    depends_on:
+      - db
+# https://docs.docker.com/compose/startup-order/
+
+# cpuset, such as `docker run –cpuset-cpus`, allows users to specify which CPUs to allow execution in
+# accepts a string that looks like
+# 0
+# 0,1
+# 0-2
+# cpu_shares
+
+volumes:
+  postgres-db-volume:
