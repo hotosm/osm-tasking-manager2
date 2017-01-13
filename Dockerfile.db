@@ -1,11 +1,16 @@
 FROM library/postgres
 
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
+RUN apt-get update \
+    && apt-get install -y \
+    --no-install-recommends \
       postgis \
       postgresql-9.6-postgis-2.3 \
       postgresql-contrib-9.6 \
-      postgresql-9.6-postgis-scripts
+      postgresql-9.6-postgis-scripts \
+      pgtop \
+    && apt-get clean \
+    && apt-get autoremove \
+    && rm -r /var/lib/apt/lists/*
 
 COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 

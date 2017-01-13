@@ -1,25 +1,30 @@
 version: '2'
 
 services:
+# https://hub.docker.com/_/postgres/
+# https://store.docker.com/images/022689bf-dfd8-408f-9e1c-19acac32e57b
   db:
     build:
       context: ./
-      dockerfile: db.Dockerfile
+      dockerfile: Dockerfile.db
     ports:
       - "5432:5432"
     volumes:
       - postgres-db-volume:/data/postgres
-      - /tmp:/tmp
-    cpu_shares: 8
-    cpuset: 0-8
+      - /tmp/docker_tmp:/srv/
+    # cpu_shares: 8
+    # cpuset: 0-8
   app:
     build:
       context: ./
-      dockerfile: app.Dockerfile
+      dockerfile: Dockerfile.app
     ports:
       - "6543:6543"
     depends_on:
       - db
+    command: ["./wait-for-postgres.sh", "db", "./startup-tm.sh"]
+
+
 # https://docs.docker.com/compose/startup-order/
 
 # cpuset, such as `docker run –cpuset-cpus`, allows users to specify which CPUs to allow execution in
