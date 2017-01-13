@@ -30,3 +30,6 @@ Monitor database restore in another terminal window
 
 Monitor TM2 logs in another terminal window
 `docker-compose logs -f app`
+
+To destroy the docker containers and volumes
+`docker-compose down -v`
