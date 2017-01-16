@@ -44,10 +44,15 @@ def users(request):
 def users_json(request):
     query = DBSession.query(User).order_by(User.username)
 
+    q = ''
     if 'q' in request.params:
-        q = request.params.get('q')
-        query = query.filter(User.username.ilike('%' + q + '%')).limit(10)
+        q = request.params.get('q').strip()
 
+    if q:
+        query = query.filter(User.username.ilike('%' + q + '%')).limit(10)
+    else:
+        request.response.cache_control = \
+            'private, max-age=600'
     return [u.username for u in query.all()]
 
 
