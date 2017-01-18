@@ -8,6 +8,7 @@ from osmtm.models import (
     Base,
     User,
     License,
+    Tag,
     Area,
     Project,
     DBSession,
@@ -66,6 +67,11 @@ def populate_db():
     license.description = u'the_description_for_license_bar'
     license.plain_text = u'the_plain_text_for_license_bar'
     DBSession.add(license)
+
+    tag = Tag()
+    tag.name = u'TagBar'
+    tag.admin_description = u'the_admin_description_for_tag_bar'
+    DBSession.add(tag)
 
     shape = shapely.geometry.Polygon(
         [(7.23, 41.25), (7.23, 41.12), (7.41, 41.20)])

@@ -21,6 +21,9 @@
     <li>
       <a href="${request.route_path('licenses')}">${_('Manage licenses')}</a>
     </li>
+    <li>
+      <a href="${request.route_path('tags')}">${_('Manage project tags')}</a>
+    </li>
     % endif
     % if user.is_admin or user.is_project_manager:
     <li>
