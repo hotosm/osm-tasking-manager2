@@ -83,6 +83,32 @@ def user_project_manager(request):
                                          username=user.username))
 
 
+@view_config(route_name='user_editor_level', permission="user_edit")
+def user_editor_level(request):
+    id = request.matchdict['id']
+    level = request.matchdict['level']
+    user = DBSession.query(User).get(id)
+
+    user.editor_level = level
+    DBSession.flush()
+
+    return HTTPFound(location=route_path("user", request,
+                                         username=user.username))
+
+
+@view_config(route_name='user_validator_level', permission="user_edit")
+def user_validator_level(request):
+    id = request.matchdict['id']
+    level = request.matchdict['level']
+    user = DBSession.query(User).get(id)
+
+    user.validator_level = level
+    DBSession.flush()
+
+    return HTTPFound(location=route_path("user", request,
+                                         username=user.username))
+
+
 @view_config(route_name='user', renderer='user.mako')
 def user(request):
 

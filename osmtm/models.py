@@ -138,6 +138,9 @@ class User(Base):
             Message.read.isnot(True)
         ))
 
+    editor_level = Column(Integer, default=0)
+    validator_level = Column(Integer, default=0)
+
     def __init__(self, id, username):
         self.id = id
         self.username = username
@@ -155,7 +158,7 @@ class User(Base):
             "id": self.id,
             "username": self.username,
             "is_admin": self.is_admin,
-            "is_project_manager": self.is_project_manager
+            "is_project_manager": self.is_project_manager,
         }
 
 
