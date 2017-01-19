@@ -29,6 +29,8 @@ before_deploy:
   - 'unzip awscli-bundle.zip'
   - './awscli-bundle/install -b ~/bin/aws'
   - 'export PATH=~/bin:$PATH'
+  - 'rm awscli-bundle.zip'
+  - 'rm -rf awscli-bundle/'
 deploy:
   provider: script
   script: scripts/deploy.sh
