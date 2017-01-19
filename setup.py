@@ -17,7 +17,7 @@ requires = [
     'waitress',
     'psycopg2',
     'markdown',
-    'bleach==1.4',
+    'bleach==1.4.3',
     'nose',
     'coverage',
     'oauth2',
@@ -42,7 +42,7 @@ requires = [
 ]
 
 setup(name='osmtm',
-      version='2.13',
+      version='2.14-dev',
       description='osmtm',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[

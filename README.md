@@ -55,6 +55,7 @@ For example:
     [app:main]
     sqlalchemy.url = postgresql://www-data:PASSWORD@localhost/osmtm
     default_comment_prefix = #yourinstancename-project
+    check_expiration_interval = 60
 
 Note: you can also put your local settings file anywhere else on your
 file system, and then create a `LOCAL_SETTINGS_PATH` environment variable
@@ -64,6 +65,7 @@ Currently, these are the settings you can over-ride:
 
  - `sqlalchemy.url`: Postgres URL to use for database connection
  - `default_comment_prefix`: Default prefix to use for changeset comments, defaults to `#hotosm-project`
+ - `check_expiration_interval`: The interval at which the database should be checked for expired tasks, in seconds. Defaults to `5` seconds.
 
 ### Populate the database
 
@@ -132,10 +134,10 @@ To run the tests, use the following command:
 ## Application deployment
 
 1. pull latest updates from the repository: `git pull origin`
-1. update the submodules: `git submodule update`
+1. update the submodules: `git submodule update --init`
 1. update/install python modules: `./env/bin/pip install -r requirements.txt`
 1. create database dump: `pg_dump -Fc -f osmtm2_latest.dmp database_name`
-1. run database migrations: `alembic upgrade head`
+1. run database migrations: `./env/bin/alembic upgrade head`
 1. compile messages: `./env/bin/python setup.py compile_catalog`
 1. restart application server
 
