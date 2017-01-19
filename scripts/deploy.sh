@@ -5,11 +5,14 @@ HOST="62.210.100.219"
 URL="http://tasks-staging.hotosm.org"
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ../mozart_rsa"
 
-pwd
-echo "#########"
-ls -lAht
-echo "#########"
-ls -lAht ../
+echo "step 1"
+# download mozarts key
+aws s3 cp s3://hotosm-secure/keys/mozart_rsa.enc mozart_rsa.enc
+
+echo "step 2"
+# unencrypt mozarts key
+openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
+  -in mozart_rsa.enc -out mozart_rsa -d
 
 # connect to zoonmaps server and ensure things are setup
 ssh $DEPLOY_USER@$HOST $SSH_OPTS \

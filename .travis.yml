@@ -8,9 +8,6 @@ cache:
 sudo: false
 before_install:
   - pip install awscli
-  - aws s3 cp s3://hotosm-secure/keys/mozart_rsa.enc mozart_rsa.enc
-  - openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
-    -in mozart_rsa.enc -out mozart_rsa -d
   - deactivate
 install:
   - virtualenv env
