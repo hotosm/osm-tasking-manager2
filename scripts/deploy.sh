@@ -3,9 +3,13 @@
 DEPLOY_USER="mozart"
 HOST="62.210.100.219"
 URL="http://tasks-staging.hotosm.org"
+SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i mozart_rsa"
+
+pwd
+ls -lAht
 
 # connect to zoonmaps server and ensure things are setup
-ssh $DEPLOY_USER@$HOST -i mozart_rsa \
+ssh $DEPLOY_USER@$HOST $SSH_OPTS \
     -o "ForwardAgent=yes" \
     "if cd /srv/deploy/osm-tasking-manager2 ; then \
         git pull \
@@ -25,7 +29,8 @@ ssh $DEPLOY_USER@$HOST -i mozart_rsa \
 # $DEPLOY_USER@$HOST:/srv/deploy/osm-tasking-manager2
 
 # find the live environment
-LIVE_COLOR=$(ssh $DEPLOY_USER@$HOST -i mozart_rsa "docker-compose \
+LIVE_COLOR=$(ssh $DEPLOY_USER@$HOST $SSH_OPTS \
+"docker-compose \
   -f docker-compose.yml \
   -f docker-compose.production.yml \
   ps | \
@@ -47,7 +52,7 @@ fi
 echo "building app_$deploy"
 
 # build new color
-ssh $DEPLOY_USER@$HOST -i mozart_rsa \
+ssh $DEPLOY_USER@$HOST $SSH_OPTS \
   "docker-compose \
   -f docker-compose.yml \
   -f docker-compose.production.yml \
@@ -56,7 +61,7 @@ ssh $DEPLOY_USER@$HOST -i mozart_rsa \
 echo "deploying app_$deploy"
 
 # deploy new color
-ssh $DEPLOY_USER@$HOST -i mozart_rsa \
+ssh $DEPLOY_USER@$HOST $SSH_OPTS \
   "docker-compose \
     -f docker-compose.yml \
     -f docker-compose.production.yml \
@@ -73,7 +78,7 @@ until $(curl --output /dev/null --silent --head --fail http://tasks-staging-$dep
 done
 
 # stop old server
-ssh $DEPLOY_USER@$HOST -i mozart_rsa \
+ssh $DEPLOY_USER@$HOST $SSH_OPTS \
   "docker-compose \
     -f docker-compose.yml \
     -f docker-compose.production.yml \
