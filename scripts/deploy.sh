@@ -14,6 +14,10 @@ echo "step 2"
 openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv \
   -in mozart_rsa.enc -out mozart_rsa -d
 
+echo "step 3"
+# fix permissions
+chmod 700 mozart_rsa
+
 # connect to zoonmaps server and ensure things are setup
 ssh $DEPLOY_USER@$HOST $SSH_OPTS \
     -o "ForwardAgent=yes" \
