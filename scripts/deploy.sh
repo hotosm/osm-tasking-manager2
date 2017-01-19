@@ -4,7 +4,7 @@ DEPLOY_USER="mozart"
 HOST="62.210.100.219"
 URL="http://tasks-staging.hotosm.org"
 
-connect to zoonmaps server and ensure things are setup
+# connect to zoonmaps server and ensure things are setup
 ssh $DEPLOY_USER@$HOST -i mozart_rsa \
     -o "ForwardAgent=yes" \
     "if cd /srv/deploy/osm-tasking-manager2 ; then \
@@ -31,6 +31,8 @@ LIVE_COLOR=$(ssh $DEPLOY_USER@$HOST -i mozart_rsa "docker-compose \
   ps | \
   awk '/app.*Up/ {print $1}'")
 
+echo "$LIVE_COLOR is live"
+
 # set values for live color and deploy color
 if [[ $LIVE_COLOR == *"blue"* ]]; then
   deploy="green";
@@ -42,12 +44,16 @@ else
   echo "app not running"
 fi
 
+echo "building app_$deploy"
+
 # build new color
 ssh $DEPLOY_USER@$HOST -i mozart_rsa \
   "docker-compose \
   -f docker-compose.yml \
   -f docker-compose.production.yml \
   build app app_$deploy"
+
+echo "deploying app_$deploy"
 
 # deploy new color
 ssh $DEPLOY_USER@$HOST -i mozart_rsa \
