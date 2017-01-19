@@ -7,6 +7,7 @@ cache:
   - "$HOME/build/hotosm/osm-tasking-manager2/env"
 sudo: false
 before_install:
+- scripts/aws-cli.sh
 - aws s3 cp s3://hotosm-secure/keys/mozart_rsa.enc mozart_rsa.enc
 - openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
   -in mozart_rsa.enc -out mozart_rsa -d
@@ -29,6 +30,6 @@ after_success:
 - env/bin/coveralls
 deploy:
   provider: script
-  script: deploy.sh
+  script: scripts/deploy.sh
   on:
     branch: docker-2.13
