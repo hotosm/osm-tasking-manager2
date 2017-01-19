@@ -35,4 +35,4 @@ deploy:
   provider: script
   script: scripts/deploy.sh
   on:
-    branch: docker-2.13
+    branch: develop
