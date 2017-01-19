@@ -3,29 +3,54 @@ version: '2'
 services:
 # https://hub.docker.com/_/postgres/
 # https://store.docker.com/images/022689bf-dfd8-408f-9e1c-19acac32e57b
+
   db:
     build:
       context: ./
       dockerfile: Dockerfile.db
-    ports:
-      - "5432:5432"
+    container_name: db
+    restart: always
     volumes:
       - postgres-db-volume:/data/postgres
-      - /tmp/docker_tmp:/srv/
-    # cpu_shares: 8
-    # cpuset: 0-8
+      - /tmp:/srv
+    cpu_shares: 8
+    cpuset: 0-8
+    networks:
+      - database_network
+
   app:
     build:
       context: ./
       dockerfile: Dockerfile.app
-    ports:
-      - "6543:6543"
-    depends_on:
-      - db
+    container_name: app
+    environment:
+      - VIRTUAL_HOST=tasks-staging.hotosm.org
+    restart: always
+    # https://docs.docker.com/compose/startup-order/
     command: ["./wait-for-postgres.sh", "db", "./startup-tm.sh"]
+    networks:
+      - database_network
+      - code_network
 
-
-# https://docs.docker.com/compose/startup-order/
+# https://hub.docker.com/_/nginx/
+  # nginx:
+  #   build:
+  #     context: ./
+  #     dockerfile: Dockerfile.nginx
+  #   container_name: nginx
+  #   restart: always
+  #   command: nginx-debug -g 'daemon off;'
+  #   environment:
+  #     - HOSTNAME=_
+  #     - VIRTUAL_HOST=tasks-staging.hotosm.org
+  #     # - VIRTUAL_PORT=3000
+  #   expose:
+  #     - 80
+  #   depends_on:
+  #     - db
+  #     - app
+  #   networks:
+  #     - code_network
 
 # cpuset, such as `docker run –cpuset-cpus`, allows users to specify which CPUs to allow execution in
 # accepts a string that looks like
@@ -36,3 +61,9 @@ services:
 
 volumes:
   postgres-db-volume:
+
+networks:
+  code_network:
+    driver: bridge
+  database_network:
+    driver: bridge
