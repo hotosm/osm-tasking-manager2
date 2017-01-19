@@ -11,7 +11,7 @@ aws s3 cp s3://hotosm-secure/keys/mozart_rsa.enc mozart_rsa.enc
 
 echo "step 2"
 # unencrypt mozarts key
-openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
+openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv \
   -in mozart_rsa.enc -out mozart_rsa -d
 
 # connect to zoonmaps server and ensure things are setup
