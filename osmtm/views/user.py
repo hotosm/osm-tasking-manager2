@@ -28,27 +28,13 @@ from xml.dom import minidom
 
 @view_config(route_name='users', renderer='users.mako')
 def users(request):
-    users = DBSession.query(User).all()
-    users.sort(key=lambda user: user.username)
-    users.sort(key=lambda user:
-               user.is_admin or user.is_project_manager, reverse=True)
+    users = DBSession.query(User).order_by(User.role, User.username)
 
     page = int(request.params.get('page', 1))
     page_url = PageURL_WebOb(request)
     paginator = Page(users, page, url=page_url, items_per_page=40)
 
-    return dict(page_id="users", users=users, paginator=paginator)
-
-
-@view_config(route_name='users_json', renderer='json')
-def users_json(request):
-    query = DBSession.query(User).order_by(User.username)
-
-    if 'q' in request.params:
-        q = request.params.get('q')
-        query = query.filter(User.username.ilike('%' + q + '%')).limit(10)
-
-    return [u.username for u in query.all()]
+    return dict(page_id="users", paginator=paginator)
 
 
 @view_config(route_name='user_messages', http_cache=0,

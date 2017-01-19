@@ -63,6 +63,7 @@ from .utils import (
 from zope.sqlalchemy import ZopeTransactionExtension
 
 import datetime
+import re
 
 from json import (
     JSONEncoder,
@@ -203,6 +204,9 @@ class TaskLock(Base):
     user_id = Column(BigInteger, ForeignKey('users.id'))
     user = relationship(User)
     date = Column(DateTime, default=datetime.datetime.utcnow)
+    # duration of the lock once the task is unlocked
+    # relevant only for records with lock == true
+    duration = 0
 
     __table_args__ = (ForeignKeyConstraint([task_id, project_id],
                                            ['task.id', 'task.project_id']),
@@ -383,7 +387,14 @@ class Task(Base):
         )
 
     def get_extra_instructions(self):
+
         instructions = self.project.per_task_instructions
+
+        def replace_colon(matchobj):
+            return matchobj.group(0).replace(':', '_')
+
+        instructions = re.sub('\{([^}]*)\}', replace_colon, instructions)
+
         properties = {}
         if self.x:
             properties['x'] = str(self.x)
@@ -392,7 +403,11 @@ class Task(Base):
         if self.zoom:
             properties['z'] = str(self.zoom)
         if self.extra_properties:
-            properties.update(_loads(self.extra_properties))
+            extra_properties = _loads(self.extra_properties)
+            for key in extra_properties:
+                properties.update({
+                    key.replace(':', '_'): extra_properties[key]
+                })
         return instructions.format(**properties)
 
 
