@@ -6,14 +6,10 @@ URL="http://tasks-staging.hotosm.org"
 SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ../mozart_rsa"
 
 echo "step 1"
-# install awscli
-pip install awscli
-
-echo "step 2"
 # download mozarts key
 aws s3 cp s3://hotosm-secure/keys/mozart_rsa.enc mozart_rsa.enc
 
-echo "step 3"
+echo "step 2"
 # unencrypt mozarts key
 openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
   -in mozart_rsa.enc -out mozart_rsa -d

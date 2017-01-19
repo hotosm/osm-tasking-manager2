@@ -24,6 +24,11 @@ script:
 after_success:
   - env/bin/pip install coveralls
   - env/bin/coveralls
+before_deploy:
+  - 'curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"'
+  - 'unzip awscli-bundle.zip'
+  - './awscli-bundle/install -b ~/bin/aws'
+  - 'export PATH=~/bin:$PATH'
 deploy:
   provider: script
   script: scripts/deploy.sh
