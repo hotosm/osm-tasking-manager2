@@ -37,6 +37,7 @@ chmod 700 mozart_rsa
 #     "ssh-add -l"
 
 rsync -arvz --progress . \
+ --exclude='.git/' \
  -e "ssh -o StrictHostKeyChecking=no \
          -o UserKnownHostsFile=/dev/null \
          -i mozart_rsa" \
@@ -69,7 +70,7 @@ ssh $DEPLOY_USER@$HOST $SSH_OPTS \
   "sudo su -c 'cd $BASE_DIR && docker-compose \
   -f docker-compose.yml \
   -f docker-compose.production.yml \
-  build app app_$deploy"
+  build app app_$deploy'"
 
 echo "deploying app_$deploy"
 
@@ -79,7 +80,7 @@ ssh $DEPLOY_USER@$HOST $SSH_OPTS \
     -f docker-compose.yml \
     -f docker-compose.production.yml \
     up -d \
-    --force-recreate app_$deploy"
+    --force-recreate app_$deploy'"
 
 # Wait a little in case the service takes a bit to start
 sleep 5
@@ -95,7 +96,7 @@ ssh $DEPLOY_USER@$HOST $SSH_OPTS \
   "sudo su -c 'cd $BASE_DIR && docker-compose \
     -f docker-compose.yml \
     -f docker-compose.production.yml \
-    stop app_$live"
+    stop app_$live'"
 
 # test main site
 until $(curl --output /dev/null --silent --head --fail ${URL}); do
