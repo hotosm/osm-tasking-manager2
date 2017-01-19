@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+# https://hub.docker.com/_/nginx/
+  nginx:
+    ports:
+      - 80:80
+      - 443:443
+  app:
+    ports:
+      - 6543:6543

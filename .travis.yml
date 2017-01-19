@@ -1,32 +1,38 @@
 language: python
 python:
 - 2.7
-
 cache:
   directories:
-    - $HOME/.cache/pip
-    - $HOME/build/hotosm/osm-tasking-manager2/env
-
+  - "$HOME/.cache/pip"
+  - "$HOME/build/hotosm/osm-tasking-manager2/env"
 sudo: false
-
 before_install:
-- deactivate
-
+  - deactivate
 install:
-- virtualenv env
-- env/bin/pip install --upgrade pip
-- env/bin/pip install -r requirements.txt
-- createuser www-data --no-superuser --no-createdb --no-createrole -U postgres
-- createdb -O www-data osmtm_tests -U postgres
-- psql -d osmtm_tests -c "CREATE EXTENSION postgis;" -U postgres
-- env/bin/pip install flake8
-
+  - virtualenv env
+  - env/bin/pip install --upgrade pip
+  - env/bin/pip install -r requirements.txt
+  - createuser www-data --no-superuser --no-createdb --no-createrole -U postgres
+  - createdb -O www-data osmtm_tests -U postgres
+  - psql -d osmtm_tests -c "CREATE EXTENSION postgis;" -U postgres
+  - env/bin/pip install flake8
 script:
-- echo [app:main] >> local.test.ini
-- echo sqlalchemy.url = postgresql://www-data:www-data@localhost/osmtm_tests >> local.test.ini
-- env/bin/nosetests
-- env/bin/flake8 osmtm --exclude=osmtm/static
-
+  - echo [app:main] >> local.test.ini
+  - echo sqlalchemy.url = postgresql://www-data:www-data@localhost/osmtm_tests >> local.test.ini
+  - env/bin/nosetests
+  - env/bin/flake8 osmtm --exclude=osmtm/static
 after_success:
-- env/bin/pip install coveralls
-- env/bin/coveralls
+  - env/bin/pip install coveralls
+  - env/bin/coveralls
+before_deploy:
+  - 'curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"'
+  - 'unzip awscli-bundle.zip'
+  - './awscli-bundle/install -b ~/bin/aws'
+  - 'export PATH=~/bin:$PATH'
+  - 'rm awscli-bundle.zip'
+  - 'rm -rf awscli-bundle/'
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: develop
