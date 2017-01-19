@@ -432,44 +432,85 @@ def project_user_delete(request):
 
 @view_config(route_name='project_users', renderer='json',
              permission="project_show")
+@view_config(route_name='task_users', renderer='json',
+             permission="project_show")
+@view_config(route_name='users_json', renderer='json',
+             permission="project_show")
 def project_users(request):
     ''' get the list of users for a given project.
         Returns list of allowed users if project is private.
         Return complete list of users if project is not private.
         Users with assigned tasks will appear first. '''
 
-    id = request.matchdict['project']
-    project = DBSession.query(Project).get(id)
+    if 'project' in request.matchdict:
+        project_id = request.matchdict['project']
+        project = DBSession.query(Project).get(project_id)
+    else:
+        project = None
 
     query = request.params.get('q', '')
     query_filter = User.username.ilike(u"%" + query + "%")
 
-    ''' list of users with assigned tasks '''
-    t = DBSession.query(
-            func.max(Task.assigned_date).label('date'),
-            Task.assigned_to_id
-        ) \
-        .filter(
-            Task.assigned_to_id != None,  # noqa
-            Task.project_id == id
-        ) \
-        .group_by(Task.assigned_to_id) \
-        .subquery('t')
-    assigned = DBSession.query(User) \
-        .join(t, and_(User.id == t.c.assigned_to_id)) \
-        .filter(query_filter) \
-        .order_by(t.c.date.desc()) \
-        .all()
-
     r = []
-    for user in assigned:
-        r.append(user.username)
+    if 'task' in request.matchdict:
+        task_id = request.matchdict['task']
+        ''' list of users who contributed to the current task '''
+        filter = and_(
+            TaskState.project_id == project_id,
+            TaskState.task_id == task_id
+        )
 
-    if project.private:
+        contributors = DBSession.query(User) \
+            .join(TaskState) \
+            .filter(filter) \
+            .order_by(TaskState.date.desc()) \
+            .all()
+
+        for user in contributors:
+            r.append(user.username)
+
+        ''' list of users who contributed to the current task '''
+        filter = and_(
+            TaskLock.project_id == project_id,
+            TaskLock.task_id == task_id
+        )
+
+        lockers = DBSession.query(User) \
+            .join(TaskLock) \
+            .filter(filter) \
+            .order_by(TaskLock.date.desc()) \
+            .all()
+        for user in lockers:
+            if user.username not in r:
+                r.append(user.username)
+
+    if project is not None:
+        ''' list of users with assigned tasks '''
+        t = DBSession.query(
+                func.max(Task.assigned_date).label('date'),
+                Task.assigned_to_id
+            ) \
+            .filter(
+                Task.assigned_to_id != None,  # noqa
+                Task.project_id == project_id
+            ) \
+            .group_by(Task.assigned_to_id) \
+            .subquery('t')
+        assigned = DBSession.query(User) \
+            .join(t, and_(User.id == t.c.assigned_to_id)) \
+            .filter(query_filter) \
+            .order_by(t.c.date.desc()) \
+            .all()
+
+        for user in assigned:
+            if user.username not in r:
+                r.append(user.username)
+
+    if project is not None and project.private:
         ''' complete list with allowed users '''
         users = DBSession.query(User) \
             .join(Project.allowed_users) \
-            .filter(Project.id == id, query_filter)
+            .filter(Project.id == project_id, query_filter)
         for user in users:
             if user.username not in r:
                 r.append(user.username)

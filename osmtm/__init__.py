@@ -123,6 +123,8 @@ def main(global_config, **settings):
     config.add_route('task_difficulty_delete',
                      '/project/{project:\d+}/task/{task:\d+}/difficulty',
                      xhr=True, request_method='DELETE')
+    config.add_route('task_users',
+                     '/project/{project:\d+}/task/{task:\d+}/users')
 
     config.add_route('users', '/users')
     config.add_route('users_json', '/users.json')
