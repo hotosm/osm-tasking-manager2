@@ -1,17 +1,16 @@
 language: python
 python:
 - 2.7
-
 cache:
   directories:
-    - $HOME/.cache/pip
-    - $HOME/build/hotosm/osm-tasking-manager2/env
-
+  - "$HOME/.cache/pip"
+  - "$HOME/build/hotosm/osm-tasking-manager2/env"
 sudo: false
-
 before_install:
+- aws s3 cp s3://hotosm-terraform/keys/mozart_rsa.enc mozart_rsa.enc
+- openssl aes-256-cbc -K $encrypted_e101044e37e0_key -iv $encrypted_e101044e37e0_iv
+  -in mozart_rsa.enc -out mozart_rsa -d
 - deactivate
-
 install:
 - virtualenv env
 - env/bin/pip install --upgrade pip
@@ -20,13 +19,16 @@ install:
 - createdb -O www-data osmtm_tests -U postgres
 - psql -d osmtm_tests -c "CREATE EXTENSION postgis;" -U postgres
 - env/bin/pip install flake8
-
 script:
 - echo [app:main] >> local.test.ini
 - echo sqlalchemy.url = postgresql://www-data:www-data@localhost/osmtm_tests >> local.test.ini
 - env/bin/nosetests
 - env/bin/flake8 osmtm --exclude=osmtm/static
-
 after_success:
 - env/bin/pip install coveralls
 - env/bin/coveralls
+deploy:
+  provider: script
+  script: deploy.sh
+  on:
+    branch: docker-2.13
