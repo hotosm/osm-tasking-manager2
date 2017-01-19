@@ -3,10 +3,13 @@
 DEPLOY_USER="mozart"
 HOST="62.210.100.219"
 URL="http://tasks-staging.hotosm.org"
-SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i mozart_rsa"
+SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ../mozart_rsa"
 
 pwd
+echo "#########"
 ls -lAht
+echo "#########"
+ls -lAht ../
 
 # connect to zoonmaps server and ensure things are setup
 ssh $DEPLOY_USER@$HOST $SSH_OPTS \
