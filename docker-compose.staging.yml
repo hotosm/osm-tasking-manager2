@@ -12,7 +12,7 @@ services:
       - 3000:6543
     environment:
       - VIRTUAL_PORT=3000
-      - VIRTUAL_HOST=tasks.hotosm.org,tasks-green.hotosm.org
+      - VIRTUAL_HOST=tasks-staging.hotosm.org,tasks-staging-green.hotosm.org
     extends:
       service: app
 
@@ -22,6 +22,6 @@ services:
       - 3001:6543
     environment:
       - VIRTUAL_PORT=3001
-      - VIRTUAL_HOST=tasks.hotosm.org,tasks-blue.hotosm.org
+      - VIRTUAL_HOST=tasks-staging.hotosm.org,tasks-staging-blue.hotosm.org
     extends:
       service: app

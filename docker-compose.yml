@@ -32,28 +32,8 @@ services:
       - database_network
       - code_network
 
-# https://hub.docker.com/_/nginx/
-  # nginx:
-  #   build:
-  #     context: ./
-  #     dockerfile: Dockerfile.nginx
-  #   container_name: nginx
-  #   restart: always
-  #   command: nginx-debug -g 'daemon off;'
-  #   environment:
-  #     - HOSTNAME=_
-  #     - VIRTUAL_HOST=tasks-staging.hotosm.org
-  #     # - VIRTUAL_PORT=3000
-  #   expose:
-  #     - 80
-  #   depends_on:
-  #     - db
-  #     - app
-  #   networks:
-  #     - code_network
-
-# cpuset, such as `docker run –cpuset-cpus`, allows users to specify which CPUs to allow execution in
-# accepts a string that looks like
+# cpuset, such as `docker run –cpuset-cpus`, allows users to specify
+# which CPUs to allow execution in. accepts a string that looks like
 # 0
 # 0,1
 # 0-2
