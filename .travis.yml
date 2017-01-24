@@ -47,5 +47,5 @@ before_deploy:
 deploy:
   provider: script
   script: scripts/deploy.sh
-  branch:
+  on:
     all_branches: true
