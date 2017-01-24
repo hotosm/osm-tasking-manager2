@@ -36,4 +36,4 @@ deploy:
   script: scripts/deploy.sh
   on:
     tags: true
-    branch: develop
+    all_branches: true
