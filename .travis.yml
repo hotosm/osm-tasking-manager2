@@ -34,3 +34,6 @@ before_deploy:
 deploy:
   provider: script
   script: scripts/deploy.sh
+  on:
+    tags: true
+    branch: develop
