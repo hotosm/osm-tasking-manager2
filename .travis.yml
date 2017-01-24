@@ -47,3 +47,5 @@ before_deploy:
 deploy:
   provider: script
   script: scripts/deploy.sh
+  branch:
+    all_branches: true
