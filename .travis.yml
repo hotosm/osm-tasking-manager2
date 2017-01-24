@@ -34,6 +34,7 @@ before_deploy:
 deploy:
   provider: script
   script: scripts/deploy.sh
-  on:
-    tags: true
-    all_branches: true
+  branches:
+    only:
+    - develop
+    - \d{1,2}(\.\d{1,2})?(\.\d{1,2})?
