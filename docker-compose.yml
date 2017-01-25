@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+# https://hub.docker.com/_/postgres/
+# https://store.docker.com/images/022689bf-dfd8-408f-9e1c-19acac32e57b
+
+  db:
+    build:
+      context: ./
+      dockerfile: Dockerfile.db
+    container_name: db
+    restart: always
+    volumes:
+      - postgres-db-volume:/data/postgres
+      - /tmp:/srv
+    cpu_shares: 8
+    cpuset: 0-8
+    networks:
+      - database_network
+
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile.app
+    container_name: app
+    environment:
+      - VIRTUAL_HOST=tasks-staging.hotosm.org
+    restart: always
+    # https://docs.docker.com/compose/startup-order/
+    command: ["./wait-for-postgres.sh", "db", "./startup-tm.sh"]
+    networks:
+      - database_network
+      - code_network
+
+# cpuset, such as `docker run –cpuset-cpus`, allows users to specify
+# which CPUs to allow execution in. accepts a string that looks like
+# 0
+# 0,1
+# 0-2
+# cpu_shares
+
+volumes:
+  postgres-db-volume:
+
+networks:
+  code_network:
+    driver: bridge
+  database_network:
+    driver: bridge
