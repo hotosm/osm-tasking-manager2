@@ -1,11 +1,20 @@
 version: '2'
 
 services:
-# https://hub.docker.com/_/nginx/
-  nginx:
+
+  db:
+    cpu_shares: 2
+    cpuset: 0-1
+
+  app:
+    environment:
+      - VIRTUAL_HOST=tasks.dev
+
+  web:
+    image: jwilder/nginx-proxy
     ports:
       - 80:80
-      - 443:443
-  app:
-    ports:
-      - 6543:6543
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - code_network

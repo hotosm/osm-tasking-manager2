@@ -45,7 +45,11 @@ before_deploy:
   - 'rm -rf awscli-bundle/'
 
 deploy:
-  provider: script
-  script: scripts/deploy.sh
-  on:
-    all_branches: true
+  - provider: script
+    script: scripts/deploy.sh
+    on:
+      tags: true
+  - provider: script
+    script: scripts/deploy.sh
+    on:
+      branch: develop
