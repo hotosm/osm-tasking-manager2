@@ -2,26 +2,21 @@ version: '2'
 
 services:
 
+  db:
+    cpu_shares: 8
+    cpuset: 0-8
+
   app:
     command: ["true"]
 
-# https://github.com/vincetse/docker-compose-zero-downtime-deployment
   app_green:
-    container_name: app_green
-    ports:
-      - 3000:6543
     environment:
-      - VIRTUAL_PORT=3000
       - VIRTUAL_HOST=tasks.hotosm.org,tasks-green.hotosm.org
     extends:
       service: app
 
   app_blue:
-    container_name: app_blue
-    ports:
-      - 3001:6543
     environment:
-      - VIRTUAL_PORT=3001
       - VIRTUAL_HOST=tasks.hotosm.org,tasks-blue.hotosm.org
     extends:
       service: app

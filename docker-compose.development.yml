@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+
+  db:
+    cpu_shares: 2
+    cpuset: 0-1
+
+  app:
+    environment:
+      - VIRTUAL_HOST=tasks.dev
+
+  web:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - code_network
