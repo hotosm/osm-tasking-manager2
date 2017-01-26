@@ -11,12 +11,12 @@ services:
 
   app_green:
     environment:
-      - VIRTUAL_HOST=tasks.hotosm.org,tasks-green.hotosm.org
+      - VIRTUAL_HOST=tasks-production.hotosm.org,tasks-green.hotosm.org
     extends:
       service: app
 
   app_blue:
     environment:
-      - VIRTUAL_HOST=tasks.hotosm.org,tasks-blue.hotosm.org
+      - VIRTUAL_HOST=tasks-production.hotosm.org,tasks-blue.hotosm.org
     extends:
       service: app
