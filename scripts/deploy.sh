@@ -42,7 +42,7 @@ LIVE_COLOR=$(ssh $SSH_OPTS $DEPLOY_USER@$HOST \
   "sudo su -c 'cd $BASE_DIR-$ENV && docker-compose \
   -f docker-compose.yml \
   -f docker-compose.$ENV.yml \
-  ps'" | awk '/app.*Up/ {print $1}')
+  ps'" | awk '/.*app.*Up*/ {print $1}')
 
 # set values for live color and deploy color
 if [[ $LIVE_COLOR == *"blue"* ]]; then
