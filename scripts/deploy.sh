@@ -28,11 +28,13 @@ else
 fi
 
 # rsync files to server and respective environment path
-rsync -arvz --delete --progress . \
- --exclude='.git/' \
- -e "ssh -o StrictHostKeyChecking=no \
-         -o UserKnownHostsFile=/dev/null \
-         -i mozart_rsa" \
+rsync -arvz --delete \
+  --exclude local.ini \
+  --exclude='.git/' \
+  --progress . \
+  -e "ssh -o StrictHostKeyChecking=no \
+        -o UserKnownHostsFile=/dev/null \
+        -i mozart_rsa" \
 $DEPLOY_USER@$HOST:$BASE_DIR-$ENV
 
 # find the live environment
