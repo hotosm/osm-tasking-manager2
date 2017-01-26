@@ -37,6 +37,11 @@ rsync -arvz --delete \
         -i mozart_rsa" \
 $DEPLOY_USER@$HOST:$BASE_DIR-$ENV
 
+# this is a temp fix to resolve issues with production
+rm -rf ./env
+ssh $DEPLOY_USER@$HOST $SSH_OPTS \
+  "sudo su -c 'rm -rf $BASE_DIR-$ENV/env'"
+
 # find the live environment
 LIVE_COLOR=$(ssh $SSH_OPTS $DEPLOY_USER@$HOST \
   "sudo su -c 'cd $BASE_DIR-$ENV && docker-compose \
