@@ -28,7 +28,7 @@ else
 fi
 
 # rsync files to server and respective environment path
-rsync -arvz --progress . \
+rsync -arvz --delete --progress . \
  --exclude='.git/' \
  -e "ssh -o StrictHostKeyChecking=no \
          -o UserKnownHostsFile=/dev/null \
