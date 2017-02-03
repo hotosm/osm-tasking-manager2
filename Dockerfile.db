@@ -1,4 +1,4 @@
-FROM library/postgres
+FROM library/postgres:9.6
 
 RUN apt-get update \
     && apt-get install -y \
@@ -7,6 +7,7 @@ RUN apt-get update \
       postgresql-9.6-postgis-2.3 \
       postgresql-contrib-9.6 \
       postgresql-9.6-postgis-scripts \
+      postgresql-server-dev-9.6 \
       pgtop \
     && apt-get clean \
     && apt-get autoremove \
