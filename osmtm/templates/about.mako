@@ -73,6 +73,11 @@
           vertxt = ''
 %>
       ${vertxt |n}
+      <h3>${_('Software Hosting')}</h3>
+      <p>
+		${_('Graciously hosted by the super cool folks at <a href="//www.zoondka.com">Zoondka</a>') |n}
+		<img src="${request.static_url('osmtm:static/img/zoondka-logo.png')}" />
+      </p>
     </div>
   </div>
 </div>
