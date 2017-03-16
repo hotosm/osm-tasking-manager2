@@ -24,7 +24,7 @@
       <%
         link_to_gpx_text = _('.gpx file')
         link_to_gpx = '<a href="%s" target="_blank">%s</a>' % (
-          request.route_url('task_gpx', project=task.project_id, task=task.id),
+          request.route_path('task_gpx', project=task.project_id, task=task.id),
           link_to_gpx_text)
       %>
       ${_('Tip: Download the following ${task_gpx_link} and load it in JOSM in order to see the current task boundary',

@@ -1,0 +1,81 @@
+version: '2'
+
+services:
+
+  db:
+    image: hotosm/taskmanager-db:development
+    cpu_shares: 2
+    cpuset: 0-1
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    networks:
+      - database_network
+    volumes:
+      - postgres-db-volume:/data/postgres
+
+  app:
+    image: hotosm/taskmanager-app:development
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=Host:tasks.dev
+      - traefik.docker.network=traefik_net
+    ports:
+      - "6543:6543"
+    volumes:
+      - postgres-db-volume:/data/postgres
+    networks:
+      - traefik_net
+      - database_network
+
+  web:
+    image: hotosm/taskmanager-web:development
+    command: -c /dev/null --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./local:/tls
+    networks:
+      - traefik_net
+    cap_drop:
+      - all
+    cap_add:
+      - net_bind_service
+
+  stats:
+    image: hotosm/taskmanager-stats:development
+    volumes:
+      - stats-volume:/opt/app/user_data
+    networks:
+      - database_network
+
+  static:
+    image: hotosm/taskmanager-static:development
+    volumes:
+      - stats-volume:/var/www/static
+    expose:
+      - 80
+    ports:
+      - "8081:80"
+    networks:
+      - traefik_net
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=Path:/user_data/
+      - traefik.docker.network=traefik_net
+
+networks:
+  database_network:
+    driver: bridge
+  traefik_net:
+    driver: bridge
+
+volumes:
+  postgres-db-volume:
+  stats-volume:

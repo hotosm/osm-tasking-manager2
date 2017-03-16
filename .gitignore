@@ -56,3 +56,6 @@ exception.log
 
 # Pycharm
 .idea/
+deploy.sh
+DOCKER.md
+traefik.toml

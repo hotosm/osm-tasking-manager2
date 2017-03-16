@@ -8,7 +8,7 @@ from osmtm.mako_filters import markdown_filter
   % if project.status == project.status_draft:
     ${_('This project is not published yet.')}
     % if user and user.is_project_manager:
-    <a href="${request.route_url('project_publish', project=project.id)}" class="pull-right">
+    <a href="${request.route_path('project_publish', project=project.id)}" class="pull-right">
       <span class="glyphicon glyphicon-share-alt"></span> ${_('Publish')}
     </a>
     % endif

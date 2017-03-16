@@ -1,0 +1,52 @@
+version: '2'
+
+services:
+
+  db:
+    restart: always
+    image: hotosm/taskmanager-db:staging
+    networks:
+      - database_network_staging
+    volumes:
+      - postgres-db-volume-staging:/data/postgres
+
+  app:
+    image: hotosm/taskmanager-app:staging
+    restart: always
+    command: ["true"]
+
+  app_green:
+    image: hotosm/taskmanager-app:staging
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:tasks-staging.hotosm.org,tasks-staging-green.hotosm.org
+      - traefik.docker.network=proxy_traefik_net
+    networks:
+      - traefik_net
+      - database_network_staging
+    extends:
+      service: app
+
+  app_blue:
+    image: hotosm/taskmanager-app:staging
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:tasks-staging.hotosm.org,tasks-staging-blue.hotosm.org
+      - traefik.docker.network=proxy_traefik_net
+    networks:
+      - traefik_net
+      - database_network_staging
+    extends:
+      service: app
+
+networks:
+  database_network_staging:
+    driver: bridge
+  traefik_net:
+    external:
+      name: proxy_traefik_net
+
+volumes:
+  postgres-db-volume-staging:

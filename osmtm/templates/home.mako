@@ -49,7 +49,7 @@ priorities = [_('urgent'), _('high'), _('medium'), _('low')]
               qs.pop('my_projects')
             %>
             <a class="label label-default"
-               href="${request.route_url('home', _query=qs.items())}">${_('Your projects')} &times;</a>
+               href="${request.current_route_path('home', _query=qs.items())}">${_('Your projects')} &times;</a>
             </a>
           % endif
 
@@ -59,7 +59,7 @@ priorities = [_('urgent'), _('high'), _('medium'), _('low')]
               qs.pop('show_archived')
             %>
             <a class="label label-default"
-               href="${request.route_url('home', _query=qs.items())}">${_('Include archived projects')} &times;</a>
+               href="${request.route_path('home', _query=qs.items())}">${_('Include archived projects')} &times;</a>
             </a>
           % endif
           <br>
