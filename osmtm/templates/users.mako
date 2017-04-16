@@ -6,6 +6,7 @@
 </%block>
 <%block name="content">
 <div class="container" ng-app="users">
+<p>${_('The total number of contributors is ${numusers}.', mapping={'numusers': len(users)})}</p>
   <div class="row" ng-controller="usersCrtl">
     <div class="col-md-8">
       <div class="form-group">
