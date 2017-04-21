@@ -120,4 +120,25 @@
   <div class="corner-ribbon top-left sticky orange shadow ">
     <a href="https://donate.hotosm.org" target="_blank">${_('Please donate!')}</a>
   </div>
+  <div id="donate-banner" class="container">
+        <div class="col-md-12">
+          <p>
+          ${_("Each day, nearly 1000 people use this Tasking Manager site, a tool developed by the Humanitarian OpenStreetMap Team (HOT). HOT is a nonprofit organization that relies entirely on grants and donations from people like you. Your donation is needed urgently to raise $30,000 in support of critical mapping projects around the world. You can help by giving any amount you can: our partner Mapbox will donate an additional $5000 if you help us reach 150 donors by January 1st.")}
+          </p>
+          <a class="btn btn-success pull-right donate" href="https://donate.hotosm.org" target="_blank">Donate Now</a>
+          <span onclick="$('#donate-banner').fadeOut(500);sessionStorage.setItem('donate_dismissed', true);" class="glyphicon glyphicon-remove close_"></span>
+        </div>
+      </div>
+      <script type="text/javascript">
+        $(document).ready(function () {
+          var donate_dismissed = sessionStorage.getItem('donate_dismissed');
+          if (donate_dismissed) {
+            $('#donate-banner').css('display', 'none');
+          } else {
+            $('#donate-banner').fadeIn(500);
+          }
+      });
+      </script>
+
+      
 </%def>
