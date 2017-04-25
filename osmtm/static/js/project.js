@@ -107,7 +107,9 @@ osmtm.project = (function() {
     lmap = L.map('leaflet');
     L.control.scale().addTo(lmap);
     // create the tile layer with correct attribution
-    var osmUrl='//tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+//    var osmUrl='//tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+    var osmUrl='//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
     var osmAttrib=osmAttribI18n;
     var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
     lmap.addLayer(osm);
@@ -393,7 +395,7 @@ osmtm.project = (function() {
         if (typeof imagery_url != "undefined" && imagery_url !== '') {
           source=encodeURIComponent(imagery_url);
         } else {
-          source="Bing";
+          source="ortofoto-undef";
         }
         return options.base + decodeURIComponent($.param({
           left: roundd(bounds[0],5),
@@ -443,6 +445,37 @@ osmtm.project = (function() {
             if (typeof imagery_url != "undefined" && imagery_url !== '') {
               $.ajax({
                 url: 'http://127.0.0.1:8111/imagery',
+                data: {
+                  title: "Tasking Manager - #" + project_id,
+                  type: imagery_url.toLowerCase().substring(0,3),
+                  url: imagery_url
+                }
+              });
+            }
+          }
+        }
+      });
+      break;
+      case "josmssl":
+      if (typeof licenseAgreementUrl != 'undefined') {
+        alert(requiresLicenseAgreementMsg);
+        window.location = licenseAgreementUrl;
+        break;
+      }
+      url = getLink({
+        base: 'https://127.0.0.1:8112/load_and_zoom?',
+        bounds: task_bounds,
+        protocol: 'lbrt'
+      });
+      $.ajax({
+        url: url,
+        complete: function(t) {
+          if (t.status != 200) {
+            alert(josmRcDidNotRespondI18n);
+          } else {
+            if (typeof imagery_url != "undefined" && imagery_url !== '') {
+              $.ajax({
+                url: 'https://127.0.0.1:8112/imagery',
                 data: {
                   title: "Tasking Manager - #" + project_id,
                   type: imagery_url.toLowerCase().substring(0,3),
