@@ -139,6 +139,11 @@ fresh-db: env
 	@$(DOCKER_COMPOSE_CLI) up -d db
 	@$(DOCKER_COMPOSE_CLI) exec $(APP_LIVE) su -c "./wait-for-postgres.sh db"
 
+populate-db: env fresh-db
+	@$(DOCKER_COMPOSE_CLI) exec db su -c "psql -h localhost -U postgres -d osmtm -c 'CREATE EXTENSION postgis;'"
+	@echo "beginning db initialization"
+	@$(DOCKER_COMPOSE_CLI) exec $(APP_LIVE) su -c "./env/bin/initialize_osmtm_db"
+
 restore: env fresh-db ## restore latest backup from S3
 	@$(DOCKER_COMPOSE_CLI) exec db su -c "pg_restore -v -h localhost -p 5432 -U postgres -d osmtm /srv/osmtm2.dmp"
 
