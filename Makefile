@@ -64,9 +64,9 @@ up: ## start TM2 or update current services after making compose changes
 ifeq ($(ENV),development)
 	@$(DOCKER_COMPOSE_CLI) up -d
 else ifeq ($(APP_LIVE),app_blue)
-	@$(DOCKER_COMPOSE_CLI) up -d db app_blue
+	@$(DOCKER_COMPOSE_CLI) up -d db stats static app_blue
 else
-	@$(DOCKER_COMPOSE_CLI) up -d db app_green
+	@$(DOCKER_COMPOSE_CLI) up -d db stats static app_green
 endif
 
 deploy1: ## deploy
