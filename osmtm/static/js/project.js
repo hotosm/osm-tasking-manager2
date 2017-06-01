@@ -488,7 +488,7 @@ osmtm.project = (function() {
           break;
         }
         url = getLink({
-          base: 'http://www.openstreetmap.org/edit?editor=id&',
+          base: 'http://osm.posm.hotosm.org/edit?editor=id&',
           bounds: task_bounds,
           centroid: task_centroid,
           protocol: 'id'
