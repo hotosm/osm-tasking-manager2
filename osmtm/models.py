@@ -529,6 +529,7 @@ class Project(Base, Translatable):
 
     zoom = Column(Integer)  # is not None when project is auto-filled (grid)
     imagery = Column(Unicode)
+    overpass = Column(Unicode)
 
     # priorities are:
     # 0 - Urgent

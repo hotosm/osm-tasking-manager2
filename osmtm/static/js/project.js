@@ -450,6 +450,14 @@ osmtm.project = (function() {
                 }
               });
             }
+            if (typeof overpass_url != "undefined" && overpass_url !== '') {
+              $.ajax({
+                url: 'http://127.0.0.1:8111/import',
+                data: {
+                  url: overpass_url
+                }
+              });
+            }
           }
         }
       });

@@ -135,6 +135,7 @@ geometry = loads(str(project.area.geometry.data))
           <li><a href="#instructions" data-toggle="tab">${_('Instructions')}</a></li>
           <li><a href="#area" data-toggle="tab">${_('Area')}</a></li>
           <li><a href="#imagery" data-toggle="tab">${_('Imagery')}</a></li>
+          <li><a href="#features" data-toggle="tab">${_('Features')}</a></li>
           <li><a id="priority_areas_tab" href="#priority_areas" data-toggle="tab">${_('Priority Areas')}</a></li>
           <li><a href="#permissions" data-toggle="tab">${_('Permissions')}</a></li>
           <li><a href="#labels" data-toggle="tab">${_('Labels')}</a></li>
@@ -152,6 +153,9 @@ geometry = loads(str(project.area.geometry.data))
           </div>
           <div class="tab-pane" id="imagery">
             ${imagery()}
+          </div>
+          <div class="tab-pane" id="features">
+            ${features()}
           </div>
           <div class="tab-pane" id="priority_areas">
             ${priority_areas_()}
@@ -395,6 +399,23 @@ geometry = loads(str(project.area.geometry.data))
         <option value="${l.id}" ${selected}>${l.name}</a>
         % endfor
       </select>
+    </div>
+  </div>
+</div>
+</%block>
+
+<%block name="features">
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label class="control-label" for="id_overpass">${_('Overpass Query')}</label>
+      <textarea id="id_overpass"
+        name="overpass"
+        class="form-control"
+        rows="13">${project.overpass if project.overpass is not None else ''}</textarea>
+      <p class="help-block">
+        <strong>${_('Note:')}</strong> ${_('Generate the query on overpass-turbo.eu and export as JOSM.  Allow it to auto repair.  Then copy the query here.')|n}
+      </p>
     </div>
   </div>
 </div>
