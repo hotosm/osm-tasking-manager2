@@ -414,7 +414,7 @@ geometry = loads(str(project.area.geometry.data))
         class="form-control"
         rows="13">${project.overpass if project.overpass is not None else ''}</textarea>
       <p class="help-block">
-        <strong>${_('Note:')}</strong> ${_('Generate the query on overpass-turbo.eu and export as JOSM.  Allow it to auto repair.  Then copy the query here.')|n}
+        <strong>${_('Note:')}</strong> ${_('Generate the query on overpass-turbo.eu and export as JOSM.  Allow it to auto repair.  Then copy the query here.  The {{bbox}} shortcut is supported.')|n}
       </p>
     </div>
   </div>

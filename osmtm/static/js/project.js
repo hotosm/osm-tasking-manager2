@@ -451,12 +451,18 @@ osmtm.project = (function() {
               });
             }
             if (typeof overpass_url != "undefined" && overpass_url !== '') {
-              $.ajax({
-                url: 'http://127.0.0.1:8111/import',
-                data: {
+              var re = new RegExp(encodeURIComponent('{{bbox}}'), 'g');
+              var bbox = map2bbox(selectedTaskLayer);
+              overpass_url = overpass_url.replace(re, encodeURIComponent(bbox));
+                $.get('http://127.0.0.1:8111/import', {
                   url: overpass_url
-                }
-              });
+                })
+               .error(function(xhr, s, e) {
+                 alert("Error: Unexpected JOSM remote control error.");
+               })
+               .success(function(d, s, xhr) {
+                 console.log("successfully invoked JOSM remote constrol");
+               });
             }
           }
         }
@@ -514,6 +520,15 @@ osmtm.project = (function() {
       break;
     }
   }
+
+  function map2bbox(map) {
+    var bbox = map.getBounds();
+    var lat1 = Math.min(Math.max(bbox.getSouthWest().lat, -90), 90);
+    var lat2 = Math.min(Math.max(bbox.getNorthEast().lat, -90), 90);
+    var lng1 = Math.min(Math.max(bbox.getSouthWest().lng, -180), 180);
+    var lng2 = Math.min(Math.max(bbox.getNorthEast().lng, -180), 180);
+    return lat1 + "," + lng1 + "," + lat2 + "," + lng2;
+  };
 
   /**
    * Loads random task

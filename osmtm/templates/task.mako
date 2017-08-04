@@ -90,7 +90,7 @@ var imagery_url = "${project.imagery|n}";
 import urllib
 overpass_url = ''
 if project.overpass is not None:
-    overpass_data = urllib.quote(project.overpass.encode('utf8').replace('\n',''), '*()')
+    overpass_data = urllib.quote(project.overpass.encode('utf8').replace('\r',''), '*()~')
     overpass_url = "http://overpass-api.de/api/interpreter?data=" + overpass_data
 %>
 % if overpass is not None:
