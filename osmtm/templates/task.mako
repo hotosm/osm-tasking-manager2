@@ -93,9 +93,7 @@ if project.overpass is not None:
     overpass_data = urllib.quote(project.overpass.encode('utf8').replace('\r',''), '*()~')
     overpass_url = "http://overpass-api.de/api/interpreter?data=" + overpass_data
 %>
-% if overpass is not None:
-var overpass_data = '${overpass_data|n}';
-var overpass_dataz = '${overpass_data}';
+% if overpass_url is not None:
 var overpass_url = '${overpass_url|n}';
 % endif
 var changeset_comment = "${quote(project.changeset_comment.encode('utf8'), '')}";
