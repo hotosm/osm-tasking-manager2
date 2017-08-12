@@ -253,7 +253,8 @@ def project_edit(request):
                         setattr(project, field, request.params[translated])
                 DBSession.add(project)
 
-        for p in ['changeset_comment', 'entities_to_map', 'imagery', 'overpass']:
+        for p in ['changeset_comment', 'entities_to_map', 'imagery',
+                  'overpass']:
             if p in request.params:
                 setattr(project, p, request.params[p])
 
