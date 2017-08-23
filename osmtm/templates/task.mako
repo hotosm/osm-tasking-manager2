@@ -86,6 +86,16 @@ var gpx_url = window.location.origin +
     (project.license in user.accepted_licenses or not project.license):
 var imagery_url = "${project.imagery|n}";
 % endif
+<%
+import urllib
+overpass_url = ''
+if project.overpass is not None:
+    overpass_data = urllib.quote(project.overpass.encode('utf8').replace('\r',''), '*()~')
+    overpass_url = "http://overpass-api.de/api/interpreter?data=" + overpass_data
+%>
+% if overpass_url is not None:
+var overpass_url = '${overpass_url|n}';
+% endif
 var changeset_comment = "${quote(project.changeset_comment.encode('utf8'), '')}";
 osmtm.project.initAtWho();
 </script>
