@@ -11,9 +11,13 @@
     </p>
 </%def>
 
-
 <%def  name="main_page_right_panel()">
-    <h3>${_('About the Tasking Manager')}</h3>
+    <h3>${_('Updates to the Tasking Manager')}</h3>
+    <p>
+    ${_('A new version of the Tasking Manager is ready. Over the course of the next two days, you will see an update to the Tasking Manager with a new look. You don't need to do anything once it is live, just log in and start mapping. If you want to preview the new version, head over to <a target="_blank" href="http://tm3.hotosm.org/">tm3.hotosm.org</a>. Have more questions? <a target="_blank" href="http://tm3.hotosm.org/whatisnew">Check out the FAQs on TM3.</a>')|n}
+    </p>
+    <hr />
+    <h4>${_('About the Tasking Manager')}</h4>
     ${about_tasking_manager_intro()}
     <hr />
     <h4>${_('New to Mapping?')}</h4>
