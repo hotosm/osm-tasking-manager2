@@ -153,7 +153,7 @@ def __get_projects(user_id):
 def check_user_name(user):
     ''' Get the display_name from OSM API '''
     try:
-        url = 'http://www.openstreetmap.org/api/0.6/user/%s' % user.id
+        url = 'https://www.openstreetmap.org/api/0.6/user/%s' % user.id
         usock = urllib2.urlopen(url)
         xmldoc = minidom.parse(usock)
         user_el = xmldoc.getElementsByTagName('user')[0]
@@ -180,7 +180,7 @@ def username_to_userid(username):
 def get_addl_user_info(user_id):
     ''' Get the number of changesets by a user from OSM API.'''
     try:
-        url = 'http://www.openstreetmap.org/api/0.6/user/%s' % user_id
+        url = 'https://www.openstreetmap.org/api/0.6/user/%s' % user_id
         usock = urllib2.urlopen(url)
         xmldoc = minidom.parse(usock)
         user_el = xmldoc.getElementsByTagName('user')[0]

@@ -25,13 +25,13 @@ CONSUMER_KEY = 'BOFkVgLDXTSMP6VHfiX8MQ'
 CONSUMER_SECRET = '4o4uLSqLWMciG2fE2zGncLcdewPNi9wU1To51Iz2E'
 
 # OSM oauth URLs
-BASE_URL = 'https://www.openstreetmap.org/oauth'
+BASE_URL = 'httpss://www.openstreetmap.org/oauth'
 REQUEST_TOKEN_URL = '%s/request_token' % BASE_URL
 ACCESS_TOKEN_URL = '%s/access_token' % BASE_URL
 AUTHORIZE_URL = '%s/authorize' % BASE_URL
 
 # OSM user details URL
-USER_DETAILS_URL = 'http://api.openstreetmap.org/api/0.6/user/details'
+USER_DETAILS_URL = 'https://api.openstreetmap.org/api/0.6/user/details'
 
 # an oauth consumer instance using our key and secret
 consumer = oauth.Consumer(CONSUMER_KEY, CONSUMER_SECRET)
