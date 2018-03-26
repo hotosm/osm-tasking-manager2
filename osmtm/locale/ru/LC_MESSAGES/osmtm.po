@@ -1223,10 +1223,10 @@ msgstr "История правок OSM"
 #: osmtm/templates/user.mako:50
 msgid "This user has submitted ${changes} total changeset."
 msgid_plural "This user has submitted ${changes} total changesets."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[1] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[2] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[3] "Этот пользователь прислал всего ${changes} набор изменений"
 
 #: osmtm/templates/user.mako:60
 msgid "This user is an administrator."
@@ -1259,10 +1259,10 @@ msgstr "Детали проекта"
 #: osmtm/templates/user.mako:102
 msgid "${count} tile"
 msgid_plural "${count} tiles"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "${count} квадрат"
+msgstr[1] "${count} квадрат"
+msgstr[2] "${count} квадрата"
+msgstr[3] "${count} квадрата"
 
 #: osmtm/templates/user.mako:108
 msgid "User hasn't contributed yet."
@@ -1345,10 +1345,10 @@ msgstr "Извините, не могу создать проект. <br />%s"
 #: osmtm/views/project.py:192
 msgid "Successfully imported ${n} geometry"
 msgid_plural "Successfully imported ${n} geometries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Импортировано ${n} геометрия"
+msgstr[1] "Импортировано ${n} геометрия"
+msgstr[2] "Импортировано ${n} геометрия"
+msgstr[3] "Импортировано ${n} геометрии"
 
 #: osmtm/views/project.py:512
 msgid "A comment is required."
@@ -1366,18 +1366,18 @@ msgstr "Нет готовых задач для проверки."
 #, python-format
 msgid "%d task invalidated"
 msgid_plural "%d tasks invalidated"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d задач отклонено"
+msgstr[1] "%d задача отклонена"
+msgstr[2] "%d задачи отклонено"
+msgstr[3] "%d задачи отклонено"
 
 #: osmtm/views/project.py:558
 msgid "A subject and message are required."
-msgstr "Нужна тема и сообщение."
+msgstr "Тема и сообщение обязательны."
 
 #: osmtm/views/project.py:567
 msgid "Project #"
-msgstr "Проект #"
+msgstr "Проект №"
 
 #: osmtm/views/project.py:577
 msgid "No users to message."
@@ -1386,10 +1386,10 @@ msgstr "Нет пользователей для сообщения."
 #: osmtm/views/project.py:579
 msgid "Message sent to ${num} user."
 msgid_plural "Message sent to ${num} users."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Сообщение отправлено ${num} пользователю."
+msgstr[1] "Сообщение отправлено ${num} пользователям."
+msgstr[2] "Сообщение отправлено ${num} пользователям."
+msgstr[3] "Сообщение отправлено ${num} пользователям."
 
 #: osmtm/views/task.py:85
 msgid "Cannot update task. Record lock for update."
