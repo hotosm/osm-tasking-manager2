@@ -372,7 +372,7 @@ class Task(Base):
         self.y = y
         self.zoom = zoom
         if properties is not None:
-            self.extra_properties = unicode(_dumps(properties))
+            self.extra_properties = unicode(_dumps(properties['extra_properties']))
         if geometry is None:
             geometry = self.to_polygon()
             multipolygon = MultiPolygon([geometry])
