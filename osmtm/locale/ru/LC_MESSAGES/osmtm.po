@@ -1,5 +1,5 @@
 # English translations for osmtm.
-# Copyright (C) 2016 ORGANIZATION
+# Copyright (C) 2018 ORGANIZATION
 # This file is distributed under the same license as the osmtm project.
 # 
 # Translators:
@@ -8,6 +8,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 # Ilya Zverev <zverik@textual.ru>, 2014-2015
 # Pierre GIRAUD <pierre.giraud@gmail.com>, 2016
+# Pavlo Mokrynskyi <mpasha066@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: osm-tasking-manager2\n"
@@ -58,7 +59,7 @@ msgstr "Свободное ПО"
 msgid ""
 "OSM Tasking Manager is an open source software.<br>Feel free to report "
 "issues and contribute."
-msgstr "Менеджер задач OSM - это открытое програмное обеспечение. <br>Не стесняйтесь сообщить об ощибке или принять участие в разработке."
+msgstr "Менеджер задач OSM - это открытое программное обеспечение.<br>Не стесняйтесь сообщить об ошибке или принять участие в разработке."
 
 #: osmtm/templates/about.mako:59
 msgid ""
@@ -84,7 +85,7 @@ msgstr "Версия"
 
 #: osmtm/templates/base.mako:43
 msgid "You have unread messages"
-msgstr ""
+msgstr "У вас есть непрочитанные сообщения"
 
 #: osmtm/templates/base.mako:57
 msgid "About"
@@ -105,7 +106,7 @@ msgid ""
 "divide up a mapping job into smaller tasks that can be completed rapidly. It"
 " shows which areas need to be mapped and which areas need the mapping "
 "validated."
-msgstr " «Менеджер задач OSM» — инструмент, разработанный для совместного рисования карт в проектах Команды гуманитарного картирования. Его цель — разделить задачу по созданию карты на много маленьких и быстро выполнимых. Он показывает, где нужна карта, и в каких районах нужно проверить её качество."
+msgstr "«Менеджер задач OSM» — инструмент, разработанный для совместного рисования карт в проектах Команды гуманитарного картирования. Его цель — разделить задачу по созданию карты на много маленьких и быстро выполнимых. Он показывает, где нужна карта, и в каких районах нужно проверить её качество."
 
 #: osmtm/templates/custom.mako:10
 msgid ""
@@ -132,10 +133,11 @@ msgid ""
 "information on the Tasking Manager and mapping. Once you have read up on how"
 " to map, come back here to help map for people on the ground!"
 msgstr ""
+"Перейди на <a target=\"_blank\" href=\"http://www.openstreetmap.org\">OpenStreetMap</a>, создай аккаунт, а затем посетите учебники LearnOSM по <a target=\"_blank\" href=\"http://learnosm.org/en/coordination/tasking-manager/\">Tasking "Manager</a> and the <a target=\"_blank\" href=\"http://learnosm.org/en/beginner/id-editor\">iD editor</a>. В качестве альтернативы проверьте <a target=\"_blank\" href=\"http://mapgive.state.gov\">сайт MapGive,</a> в котором также содержится информация о диспетчере задач и сопоставлении. После того, как вы прочитали, как отобразить карту, вернитесь сюда, чтобы помочь карте для людей на земле!"
 
 #: osmtm/templates/custom.mako:24
 msgid "Questions About Tasks, Mapping or HOT?"
-msgstr "Возникли вопрсы по Задачам, Картированию или о HOT?"
+msgstr "Возникли вопросы по Задачам, Картированию или о HOT?"
 
 #: osmtm/templates/custom.mako:26
 msgid ""
@@ -227,7 +229,7 @@ msgstr "Поиск"
 
 #: osmtm/templates/home.mako:50
 msgid "Sort by:"
-msgstr "Порядок:"
+msgstr "Сортировка:"
 
 #: osmtm/templates/home.mako:76
 msgid "Your projects"
@@ -235,7 +237,7 @@ msgstr "Ваши проекты"
 
 #: osmtm/templates/home.mako:84
 msgid "Include archived projects"
-msgstr ""
+msgstr "Включить архивные проекты"
 
 #: osmtm/templates/home.mako:131
 msgid "${locked} user is currently working on this project"
@@ -418,17 +420,17 @@ msgstr "Отметить готовые задачи проверенными"
 #: osmtm/templates/project.edit.mako:82 osmtm/templates/project.edit.mako:109
 #: osmtm/templates/project.edit.mako:502 osmtm/templates/project.edit.mako:506
 msgid "Message all contributors"
-msgstr ""
+msgstr "Сообщение всем участникам"
 
 #: osmtm/templates/project.edit.mako:86
 msgid ""
 "This will send a Tasking Manager message to every contributor of the current"
 " project."
-msgstr ""
+msgstr "Это отправит сообщение диспетчера задач каждому вкладчику текущего проекта."
 
 #: osmtm/templates/project.edit.mako:89
 msgid "Please use this feature conservatively."
-msgstr ""
+msgstr "Пожалуйста, используйте эту функцию консервативно."
 
 #: osmtm/templates/project.edit.mako:93 osmtm/templates/user.messages.mako:15
 msgid "Subject"
@@ -436,13 +438,13 @@ msgstr "Тема"
 
 #: osmtm/templates/project.edit.mako:96
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 #: osmtm/templates/project.edit.mako:98
 msgid ""
 "This message does not automatically translate, so you may want to include "
 "your own translations."
-msgstr ""
+msgstr "Это сообщение не переводится автоматически, поэтому вы можете включить свои собственные переводы."
 
 #: osmtm/templates/project.edit.mako:135
 msgid "Area"
@@ -496,7 +498,7 @@ msgstr "Краткое описание"
 #: osmtm/templates/project.edit.mako:278
 #: osmtm/templates/project.instructions.mako:7
 msgid "Entities to Map"
-msgstr "Что картировать"
+msgstr "Что наносить"
 
 #: osmtm/templates/project.edit.mako:281
 msgid "primary roads, secondary roads, buildings"
@@ -504,7 +506,7 @@ msgstr "основные дороги, второстепенные дороги
 
 #: osmtm/templates/project.edit.mako:285
 msgid "The list of entities to map."
-msgstr "Сисок картируемых объектов."
+msgstr "Список объектов, которые нужно нанести на карту."
 
 #: osmtm/templates/project.edit.mako:289
 #: osmtm/templates/project.instructions.mako:19
@@ -515,25 +517,25 @@ msgstr "Комментарий к пакетам правок"
 msgid ""
 "Default comments added to uploaded changeset comment field. Users should "
 "also be encouraged add text describing what they mapped."
-msgstr ""
+msgstr "Замечания по умолчанию добавлены в поле комментариев добавленных изменений. Пользователям также следует поощрять добавлять текст, описывающий, что они отображают."
 
 #: osmtm/templates/project.edit.mako:296
 msgid "Example defaults:"
-msgstr ""
+msgstr "Пример значений по умолчанию"
 
 #: osmtm/templates/project.edit.mako:297
 msgid ""
 "Hashtags are sometimes used for analysis later, but should be human "
 "informative and not overused, #group #event for example."
-msgstr ""
+msgstr "Хэштеги иногда используются для анализа позже, но должны быть информативными для людей и не злоупотребленные, например #group #event."
 
 #: osmtm/templates/project.edit.mako:306
 msgid "Detailed Instructions"
-msgstr "Пдробные инструкции"
+msgstr "Подробные инструкции"
 
 #: osmtm/templates/project.edit.mako:319
 msgid "Per Task Instructions (optional)"
-msgstr "Инструкции к зачам (не обязательно)"
+msgstr "Инструкции к задачам (не обязательно)"
 
 #: osmtm/templates/project.edit.mako:325
 msgid ""
@@ -558,14 +560,14 @@ msgid ""
 "have added extra properties within the GeoJSON of the task, they can be "
 "referenced by surrounding them in curly braces. For eg. if you have a "
 "property called \"import_url\" in your GeoJSON, you can reference it like:"
-msgstr ""
+msgstr "Поместите здесь все, что может быть полезно пользователям при выполнении задачи. Если вы добавили дополнительные свойства в GeoJSON задачи, на них можно ссылаться, окружая их фигурными фигурными скобками. Например, если у вас есть свойство, называемое \"import_url\" в вашем GeoJSON, вы можете ссылаться на него так:"
 
 #: osmtm/templates/project.edit.mako:328
 msgid ""
 "This task involves loading extra data. Click "
 "[here](http://localhost:8111/import?new_layer=true&url={import_url}) to load"
 " the data into JOSM"
-msgstr ""
+msgstr "Эта задача связана с загрузкой дополнительных данных. Нажмите [здесь](http://localhost:8111/import?new_layer=true&url={import_url}) чтобы загрузить данные в JOSM"
 
 #: osmtm/templates/project.edit.mako:340
 msgid "Area modifications are not available yet."
@@ -614,7 +616,7 @@ msgid ""
 " first must visit the URL for your instance of OSMTM and Authorize access to"
 " their OpenStreetMap account. After they've done this, their username should"
 " be available for the administrator to add."
-msgstr "Приватный означает что доступ к проекту будет иметь ограниченный список пользователей. Прежде чем вы сможете добавить имя пользователя в список Допущенных Пользователей, пользователь должен посетить URL для вашего экземляра OSMTM и разрешить доступ к его OpenStreetMap аккаунту. После того как пользователь сделает это, его имя должно быть доступно администратору проекта для добавления в список Допущенных Пользователей."
+msgstr "Приватный означает что доступ к проекту будет иметь ограниченный список пользователей. Прежде чем вы сможете добавить имя пользователя в список Допущенных Пользователей, пользователь должен посетить URL для вашего экземпляра OSMTM и разрешить доступ к его OpenStreetMap аккаунту. После того как пользователь сделает это, его имя должно быть доступно администратору проекта для добавления в список Допущенных Пользователей."
 
 #: osmtm/templates/project.edit.mako:415
 msgid "Allowed users"
@@ -656,11 +658,11 @@ msgstr "Отметить все задачи проверенными"
 msgid ""
 "Click this button if project instructions have changed, or if for some "
 "reason you need to invalidate all done tasks in a single step."
-msgstr "Нажмите эту кнопку, если инструкции поменялись, или вам зачем-то понадобилось отметить все готовые задачи проверенными за раз."
+msgstr "Нажмите эту кнопку, если инструкции поменялись, или вам зачем-то понадобилось отметить все готовые задачи проверенными за один раз."
 
 #: osmtm/templates/project.edit.mako:495
 msgid "WARNING: This cannot be undone."
-msgstr "ВНИМАНИЕ: Это не отменить."
+msgstr "ВНИМАНИЕ: Данное действие не может быть отменено."
 
 #: osmtm/templates/project.edit.mako:513
 msgid "Tip:"
@@ -676,19 +678,19 @@ msgstr "Предпросмотр"
 
 #: osmtm/templates/project.instructions.mako:12
 msgid "The list of elements we ask you to map"
-msgstr "Список элементов, которые нужно картировать"
+msgstr "Список элементов, которые нужно нанести на карту"
 
 #: osmtm/templates/project.instructions.mako:24
 msgid ""
 "The default comment entered when uploading data to the OSM database. Please "
 "add to the default comment a description of what you actually mapped."
-msgstr ""
+msgstr "Комментарий по умолчанию был записан при загрузке данные в базу данных OSM. Пожалуйста, добавьте к комментарию по умолчанию описание того, что Вы на самом деле нанесли на карту."
 
 #: osmtm/templates/project.instructions.mako:31
 msgid ""
 "When saving your work, please leave the default comment but add what you "
 "actually mapped, for example \"added buildings and a residential road\"."
-msgstr ""
+msgstr "Сохраняя изменения, пожалуйста, оставьте комментарий по умолчанию, но добавьте, что Вы на самом деле нанесли на карту, например \"добавил здания и жилую дорогу \"."
 
 #: osmtm/templates/project.instructions.mako:46
 msgid "preset"
@@ -720,7 +722,7 @@ msgstr "Статистика"
 
 #: osmtm/templates/project.mako:65
 msgid "Loading"
-msgstr "Загружаю"
+msgstr "Загрузка"
 
 #: osmtm/templates/project.mako:105
 msgid "Task doesn't exist."
@@ -785,7 +787,7 @@ msgstr "Новый проект"
 
 #: osmtm/templates/project.new.mako:28
 msgid "Draw the area of interest"
-msgstr "Отметье область проекта"
+msgstr "Отметьте область проекта"
 
 #: osmtm/templates/project.new.mako:29
 msgid "Dropped file could not be loaded"
@@ -797,7 +799,7 @@ msgstr "Не удалось прочитать добавленный файл"
 
 #: osmtm/templates/project.new.mako:31
 msgid "Please provide a .geojson, .kml, or zipped .shp file"
-msgstr ""
+msgstr "Укажите файл .geojson, .kml или архив .shp"
 
 #: osmtm/templates/project.new.mako:45 osmtm/templates/project.new.mako:85
 #: osmtm/templates/project.new.mako:134 osmtm/templates/project.new.mako:177
@@ -818,7 +820,7 @@ msgstr "или"
 
 #: osmtm/templates/project.new.mako:63
 msgid "Provide a .geojson, .kml, or zipped .shp file."
-msgstr ""
+msgstr "Предоставьте файл .геоjson, .KML или архив .shp. "
 
 #: osmtm/templates/project.new.mako:63
 msgid "Import"
@@ -918,7 +920,7 @@ msgstr "Вы готовы работать в менеджере задач."
 
 #: osmtm/templates/start.mako:17
 msgid "Since you are the first user you'll be given admin rights."
-msgstr "Раз вы первый зарегистрированный, сделаем вас администратором."
+msgstr "Поскольку вы первый пользователь, вам будут предоставлены права администратора."
 
 #: osmtm/templates/start.mako:20
 msgid "Please login"
@@ -1108,11 +1110,11 @@ msgstr "Пакет правок OSM"
 
 #: osmtm/templates/task.mako:112
 msgid "See the changes in this area using overpass turbo."
-msgstr ""
+msgstr "Смотрите изменения в этой области с помощью overpass turbo."
 
 #: osmtm/templates/task.mako:112
 msgid "overpass turbo"
-msgstr ""
+msgstr "overpass turbo"
 
 #: osmtm/templates/task.split.mako:3
 msgid "Task is too big?"
@@ -1120,7 +1122,7 @@ msgstr "Задача слишком велика?"
 
 #: osmtm/templates/task.split.mako:9
 msgid "You cannot split this task more."
-msgstr "Даннуюзадачу нельзя разбить еще сильнее."
+msgstr "Данную задачу нельзя разбить еще сильнее."
 
 #: osmtm/templates/task.split.mako:13
 msgid "Are you sure you want to split this task?"
@@ -1204,7 +1206,7 @@ msgstr "Профиль пользователя OSM"
 
 #: osmtm/templates/user.mako:29
 msgid "OSM Profile"
-msgstr "Профиль пользователя OSM"
+msgstr "Профиль OSM"
 
 #: osmtm/templates/user.mako:35
 msgid "This user joined OSM "
@@ -1212,7 +1214,7 @@ msgstr "Этот человек теперь в OSM"
 
 #: osmtm/templates/user.mako:43
 msgid "OSM User Changeset History"
-msgstr "История правок осмера"
+msgstr "История правок пользователя OSM"
 
 #: osmtm/templates/user.mako:44
 msgid "OSM Edit History"
@@ -1221,10 +1223,10 @@ msgstr "История правок OSM"
 #: osmtm/templates/user.mako:50
 msgid "This user has submitted ${changes} total changeset."
 msgid_plural "This user has submitted ${changes} total changesets."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[1] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[2] "Этот пользователь прислал всего ${changes} набор изменений"
+msgstr[3] "Этот пользователь прислал всего ${changes} набор изменений"
 
 #: osmtm/templates/user.mako:60
 msgid "This user is an administrator."
@@ -1257,10 +1259,10 @@ msgstr "Детали проекта"
 #: osmtm/templates/user.mako:102
 msgid "${count} tile"
 msgid_plural "${count} tiles"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "${count} квадрат"
+msgstr[1] "${count} квадрат"
+msgstr[2] "${count} квадрата"
+msgstr[3] "${count} квадрата"
 
 #: osmtm/templates/user.mako:108
 msgid "User hasn't contributed yet."
@@ -1305,7 +1307,7 @@ msgstr "Администратор"
 
 #: osmtm/templates/users.mako:34
 msgid "Project Manager"
-msgstr "Руководиель Проекта"
+msgstr "Руководитель Проекта"
 
 #: osmtm/views/license.py:58
 msgid "License doesn't exist!"
@@ -1333,7 +1335,7 @@ msgstr "Безымянный проект"
 
 #: osmtm/views/project.py:165
 msgid "Project #${project_id} created successfully"
-msgstr "Проекст #${project_id} создан"
+msgstr "Проект #${project_id} создан"
 
 #: osmtm/views/project.py:171 osmtm/views/project.py:200
 #, python-format
@@ -1343,10 +1345,10 @@ msgstr "Извините, не могу создать проект. <br />%s"
 #: osmtm/views/project.py:192
 msgid "Successfully imported ${n} geometry"
 msgid_plural "Successfully imported ${n} geometries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Импортировано ${n} геометрия"
+msgstr[1] "Импортировано ${n} геометрия"
+msgstr[2] "Импортировано ${n} геометрия"
+msgstr[3] "Импортировано ${n} геометрии"
 
 #: osmtm/views/project.py:512
 msgid "A comment is required."
@@ -1364,30 +1366,30 @@ msgstr "Нет готовых задач для проверки."
 #, python-format
 msgid "%d task invalidated"
 msgid_plural "%d tasks invalidated"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d задач отклонено"
+msgstr[1] "%d задача отклонена"
+msgstr[2] "%d задачи отклонено"
+msgstr[3] "%d задачи отклонено"
 
 #: osmtm/views/project.py:558
 msgid "A subject and message are required."
-msgstr ""
+msgstr "Тема и сообщение обязательны."
 
 #: osmtm/views/project.py:567
 msgid "Project #"
-msgstr ""
+msgstr "Проект №"
 
 #: osmtm/views/project.py:577
 msgid "No users to message."
-msgstr ""
+msgstr "Нет пользователей для сообщения."
 
 #: osmtm/views/project.py:579
 msgid "Message sent to ${num} user."
 msgid_plural "Message sent to ${num} users."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Сообщение отправлено ${num} пользователю."
+msgstr[1] "Сообщение отправлено ${num} пользователям."
+msgstr[2] "Сообщение отправлено ${num} пользователям."
+msgstr[3] "Сообщение отправлено ${num} пользователям."
 
 #: osmtm/views/task.py:85
 msgid "Cannot update task. Record lock for update."
@@ -1427,7 +1429,7 @@ msgstr "Комментарий добавлен."
 
 #: osmtm/views/task.py:288
 msgid "You were mentioned in a comment - Task ${link}"
-msgstr "Вы были упомянуты в коментариях к задаче ${link}"
+msgstr "Вы были упомянуты в комментариях к задаче ${link}"
 
 #: osmtm/views/task.py:319
 msgid "Task ${link} invalidated"
@@ -1467,7 +1469,7 @@ msgstr "Сложность задачи снята"
 
 #: osmtm/views/user.py:78
 msgid "You probably don't want to remove your privileges"
-msgstr "Возможно вы не хотите лишать себя привелегий"
+msgstr "Возможно вы не хотите лишать себя привилегий"
 
 #: osmtm/views/user.py:109
 msgid "Sorry, this user doesn't  exist"
