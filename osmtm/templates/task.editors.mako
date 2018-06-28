@@ -12,6 +12,7 @@
     </button>
     <ul id="editDropdown" class="dropdown-menu text-left">
       <li id="josm"><a role="menuitem">JOSM</a></li>
+      <li id="josmssl"><a role="menuitem">JOSM-SSL</a></li>
       <li id="iDeditor"><a role="menuitem">iD editor</a></li>
       <li id="potlatch2"><a role="menuitem">Potlatch 2</a></li>
       <li id="wp"><a role="menuitem">Walking Papers</a></li>
