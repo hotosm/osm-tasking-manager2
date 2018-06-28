@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  db:
+    volumes:
+      - /tmp:/srv
+
+  app:
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/pserve --reload development.ini"]
+    labels:
+      - traefik.backend=app
+      - traefik.port=6543

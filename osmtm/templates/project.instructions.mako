@@ -43,7 +43,7 @@ from osmtm.mako_filters import markdown_filter
 % if project.josm_preset:
 <p >
 <%
-    link = '<a href="%s">%s</a>' % (request.route_url('project_preset', project=project.id), _('preset'))
+    link = '<a href="%s">%s</a>' % (request.route_path('project_preset', project=project.id), _('preset'))
     text = _('Using JOSM? Please use the dedicated ${preset_link}.', mapping={'preset_link': link} )
 %>
   ${text|n}

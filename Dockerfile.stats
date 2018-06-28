@@ -1,0 +1,20 @@
+FROM python:2.7.12
+
+RUN apt-get update \
+    && apt-get upgrade -y \
+    && apt-get clean \
+    && apt-get autoremove \
+    && rm -r /var/lib/apt/lists/*
+
+ADD tasking-manager-stats/requirements.txt /opt/app/requirements.txt
+
+WORKDIR /opt/app
+
+RUN easy_install virtualenv
+RUN virtualenv --no-site-packages env
+RUN ./env/bin/pip install -r requirements.txt
+
+ADD tasking-manager-stats /opt/app
+
+# CMD ./env/bin/python taskingDbEndpoint.py
+CMD ./run_stats.sh

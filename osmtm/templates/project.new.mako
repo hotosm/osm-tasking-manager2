@@ -129,7 +129,7 @@
 
 <%block name="step3_grid">
 <div id="step3-grid" class="hidden">
-  <form id="gridform" method="post" action="${request.route_url('project_new_grid')}">
+  <form id="gridform" method="post" action="${request.route_path('project_new_grid')}">
 <%
     text = _('Step ${number}', mapping={'number': '3'})
 %>
@@ -172,7 +172,7 @@
 
 <%block name="step3_arbitrary">
 <div id="step3-arbitrary" class="hidden">
-  <form id="gridform" method="post" action="${request.route_url('project_new_arbitrary')}">
+  <form id="gridform" method="post" action="${request.route_path('project_new_arbitrary')}">
 <%
     text = _('Step ${number}', mapping={'number': '3'})
 %>

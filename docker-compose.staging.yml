@@ -1,0 +1,109 @@
+version: '2'
+
+services:
+
+  swarm-listener:
+    image: vfarcic/docker-flow-swarm-listener
+    networks:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DF_NOTIF_CREATE_SERVICE_URL=http://proxy:8080/v1/docker-flow-proxy/reconfigure
+      - DF_NOTIF_REMOVE_SERVICE_URL=http://proxy:8080/v1/docker-flow-proxy/remove
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+
+  proxy:
+    image: vfarcic/docker-flow-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    networks:
+      - proxy
+    environment:
+      - LISTENER_ADDRESS=swarm-listener
+      - MODE=swarm
+      - TIMEOUT_HTTP_REQUEST=60
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+
+  db:
+    restart: always
+    image: hotosm/taskmanager-db:staging
+    networks:
+      - database_network_staging
+    volumes:
+      - postgres-db-volume-staging:/data/postgres
+
+  app:
+    image: hotosm/taskmanager-app:staging
+    restart: always
+    command: ["true"]
+
+  stats:
+    image: hotosm/taskmanager-stats:staging
+    networks:
+      - database_network_staging
+    volumes:
+      - user-data-volume-staging:/opt/app/user_data
+    restart: always
+
+  static:
+    image: hotosm/taskmanager-static:staging
+    networks:
+      - traefik_net
+    volumes:
+      - user-data-volume-staging:/var/www/static/
+    labels:
+      - traefik.backend=static
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.frontend.rule=Host:tasks.posm.hotosm.org
+      # - "traefik.frontend.rule=PathPrefix:/static/"
+      - traefik.frontend.rule=Path:/static/
+      - traefik.docker.network=proxy_traefik_net
+    restart: always
+
+  app_green:
+    image: hotosm/taskmanager-app:staging
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:tasks.posm.hotosm.org,tasks-green.posm.hotosm.org
+      - traefik.docker.network=proxy_traefik_net
+    networks:
+      - traefik_net
+      - database_network_staging
+    extends:
+      service: app
+
+  app_blue:
+    image: hotosm/taskmanager-app:staging
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:tasks.posm.hotosm.org,tasks-blue.posm.hotosm.org
+      - traefik.docker.network=proxy_traefik_net
+    networks:
+      - traefik_net
+      - database_network_staging
+    extends:
+      service: app
+
+networks:
+  database_network_staging:
+    driver: bridge
+  traefik_net:
+    external:
+      name: proxy_traefik_net
+
+volumes:
+  postgres-db-volume-staging:
+  user-data-volume-staging:

@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+
+  db:
+    restart: always
+    image: hotosm/taskmanager-db:production
+    cpu_shares: 4
+    cpuset: 0-4
+    networks:
+      - database_network_production
+    volumes:
+      - postgres-db-volume-staging:/data/postgres
+
+  app:
+    restart: always
+    command: ["true"]
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy_traefik_net
+    networks:
+      - traefik_net
+      - database_network_production
+
+  app_green:
+    image: hotosm/taskmanager-app:production
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.frontend.rule=Host:tasks.hotosm.org,tasks-green.hotosm.org
+    extends:
+      service: app
+
+  app_blue:
+    image: hotosm/taskmanager-app:production
+    command: ["./wait-for-postgres.sh", "db", "./env/bin/gunicorn --paste production.ini"]
+    labels:
+      - traefik.frontend.rule=Host:tasks.hotosm.org,tasks-blue.hotosm.org
+    extends:
+      service: app
+
+networks:
+  database_network_production:
+    driver: bridge
+  traefik_net:
+    external:
+      name: proxy_traefik_net
+
+volumes:
+  postgres-db-volume-production:

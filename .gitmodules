@@ -22,3 +22,6 @@
 [submodule "osmtm/static/js/lib/colorselector"]
 	path = osmtm/static/js/lib/colorselector
 	url = https://github.com/flaute/bootstrap-colorselector.git
+[submodule "tasking-manager-stats"]
+	path = tasking-manager-stats
+	url = https://github.com/AmericanRedCross/tasking-manager-stats
