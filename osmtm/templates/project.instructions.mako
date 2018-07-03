@@ -31,14 +31,12 @@ from osmtm.mako_filters import markdown_filter
     ${_('When saving your work, please leave the default comment but add what you actually mapped, for example "added buildings and a residential road".')}
   </span>
   % endif
-  % if project.imagery:
   <dt>
     ${_('Imagery')}
   </dt>
   <dd>
       <%include file="imagery.mako" />
   </dd>
-  % endif
 </dl>
 % if project.josm_preset:
 <p >
