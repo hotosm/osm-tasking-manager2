@@ -143,7 +143,13 @@ To run the tests, use the following command:
 
 ## Installation as a mod_wsgi Application
 
-an example Apache configuration file
+Install apache2 web-server
+
+    sudo apt install apache2 libapache2-mod-wsgi
+    
+Create `local.ini` file, change PASSWORD to your password. 
+
+Create an Apache config file. You may just copy this example of Apache configuration file. Paste into a new file e.g. `vim nano /etc/apache2/sites-available/osmtm.conf` 
 
 ```
 WSGIDaemonProcess OSMTM_process user=ubuntu group=ubuntu processes=1 \
@@ -156,15 +162,15 @@ WSGIRestrictStdin Off
         # Use only 1 Python sub-interpreter.  Multiple sub-interpreters
         # play badly with C extensions.
         WSGIPassAuthorization On
-        WSGIScriptAlias /osmtm /home/ubuntu/osm-tasking-manager2/env/OSMTM.wsgi
+        WSGIScriptAlias /osmtm /home/ubuntu/osm-tasking-manager2/production.wsgi
 
         <Location />
             WSGIProcessGroup OSMTM_process
             WSGIApplicationGroup %{GLOBAL}
         </Location>
 
-        <Directory /home/ubuntu/osm-tasking-manager2/env>
-            <Files OSMTM.wsgi>
+        <Directory /home/ubuntu/osm-tasking-manager2>
+            <Files production.wsgi>
                 Require all granted
             </Files>
             Order allow,deny
@@ -177,6 +183,12 @@ WSGIRestrictStdin Off
         ErrorLog /var/log/apache2/osmtm-error.log
 </VirtualHost>
 ```
+
+Execute this series of commands: 
+
+    sudo a2dissite 000-default
+    sudo a2ensite osmtm
+    sudo service apache2 reload
 
 ## Customization
 
