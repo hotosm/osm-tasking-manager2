@@ -545,6 +545,8 @@ class Project(Base, Translatable):
     __table_args__ = (CheckConstraint(priority.in_(range(0, 4))), )
 
     entities_to_map = Column(Unicode)
+    attribution_config_id = Column(Unicode)
+
     changeset_comment = Column(Unicode)
 
     private = Column(Boolean, default=False)

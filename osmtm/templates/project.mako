@@ -48,6 +48,8 @@ else:
       <ul class="nav nav-pills">
         <li class="active"><a id="description_tab" href="#description" data-toggle="tab">${_('Description')}</a></li>
         <li><a id="instructions_tab" href="#instructions" data-toggle="tab">${_('Instructions')}</a></li>
+        <li><a id="maprules_tab" href="#maprules" data-toggle="tab">
+        ${_('Guidelines')}</a></li>
         <li><a id="contribute_tab" href="#contribute" data-toggle="tab">${_('Contribute')}</a>
         <li><a href="#activity" data-toggle="tab">${_('Activity')}</a></li>
         <li><a id="stats_tab" href="#stats" data-toggle="tab">${_('Stats')}</a>
@@ -76,6 +78,9 @@ else:
       </div>
       <div id="instructions" class="tab-pane">
         <%include file="project.instructions.mako" />
+      </div>
+      <div id="maprules" class="tab-pane">
+        <%include file="project.maprules.mako" />
       </div>
       <div id="contribute" class="tab-pane">
         <div id="task_empty">

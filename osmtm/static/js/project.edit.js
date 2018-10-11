@@ -235,8 +235,41 @@ function messageAll(e) {
   });
 }
 
+function setMapRulesFrames(){
+  var editMapRuleUrl = map_rules_url + "/new?name=" + project_id;
+  if($('#configId').val()){
+    var configUrl = map_rules_url + "/" + $('#configId').val() + "/instructions";
+    $("#viewMapRulesFrame").attr("src", configUrl);
+    editMapRuleUrl = map_rules_url + "/" + $('#configId').val() + "/edit";    
+  }
+  $("#editMapRulesFrame").attr("src", editMapRuleUrl);
+}
+
+function saveMapRules(){
+  var win = document.getElementById('editMapRulesFrame').contentWindow;
+  win.postMessage("save:" + $("#configId").val(), '*');
+  window.addEventListener('message', function(event) {
+    if(event.data && event.data.indexOf("Error") != -1){
+      alert(event.data);
+    }else{
+      if(!$("#configId").val() || $("#configId").val() == ""){
+        $("#configId").val(event.data);
+        console.log($("#configId").val());
+        var configUrl = map_rules_url + "/" + $('#configId').val() + "/instructions";
+        $("#viewMapRulesFrame").attr("src", configUrl);
+      }
+      $("#editMapRulesModal").modal('hide');
+      $("#viewMapRulesFrame")[0].src =  $("#viewMapRulesFrame")[0].src;
+    }
+  });
+}
+
 $(document).ready(function() {
   osmtm.project.edit.priority_areas.init();
   $(document).on('click', '.btn-invalidate-all', invalidateAll);
   $(document).on('click', '.btn-message-all', messageAll);
+  setMapRulesFrames();
+  document.getElementById('editMapRulesFrame').onload = function() {
+    $(document).on('click', '.btn-save-maprules', saveMapRules);
+  } 
 });
