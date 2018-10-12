@@ -240,7 +240,7 @@ function setMapRulesFrames(){
   if($('#configId').val()){
     var configUrl = map_rules_url + "/" + $('#configId').val() + "/instructions";
     $("#viewMapRulesFrame").attr("src", configUrl);
-    editMapRuleUrl = map_rules_url + "/" + $('#configId').val() + "/edit";    
+    editMapRuleUrl = map_rules_url + "/" + $('#configId').val() + "/edit?name=" + project_id;    
   }
   $("#editMapRulesFrame").attr("src", editMapRuleUrl);
 }
