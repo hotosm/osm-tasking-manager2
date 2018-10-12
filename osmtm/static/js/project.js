@@ -873,7 +873,8 @@ osmtm.project = (function() {
       // load an empty task
       loadEmptyTask();
 
-      $('#start').on('click', function() {$('#contribute_tab').tab('show');});
+      $('.start.btn').on('click', function() {$('#contribute_tab').tab('show');});
+      $('#guidelines').on('click', function() {$('#maprules_tab').tab('show');});
       $('.instructions.btn').on('click', function() {$('#instructions_tab').tab('show');});
       $('a[data-toggle="tab"]').on('shown.bs.tab', onTabShow);
 
@@ -906,7 +907,7 @@ osmtm.project = (function() {
 
       // automaticaly checks for tile state updates
       checkForUpdates();
-
+      $("#viewMapRulesFrame").attr("src", map_rules_url + "/" + $('#attribution_config_id').val() + "/instructions");
       $(document).on('submit', 'form', onFormSubmit);
       $(document).on("click", "form button[type=submit]", function() {
         $("button[type=submit]", $(this).parents("form")).removeAttr("clicked");

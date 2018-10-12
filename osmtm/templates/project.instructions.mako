@@ -51,9 +51,15 @@ from osmtm.mako_filters import markdown_filter
 % endif
 <hr />
 <p>${project.instructions | markdown_filter, n}</p>
-<p class="text-center">
-  <a id="start"
-     class="btn btn-success btn-lg">
+<input type="hidden" id="attribution_config_id" value="${project.attribution_config_id}"/>
+ <p class="text-center">
+  <a id="guidelines" class="btn btn-secondary btn-lg">
     <span class="glyphicon glyphicon-share-alt"></span>&nbsp;
-    ${_('Start contributing')}</a>
+    ${_('See Guidelines')}</a>
+</p>
+
+<p class="text-center">
+  <a class="btn btn-success btn-lg start">
+  <span class="glyphicon glyphicon-share-alt"></span>&nbsp;
+  ${_('Start contributing')}</a>
 </p>

@@ -39,6 +39,34 @@
   </div>
 </div>
 
+<!-- Edit MapRules Modal -->
+<div class="modal fade" id="editMapRulesModal" tabindex="-1" role="dialog" aria-labelledby="editMapRules">
+  <div class="modal-dialog" style="width: 95%" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">${_('Edit MapRules')}</h4>
+      </div>
+      <div class="modal-body">
+        <iframe id="editMapRulesFrame" frameborder="0" seamless height="700px" style="width:100%">
+          MapRules could not be loaded.
+        </iframe>
+        <p class="errors text-danger"></p>
+      </div>
+      <div class="modal-footer">
+        <div class="text-right">
+          <a class="btn btn-default" data-dismiss="modal" aria-label="Close">
+            ${_('Cancel')}
+          </a>
+          <a class="btn btn-primary btn-save-maprules">
+             ${_('Save MapRules')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="invalidateAllModal" tabindex="-1" role="dialog" aria-labelledby="invalidateAll">
   <div class="modal-dialog modal-sm" role="document">
@@ -133,6 +161,7 @@ geometry = loads(str(project.area.geometry.data))
         <ul class="nav nav-tabs">
           <li><a href="#description" data-toggle="tab">${_('Description')}</a></li>
           <li><a href="#instructions" data-toggle="tab">${_('Instructions')}</a></li>
+          <li><a href="#guidelines" data-toggle="tab">${_('Guidelines')}</a></li>
           <li><a href="#area" data-toggle="tab">${_('Area')}</a></li>
           <li><a href="#imagery" data-toggle="tab">${_('Imagery')}</a></li>
           <li><a id="priority_areas_tab" href="#priority_areas" data-toggle="tab">${_('Priority Areas')}</a></li>
@@ -146,6 +175,9 @@ geometry = loads(str(project.area.geometry.data))
           </div>
           <div class="tab-pane" id="instructions">
             ${instructions()}
+          </div>
+          <div class="tab-pane" id="guidelines">
+            ${guidelines()}
           </div>
           <div class="tab-pane" id="area">
             ${area()}
@@ -337,6 +369,26 @@ geometry = loads(str(project.area.geometry.data))
       </div>
     </div>
 
+</%block>
+
+<%block name="guidelines">
+  <input id="configId" type="hidden" name="attribution_config_id" value="${project.attribution_config_id if project.attribution_config_id is not None else ''}"/>
+
+  <div class="form-group col-md-12">
+    <label class="control-label">${_('MapRules')}</label>
+    <span class="help-block">
+      ${_('Specify which features should be mapped and how they should be attributed. These will generate presets and validation rules for mappers contributing to the project.')}<br />
+    </span>
+    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editMapRulesModal">
+      <span class="glyphicon glyphicon-pencil"></span>&nbsp;
+      ${_('Edit MapRules Instructions')}
+    </button>
+  </div>
+   <div class="form-group col-md-12">
+    <iframe id="viewMapRulesFrame" frameborder="0" seamless height="800px" style="width:100%">
+      MapRules could not be loaded.
+    </iframe>         
+  </div>
 </%block>
 
 <%block name="area">
