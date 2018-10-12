@@ -907,7 +907,7 @@ osmtm.project = (function() {
 
       // automaticaly checks for tile state updates
       checkForUpdates();
-      $("#viewMapRulesFrame").attr("src", map_rules_url + "/maprule/" + $('#attribution_config_id').val() + "/instructions");
+      $("#viewMapRulesFrame").attr("src", map_rules_url + "/" + $('#attribution_config_id').val() + "/instructions");
       $(document).on('submit', 'form', onFormSubmit);
       $(document).on("click", "form button[type=submit]", function() {
         $("button[type=submit]", $(this).parents("form")).removeAttr("clicked");

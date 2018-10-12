@@ -301,6 +301,10 @@ def project_edit(request):
             if hasattr(josm_preset, 'value'):
                 project.josm_preset = josm_preset.value.decode('UTF-8')
 
+        if 'attribution_config_id' in request.params:
+            attribution_config_id = request.params.get('attribution_config_id')
+            project.attribution_config_id = attribution_config_id
+
         # Remove the previously set priority areas
         for area in project.priority_areas:
             DBSession.delete(area)
