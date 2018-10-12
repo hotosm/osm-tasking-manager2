@@ -254,7 +254,6 @@ function saveMapRules(){
     }else{
       if(!$("#configId").val() || $("#configId").val() == ""){
         $("#configId").val(event.data);
-        console.log($("#configId").val());
         var configUrl = map_rules_url + "/" + $('#configId').val() + "/instructions";
         $("#viewMapRulesFrame").attr("src", configUrl);
       }
