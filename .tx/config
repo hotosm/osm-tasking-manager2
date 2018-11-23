@@ -24,4 +24,5 @@ trans.sl = osmtm/locale/sl/LC_MESSAGES/osmtm.po
 trans.ta = osmtm/locale/ta/LC_MESSAGES/osmtm.po
 trans.uk = osmtm/locale/uk/LC_MESSAGES/osmtm.po
 trans.zh_TW = osmtm/locale/zh_TW/LC_MESSAGES/osmtm.po
+trans.gl = osmtm/locale/gl/LC_MESSAGES/osmtm.po
 
