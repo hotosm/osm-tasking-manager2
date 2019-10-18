@@ -79,6 +79,7 @@ def main(global_config, **settings):
     config.add_route('project_new_grid', '/project/new/grid')
     config.add_route('project_new_arbitrary', '/project/new/arbitrary')
     config.add_route('project_grid_simulate', '/project/grid_simulate')
+    config.add_route('project_clone', '/project_clone')
     config.add_route('project_json', '/project/{project:\d+}.json')
     config.add_route('project', '/project/{project:\d+}')
     config.add_route('project_edit', '/project/{project:\d+}/edit')

@@ -49,6 +49,10 @@ from geojson import (
     Feature,
 )
 
+from json import (
+    loads as _loads,
+)
+
 import datetime
 import itertools
 
@@ -232,6 +236,67 @@ def project_grid_simulate(request):
         ST_Transform(shape.from_shape(multi, 3857), 4326)).scalar()
 
     return FeatureCollection([Feature(geometry=shape.to_shape(geometry))])
+
+
+@view_config(route_name='project_clone', permission="project_edit")
+def project_clone(request):
+    _ = request.translate
+    user_id = authenticated_userid(request)
+    user = DBSession.query(User).get(user_id)
+
+    try:
+        id = request.params['project']
+        old_project = DBSession.query(Project).get(id)
+        new_project = Project(old_project.name, user=user)
+
+        for att in old_project.__dict__:
+            if (att[0] != '_' and att not in ['area_id', 'author_id',
+                                              'created', 'done', 'id',
+                                              'invalidated', 'last_update',
+                                              'priority_areas', 'status',
+                                              'tasks', 'validated']):
+                setattr(new_project, att, getattr(old_project, att))
+
+        if new_project.zoom is not None:
+            new_project.auto_fill(new_project.zoom)
+        else:
+            tasks = []
+            for task in old_project.tasks:
+                tasks.append(Task(None, None, None, 'SRID=4326;%S' %
+                             task.geometry, _loads(task.extra_properties)))
+            new_project.tasks = tasks
+
+        if old_project.priority_areas:
+            new_project.priority_areas = []
+            for feature in old_project.priority_areas:
+                new_project.priority_areas.append(
+                    PriorityArea(feature.geometry))
+
+        for locale, translation in old_project.translations.iteritems():
+            with old_project.force_locale(locale) and \
+                    new_project.force_locale(locale):
+                for field in ['name', 'short_description', 'description',
+                              'instructions', 'per_task_instructions']:
+                    if hasattr(old_project, field):
+                        setattr(new_project, field,
+                                getattr(translation, field))
+
+        DBSession.add(new_project)
+        DBSession.flush()
+
+        msg = _("""Project #${new_project_id} cloned successfully from Project
+                   #${old_project_id}""", mapping={'new_project_id':
+                                                   new_project.id,
+                                                   'old_project_id': id})
+        request.session.flash(msg, 'alert')
+
+        return HTTPFound(location=route_path('project_edit', request,
+                                             project=new_project.id))
+
+    except Exception, e:
+        msg = _("Sorry, could not create the project. <br />%s") % e.message
+        request.session.flash(msg, 'alert')
+        return HTTPFound(location=route_path('project_new', request))
 
 
 @view_config(route_name='project_edit', renderer='project.edit.mako',
